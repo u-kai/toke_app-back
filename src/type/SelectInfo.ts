@@ -1,8 +1,6 @@
-import { WhereOperator } from 'type/WhereOperator'
+import { WhereClauseElements } from 'type/WhereClauseElements'
 export type SelectInfo = {
     tableName: string
     selectDatas?: string[]
-    whereKeys: string[]
-    whereValues: string[]
-    whereOperators: WhereOperator[]
+    whereClaseElements: WhereClauseElements
 }

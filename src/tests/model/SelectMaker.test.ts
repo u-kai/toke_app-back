@@ -3,9 +3,11 @@ import { SelectInfo } from 'type/SelectInfo'
 
 const selectInfo: SelectInfo = {
     tableName: 'test',
-    whereKeys: ['user', 'name', 'age'],
-    whereValues: ['kai', 'kai', '25'],
-    whereOperators: ['AND', 'AND'],
+    whereClaseElements: {
+        whereKeys: ['user', 'name', 'age'],
+        whereValues: ['kai', 'kai', '25'],
+        whereOperators: ['AND', 'AND'],
+    },
 }
 const selectMaker = new SelectMaker(selectInfo)
 const sql = selectMaker.outputSQL()
