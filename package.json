@@ -1,0 +1,54 @@
+{
+	"name": "toke_app-back",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"dependencies": {
+		"@types/jest": "^26.0.23",
+		"@types/socket.io": "^3.0.2",
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"jest": "^27.0.4",
+		"mysql2": "^2.2.5",
+		"socket.io": "^4.1.2",
+		"ts-jest": "^27.0.3"
+	},
+	"devDependencies": {
+		"@types/express": "^4.17.12",
+		"@types/node": "^15.12.2",
+		"@typescript-eslint/eslint-plugin": "^4.26.1",
+		"@typescript-eslint/parser": "^4.26.1",
+		"eslint": "^7.28.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"husky": "^6.0.0",
+		"lint-staged": "^11.0.0",
+		"prettier": "^2.3.1",
+		"ts-node": "^10.0.0",
+		"tsc-watch": "^4.4.0",
+		"tsconfig-paths": "^3.9.0",
+		"typescript": "^4.3.2"
+	},
+	"scripts": {
+		"start": "node build/index.js",
+		"compile": "tsc",
+		"ts-node": "./node_modules/.bin/ts-node -r tsconfig-paths/register",
+		"test": "jest",
+		"watch": "tsc-watch --onSuccess \"npm start\"",
+		"prepare": "husky install",
+		"lint-staged": "lint-staged",
+		"lint-fix": "eslint --fix './src/**/*.{js,ts,tsx}' && prettier --write './src/**/*.{js,ts,tsx}'"
+	},
+	"lint-staged": {
+		"src/**/*.{js,ts,tsx}": [
+			"npm run lint-fix"
+		]
+	},
+	"prettier": {
+		"printWidth": 120,
+		"semi": false,
+		"singleQuote": true,
+		"tabWidth": 4
+	}
+}
