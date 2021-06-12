@@ -1,7 +1,5 @@
 import { WhereOperator } from 'type/WhereOperator'
-export type SelectInfo = {
-    tableName: string
-    selectDatas?: string[]
+export type WhereClauseElements = {
     whereKeys: string[]
     whereValues: string[]
     whereOperators: WhereOperator[]

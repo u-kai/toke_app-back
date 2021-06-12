@@ -1,1 +1,1 @@
-export type WhereOperator = "AND"|"OR"|"NOT"
+export type WhereOperator = 'AND' | 'OR' | 'NOT'

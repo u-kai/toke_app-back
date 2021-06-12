@@ -9,11 +9,9 @@ const DBInfo: DBConfig = {
 }
 
 const mysqlConnection = new MysqlExecuter(DBInfo)
-it('test connection',() => {
-mysqlConnection.execute("select * from test").then((data)=>{
-    console.log(data)
-    expect( data!== null).toBe(true)
+it('test connection', () => {
+    mysqlConnection.execute('select * from test').then((data) => {
+        console.log(data)
+        expect(data !== null).toBe(true)
     })
 })
-
-

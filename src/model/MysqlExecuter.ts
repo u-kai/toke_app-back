@@ -6,18 +6,17 @@ export class MysqlExecuter {
     constructor(dbConfig: DBConfig) {
         this.dbConfig = dbConfig
     }
-    execute = async(sql:string) => {
-        let results:any
+    execute = async (sql: string) => {
+        let results: any
         try {
-              const connection = await mysql.createConnection(this.dbConfig);
-              results = await connection.query(sql)
-              connection.end()
-            } catch(e) {
-                results = e
-                console.log(e);
-              return e
-            }
-            return results
+            const connection = await mysql.createConnection(this.dbConfig)
+            results = await connection.query(sql)
+            connection.end()
+        } catch (e) {
+            results = e
+            console.log(e)
+            return e
         }
+        return results
     }
-
+}

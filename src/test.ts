@@ -1,4 +1,4 @@
-import {MysqlExecuter} from "model/MysqlExecuter"
+import { MysqlExecuter } from 'model/MysqlExecuter'
 
 import { DBConfig } from 'type/DBConfig'
 
@@ -8,9 +8,9 @@ const DBInfo: DBConfig = {
     host: 'localhost',
     database: 'firstwebapp',
 }
-let results = ""
+let results = ''
 const m = new MysqlExecuter(DBInfo)
-const data = m.execute('select * from test').then((data)=>{
+const data = m.execute('select * from test').then((data) => {
     console.log(data)
-    results = data})
-
+    results = data
+})
