@@ -8,7 +8,7 @@ export class BackendReturnDataMaker {
         this.dbReturnData = dbReturnData
     }
     private isSelectResult = (dbData: any): dbData is BackendSelectResult => {
-        return dbData[0][0] !== undefined
+        return dbData[0][0] !== undefined || dbData[0].length === 0
     }
 
     private isErrorResult = (dbData: any): dbData is SQLError => {

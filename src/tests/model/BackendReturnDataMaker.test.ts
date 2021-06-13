@@ -26,7 +26,11 @@ const otherResutls: BackendInsertUpdateDeleteResult = [
         changedRows: 2,
     },
 ]
+const selectResultEmpty:BackendSelectResult = [
+    [],[{
 
+    }]
+]
 const backendReturnMakerCaseError = new BackendReturnDataMaker(error)
 const dataCaseError = backendReturnMakerCaseError.createData()
 
@@ -37,6 +41,12 @@ const backendReturnMakerCaseSelect = new BackendReturnDataMaker(selectResult)
 const dataCaseSelect = backendReturnMakerCaseSelect.createData()
 it('case Select', () => {
     expect(dataCaseSelect).toStrictEqual({ status: 200, results: { select: selectResult[0] } })
+})
+
+const backendReturnMakerCaseSelectEmpty = new BackendReturnDataMaker(selectResultEmpty)
+const dataCaseSelectEmpty = backendReturnMakerCaseSelectEmpty.createData()
+it('case Select', () => {
+    expect(dataCaseSelectEmpty).toStrictEqual({ status: 200, results: { select: selectResultEmpty[0] } })
 })
 
 const backendReturnMakerCaseOther = new BackendReturnDataMaker(otherResutls)
