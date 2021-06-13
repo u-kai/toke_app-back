@@ -9,8 +9,8 @@ const DBInfo = {
 };
 const mysqlConnection = new MysqlExecuter_1.MysqlExecuter(DBInfo);
 it('test connection', () => {
-    mysqlConnection.execute("select * from test").then((data) => {
+    mysqlConnection.execute('select * from test').then((data) => {
         console.log(data);
-        // expect( data!== null).toBe(true)
+        expect(data !== null).toBe(true);
     });
 });

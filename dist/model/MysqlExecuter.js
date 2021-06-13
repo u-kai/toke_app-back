@@ -17,14 +17,15 @@ class MysqlExecuter {
             let results;
             try {
                 const connection = yield mysql.createConnection(this.dbConfig);
-                results = yield connection.query(sql).then((data) => { return data; });
-                return results;
+                results = yield connection.query(sql);
+                connection.end();
             }
             catch (e) {
                 results = e;
                 console.log(e);
                 return e;
             }
+            return results;
         });
         this.dbConfig = dbConfig;
     }

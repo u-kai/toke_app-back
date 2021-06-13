@@ -7,5 +7,9 @@ const DBInfo = {
     host: 'localhost',
     database: 'firstwebapp',
 };
+let results = '';
 const m = new MysqlExecuter_1.MysqlExecuter(DBInfo);
-m.execute('select * from test');
+const data = m.execute('select * from test').then((data) => {
+    console.log(data);
+    results = data;
+});
