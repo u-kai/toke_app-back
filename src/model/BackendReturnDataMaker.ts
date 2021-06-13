@@ -8,6 +8,14 @@ export class BackendReturnDataMaker {
         this.dbReturnData = dbReturnData
     }
     private isSelectResult = (dbData: any): dbData is BackendSelectResult => {
+        try{
+            if(dbData[0][0]===undefined){
+                return false
+            }
+        }catch(e){
+            console.log(e)
+            return false
+        }
         return dbData[0][0] !== undefined || dbData[0].length === 0
     }
 
@@ -54,5 +62,11 @@ export class BackendReturnDataMaker {
         if (this.isOtherResult(this.dbReturnData)) {
             return this.caseOther()
         }
+    }
+    createResults = () => {
+        if (this.isSelectResult(this.dbReturnData)){
+            return this.dbReturnData[0]
+        }
+        return "Error"
     }
 }
