@@ -26,11 +26,7 @@ const otherResutls: BackendInsertUpdateDeleteResult = [
         changedRows: 2,
     },
 ]
-const selectResultEmpty:BackendSelectResult = [
-    [],[{
-
-    }]
-]
+const selectResultEmpty: BackendSelectResult = [[], [{}]]
 const backendReturnMakerCaseError = new BackendReturnDataMaker(error)
 const dataCaseError = backendReturnMakerCaseError.createData()
 

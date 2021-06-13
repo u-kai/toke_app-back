@@ -8,11 +8,11 @@ export class BackendReturnDataMaker {
         this.dbReturnData = dbReturnData
     }
     private isSelectResult = (dbData: any): dbData is BackendSelectResult => {
-        try{
-            if(dbData[0][0]===undefined){
+        try {
+            if (dbData[0][0] === undefined) {
                 return false
             }
-        }catch(e){
+        } catch (e) {
             console.log(e)
             return false
         }
@@ -44,7 +44,12 @@ export class BackendReturnDataMaker {
     }
     private caseSelect = () => {
         const selectInfos = this.dbReturnData as BackendSelectResult
+        if(selectInfos.length===0){
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!Empty")
+            return { status: 400, results: { error: { code: "0", sqlState: "0", errno: 0, sqlMessage: "not fund" }} }
+        }
         const results: SelectResult = selectInfos[0]
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!selectInfo,results",results)
         return { status: 200, results: { select: results } }
     }
     private caseOther = () => {
@@ -64,9 +69,9 @@ export class BackendReturnDataMaker {
         }
     }
     createResults = () => {
-        if (this.isSelectResult(this.dbReturnData)){
+        if (this.isSelectResult(this.dbReturnData)) {
             return this.dbReturnData[0]
         }
-        return "Error"
+        return 'Error'
     }
 }
