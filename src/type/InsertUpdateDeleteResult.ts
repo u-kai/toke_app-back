@@ -6,4 +6,5 @@ export type InsertUpdateDeleteResult = {
     serverStatus: number
     warningStatus: number
     changedRows: number
-}[]
+}
+export type BackendInsertUpdateDeleteResult = InsertUpdateDeleteResult[]
