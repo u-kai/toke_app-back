@@ -17,8 +17,7 @@ const selectResult: SelectResult = [
 
 const backendReturnMakerCaseError = new BackendReturnDataMaker('SELECT', error)
 const data = backendReturnMakerCaseError.createData()
-
+console.log(data)
 it('error case', () => {
-    expect(data).toBe(true)
-    expect(data).toBe({ status: 400, results: [{ error: error }] })
+    expect(data).toStrictEqual({ status: 400, results: { error: error } })
 })
