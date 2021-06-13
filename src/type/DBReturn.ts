@@ -1,5 +1,5 @@
 import { InsertUpdateDeleteResult } from './InsertUpdateDeleteResult'
-import { SelectResult } from './SelectResult'
+import { BackendSelectResult } from './SelectResult'
 import { SQLError } from './SQLError'
 
-export type DBReturn = SQLError | SelectResult | InsertUpdateDeleteResult
+export type DBReturn = SQLError | BackendSelectResult | InsertUpdateDeleteResult

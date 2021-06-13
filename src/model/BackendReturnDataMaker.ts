@@ -1,15 +1,12 @@
-import { SelectResult } from 'type/SelectResult'
-import { DBOperation } from 'type/DBOperation'
+import { SelectResult,BackendSelectResult } from 'type/SelectResult'
 import { SQLError } from 'type/SQLError'
 import { DBReturn } from 'type/DBReturn'
 export class BackendReturnDataMaker {
-    private dbOperation: DBOperation
     private dbReturnData: DBReturn
-    constructor(dbOperation: DBOperation, dbReturnData: DBReturn) {
-        this.dbOperation = dbOperation
+    constructor(dbReturnData: DBReturn) {
         this.dbReturnData = dbReturnData
     }
-    private isSelectResult = (dbData: any): dbData is SelectResult => {
+    private isSelectResult = (dbData: any): dbData is BackendSelectResult => {
         return dbData[0][0] !== undefined
     }
 
@@ -25,7 +22,9 @@ export class BackendReturnDataMaker {
         return { status: 400, results: { error: this.dbReturnData as SQLError } }
     }
     private caseSelect = () => {
-        return { status: 200, results: { select: this.dbReturnData as SelectResult } }
+        const selectInfos = this.dbReturnData as BackendSelectResult
+        const results:SelectResult = selectInfos[0]
+        return { status: 200, results: { select:results } }
     }
     createData = () => {
         if (this.isErrorResult(this.dbReturnData)) {
