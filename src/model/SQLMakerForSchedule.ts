@@ -33,6 +33,7 @@ export class SQLMakerForSchedule {
         const selectMaker = new SelectMaker(selectInfo)
         return selectMaker.outputSQL()
     }
+
     private makeSelectInfoForCount = (): SelectInfo => {
         return this.makeSelectInfo(['count(*)'], ['user_id', 'is_response'], [this.userId, 'false'], ['AND'])
     }
@@ -40,6 +41,7 @@ export class SQLMakerForSchedule {
         const selectInfo:SelectInfo = this.makeSelectInfoForCount()
         return this.outputSQL(selectInfo)
     }
+
     private makeSelectInfoForIds = (): SelectInfo => {
         return this.makeSelectInfo(
             ['attendance_request_id'],
@@ -52,6 +54,7 @@ export class SQLMakerForSchedule {
         const selectInfo:SelectInfo = this.makeSelectInfoForIds()
         return this.outputSQL(selectInfo)
     }
+
     private makeSelectInfosForInfos = (ids: string[]): SelectInfo => {
         const whereKeys = ids.map((_) => 'attendance_request_id')
         const whereOperators: WhereOperator[] = ids.map((_) => 'OR')
@@ -59,5 +62,9 @@ export class SQLMakerForSchedule {
             whereOperators.pop()
         }
         return this.makeSelectInfo(['*'], whereKeys, ids, whereOperators, 'attendance_requests')
+    }
+    SQLForAttendanceRequestsInfos = (ids:string[]):string=>{
+        const selectInfo:SelectInfo = this.makeSelectInfosForInfos(ids)
+        return this.outputSQL(selectInfo)
     }
 }
