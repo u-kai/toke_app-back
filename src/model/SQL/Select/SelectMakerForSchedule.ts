@@ -1,34 +1,12 @@
-import { SelectMaker } from 'model/SQL/Select/SelectMaker'
 import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { WhereOperator } from 'types/DB-types/WhereOperator'
-import {SQLInfoMaker} from "model/SQL/SQLInfoMaker"
-
-export class SelectMakerForSchedule {
+import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
+export class SelectMakerForSchedule extends SelectMakerForSomething {
     private userId: string
-    private tableName: string
     constructor(userId: string) {
+        super('user_attendance_requests_info')
         this.userId = userId
-        this.tableName = 'user_attendance_requests_info'
     }
-    private makeSelectInfo = (
-        selectDatas: string[],
-        whereKeys: string[],
-        whereValues: string[],
-        whereOperators: WhereOperator[],
-        tableName?: string
-    ): SelectInfo => {
-        if (!tableName) {
-            tableName = this.tableName
-        }
-        const selectInfoMaker = new SQLInfoMaker(tableName)
-        return selectInfoMaker.makeSelectInfo(selectDatas,whereKeys,whereValues,whereOperators)
-    }
-    
-    private outputSQL = (selectInfo: SelectInfo) => {
-        const selectMaker = new SelectMaker(selectInfo)
-        return selectMaker.outputSQL()
-    }
-
     private makeSelectInfoForCount = (): SelectInfo => {
         return this.makeSelectInfo(['count(*)'], ['user_id', 'is_response'], [this.userId, 'false'], ['AND'])
     }
