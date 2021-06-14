@@ -1,11 +1,11 @@
 import {DBReturn} from "types/backend-return-types/DBReturn"
-import { SelectResult, BackendSelectResult } from 'types/backend-return-types/SelectResult'
+import {  BackendSelectResult } from 'types/backend-return-types/SelectResult'
 import { SQLError } from 'types/backend-return-types/SQLError'
 import {
     BackendInsertUpdateDeleteResult,
 } from 'types/backend-return-types/InsertUpdateDeleteResult'
 
-export class BackendReturnDataCast{
+export class BackendReturnDataCaster{
     dbReturn:DBReturn
     constructor(dbReturn:DBReturn){
         this.dbReturn = dbReturn

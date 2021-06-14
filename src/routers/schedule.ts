@@ -7,6 +7,8 @@ import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { SelectResult } from 'types/backend-return-types/SelectResult'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { SelectMakerForSchedule } from 'model/SQL/Select/SelectMakerForSchedule'
+import { BackendReturnDataCaster } from 'model/BackendReturnDataCaster'
+import e = require('express')
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter(dbConfig)
 
@@ -20,6 +22,37 @@ router.post('/count', (req: express.Request, res: express.Response) => {
         console.log(backendReturnDataMaker.createData())
         res.json(backendReturnDataMaker.createData())
     })
+})
+
+router.post("/ids", (req:express.Request, res:express.Response)=>{
+    const user_id:string = req.body.user_id
+    const selectMakerForIds = new SelectMakerForSchedule(user_id)
+    const sql = selectMakerForIds.SQLForAttendanceRequestsIds()
+
+    mysqlExecuter.execute(sql).then((results:DBReturn)=>{
+        const backendReturnDataCaster = new BackendReturnDataCaster(results)
+        const selectData = backendReturnDataCaster.castSelect()
+        if(selectData){
+            console.log("selectData",selectData)
+            const ids = selectData.map((select)=>{
+                const id = select.attendance_request_id?.toString()
+                if(id!==undefined){
+                    return id
+                }else{
+                    return "error"
+                }
+            })
+            const selectMakerForInfos = new SelectMakerForSchedule(user_id)
+            const sql = selectMakerForInfos.SQLForAttendanceRequestsInfos(ids)
+            console.log(sql)
+            mysqlExecuter.execute(sql).then((results:DBReturn)=>{
+                const backendReturnDataMaker = new BackendReturnDataMaker(results)
+                console.log("22222222222222",backendReturnDataMaker.createData())
+                res.json(backendReturnDataMaker.createData())
+            })
+        }
+    }
+    )
 })
 
 router.post('/loop', (req: express.Request, res: express.Response) => {

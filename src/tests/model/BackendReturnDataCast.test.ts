@@ -1,4 +1,4 @@
-import {BackendReturnDataCast} from "model/BackendReturnDataCast"
+import {BackendReturnDataCast} from "model/BackendReturnDataCaster"
 import {DBReturn} from "types/backend-return-types/DBReturn"
 
 
