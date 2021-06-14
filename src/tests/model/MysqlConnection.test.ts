@@ -1,4 +1,4 @@
-import { MysqlExecuter } from 'model/MysqlExecuter'
+import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { DBConfig } from 'types/DB-types/DBConfig'
 
 const DBInfo: DBConfig = {

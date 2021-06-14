@@ -1,5 +1,5 @@
 import { InsertInfo } from 'types/DB-types/InsertInfo'
-import { WhereClauseMaker } from 'model/WhereClauseMaker'
+import { WhereClauseMaker } from 'model/SQL/WhereClauseMaker'
 
 export class InsertMaker {
     private headSQL: string

@@ -1,4 +1,4 @@
-import { SelectMakerForSchedule } from 'model/SelectMakerForSchedule'
+import { SelectMakerForSchedule } from 'model/SQL/Select/SelectMakerForSchedule'
 
 const userId = '0'
 const selectInfoMakerForSchedule = new SelectMakerForSchedule(userId)

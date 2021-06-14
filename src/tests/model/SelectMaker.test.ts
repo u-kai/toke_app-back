@@ -1,4 +1,4 @@
-import { SelectMaker } from 'model/SelectMaker'
+import { SelectMaker } from 'model/SQL/Select/SelectMaker'
 import { SelectInfo } from 'types/DB-types/SelectInfo'
 
 const selectInfo: SelectInfo = {

@@ -1,7 +1,7 @@
-import { SelectMaker } from 'model/SelectMaker'
+import { SelectMaker } from 'model/SQL/Select/SelectMaker'
 import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { WhereOperator } from 'types/DB-types/WhereOperator'
-import {SQLInfoMaker} from "model/SQLInfoMaker"
+import {SQLInfoMaker} from "model/SQL/SQLInfoMaker"
 
 export class SelectMakerForSchedule {
     private userId: string
