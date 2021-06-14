@@ -12,8 +12,8 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const selectMaker = new SelectMaker(req.body)
     console.log('sql', selectMaker.outputSQL())
     mysqlExecuter.execute(selectMaker.outputSQL()).then((data) => {
-        if(data[0].length===0){
-            data[0] = [{"error":"empty"}]
+        if (data[0].length === 0) {
+            data[0] = [{ error: 'empty' }]
         }
         const backendReturnDataMaker = new BackendReturnDataMaker(data)
         console.log(backendReturnDataMaker.createData())

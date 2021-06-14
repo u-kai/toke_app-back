@@ -1,8 +1,9 @@
-import { SelectMaker } from "model/SelectMaker";
+import { SelectMaker } from 'model/SelectMaker'
 import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { WhereOperator } from 'types/DB-types/WhereOperator'
+import {SQLInfoMaker} from "model/SQLInfoMaker"
 
-export class SQLMakerForSchedule {
+export class SelectMakerForSchedule {
     private userId: string
     private tableName: string
     constructor(userId: string) {
@@ -19,17 +20,11 @@ export class SQLMakerForSchedule {
         if (!tableName) {
             tableName = this.tableName
         }
-        return {
-            selectDatas: selectDatas,
-            tableName: tableName,
-            whereClaseElements: {
-                whereKeys: whereKeys,
-                whereValues: whereValues,
-                whereOperators: whereOperators,
-            },
-        }
+        const selectInfoMaker = new SQLInfoMaker(tableName)
+        return selectInfoMaker.makeSelectInfo(selectDatas,whereKeys,whereValues,whereOperators)
     }
-    private outputSQL = (selectInfo:SelectInfo) => {
+    
+    private outputSQL = (selectInfo: SelectInfo) => {
         const selectMaker = new SelectMaker(selectInfo)
         return selectMaker.outputSQL()
     }
@@ -37,8 +32,8 @@ export class SQLMakerForSchedule {
     private makeSelectInfoForCount = (): SelectInfo => {
         return this.makeSelectInfo(['count(*)'], ['user_id', 'is_response'], [this.userId, 'false'], ['AND'])
     }
-    SQLForAttendanceRequestsCount = ():string => {
-        const selectInfo:SelectInfo = this.makeSelectInfoForCount()
+    SQLForAttendanceRequestsCount = (): string => {
+        const selectInfo: SelectInfo = this.makeSelectInfoForCount()
         return this.outputSQL(selectInfo)
     }
 
@@ -50,8 +45,8 @@ export class SQLMakerForSchedule {
             ['AND']
         )
     }
-    SQLForAttendanceRequestsIds = ():string=>{
-        const selectInfo:SelectInfo = this.makeSelectInfoForIds()
+    SQLForAttendanceRequestsIds = (): string => {
+        const selectInfo: SelectInfo = this.makeSelectInfoForIds()
         return this.outputSQL(selectInfo)
     }
 
@@ -63,8 +58,8 @@ export class SQLMakerForSchedule {
         }
         return this.makeSelectInfo(['*'], whereKeys, ids, whereOperators, 'attendance_requests')
     }
-    SQLForAttendanceRequestsInfos = (ids:string[]):string=>{
-        const selectInfo:SelectInfo = this.makeSelectInfosForInfos(ids)
+    SQLForAttendanceRequestsInfos = (ids: string[]): string => {
+        const selectInfo: SelectInfo = this.makeSelectInfosForInfos(ids)
         return this.outputSQL(selectInfo)
     }
 }

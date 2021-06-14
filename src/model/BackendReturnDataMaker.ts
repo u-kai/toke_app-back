@@ -1,7 +1,10 @@
 import { SelectResult, BackendSelectResult } from 'types/backend-return-types/SelectResult'
 import { SQLError } from 'types/backend-return-types/SQLError'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
-import { InsertUpdateDeleteResult, BackendInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
+import {
+    InsertUpdateDeleteResult,
+    BackendInsertUpdateDeleteResult,
+} from 'types/backend-return-types/InsertUpdateDeleteResult'
 export class BackendReturnDataMaker {
     private dbReturnData: DBReturn
     constructor(dbReturnData: DBReturn) {
@@ -44,12 +47,12 @@ export class BackendReturnDataMaker {
     }
     private caseSelect = () => {
         const selectInfos = this.dbReturnData as BackendSelectResult
-        if(selectInfos.length===0){
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!Empty")
-            return { status: 400, results: { error: { code: "0", sqlState: "0", errno: 0, sqlMessage: "not fund" }} }
+        if (selectInfos.length === 0) {
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!Empty')
+            return { status: 400, results: { error: { code: '0', sqlState: '0', errno: 0, sqlMessage: 'not fund' } } }
         }
         const results: SelectResult = selectInfos[0]
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!selectInfo,results",results)
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!selectInfo,results', results)
         return { status: 200, results: { select: results } }
     }
     private caseOther = () => {
