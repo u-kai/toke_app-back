@@ -19,9 +19,11 @@ export class BackendReturnDataMaker {
             console.log(e)
             return false
         }
-        return dbData[0][0] !== undefined || dbData[0].length === 0
+        return dbData[0][0] !== undefined && dbData[0].length !== 0
     }
-
+    private isEmpty = (dbData:any): dbData is SQLError =>{
+        return dbData[0].length === 0
+    }
     private isErrorResult = (dbData: any): dbData is SQLError => {
         return (
             dbData.code !== undefined &&
@@ -45,6 +47,10 @@ export class BackendReturnDataMaker {
     private caseError = () => {
         return { status: 400, results: { error: this.dbReturnData as SQLError } }
     }
+    private caseEmpty = () => {
+        const emptyError:SQLError = {code:"0",sqlMessage:"データが見つかりませんでした．",sqlState:"",errno:-1000} 
+        return { status: 400, results: { error: emptyError } }
+    }
     private caseSelect = () => {
         const selectInfos = this.dbReturnData as BackendSelectResult
         if (selectInfos.length === 0) {
@@ -61,6 +67,9 @@ export class BackendReturnDataMaker {
         return { status: 200, results: { other: results } }
     }
     createData = () => {
+        if(this.isEmpty(this.dbReturnData)){
+            return this.caseEmpty()
+        }
         if (this.isErrorResult(this.dbReturnData)) {
             return this.caseError()
         }
