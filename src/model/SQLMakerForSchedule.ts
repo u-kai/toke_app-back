@@ -36,7 +36,7 @@ export class SQLMakerForSchedule {
     private makeSelectInfoForCount = (): SelectInfo => {
         return this.makeSelectInfo(['count(*)'], ['user_id', 'is_response'], [this.userId, 'false'], ['AND'])
     }
-    forAttendanceRequestsCount = ():string => {
+    SQLForAttendanceRequestsCount = ():string => {
         const selectInfo:SelectInfo = this.makeSelectInfoForCount()
         return this.outputSQL(selectInfo)
     }
@@ -47,6 +47,10 @@ export class SQLMakerForSchedule {
             [this.userId, 'false'],
             ['AND']
         )
+    }
+    SQLForAttendanceRequestsIds = ():string=>{
+        const selectInfo:SelectInfo = this.makeSelectInfoForIds()
+        return this.outputSQL(selectInfo)
     }
     private makeSelectInfosForInfos = (ids: string[]): SelectInfo => {
         const whereKeys = ids.map((_) => 'attendance_request_id')
