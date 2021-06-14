@@ -6,16 +6,17 @@ import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
 import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { SelectResult } from 'types/backend-return-types/SelectResult'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
+import { SelectMakerForSchedule } from 'model/SQL/Select/SelectMakerForSchedule'
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter(dbConfig)
-router.post('/', (req: express.Request, res: express.Response) => {
-    const selectMaker = new SelectMaker(req.body)
-    console.log('sql', selectMaker.outputSQL())
-    mysqlExecuter.execute(selectMaker.outputSQL()).then((data) => {
-        if (data[0].length === 0) {
-            data[0] = [{ error: 'empty' }]
-        }
-        const backendReturnDataMaker = new BackendReturnDataMaker(data)
+
+router.post('/count', (req: express.Request, res: express.Response) => {
+    const user_id:string = req.body.user_id
+    const selectMakerForCount = new SelectMakerForSchedule(user_id)
+    const sql = selectMakerForCount.SQLForAttendanceRequestsCount()
+    
+    mysqlExecuter.execute(sql).then((count:DBReturn) => {
+        const backendReturnDataMaker = new BackendReturnDataMaker(count)
         console.log(backendReturnDataMaker.createData())
         res.json(backendReturnDataMaker.createData())
     })

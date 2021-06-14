@@ -21,7 +21,7 @@ export class BackendReturnDataMaker {
         }
         return dbData[0][0] !== undefined && dbData[0].length !== 0
     }
-    private isEmpty = (dbData:any): dbData is SQLError =>{
+    private isEmpty = (dbData: any): dbData is SQLError => {
         return dbData[0].length === 0
     }
     private isErrorResult = (dbData: any): dbData is SQLError => {
@@ -48,17 +48,20 @@ export class BackendReturnDataMaker {
         return { status: 400, results: { error: this.dbReturnData as SQLError } }
     }
     private caseEmpty = () => {
-        const emptyError:SQLError = {code:"0",sqlMessage:"データが見つかりませんでした．",sqlState:"",errno:-1000} 
+        const emptyError: SQLError = {
+            code: '0',
+            sqlMessage: 'データが見つかりませんでした．',
+            sqlState: '',
+            errno: -1000,
+        }
         return { status: 400, results: { error: emptyError } }
     }
     private caseSelect = () => {
         const selectInfos = this.dbReturnData as BackendSelectResult
         if (selectInfos.length === 0) {
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!Empty')
             return { status: 400, results: { error: { code: '0', sqlState: '0', errno: 0, sqlMessage: 'not fund' } } }
         }
         const results: SelectResult = selectInfos[0]
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!selectInfo,results', results)
         return { status: 200, results: { select: results } }
     }
     private caseOther = () => {
@@ -67,7 +70,7 @@ export class BackendReturnDataMaker {
         return { status: 200, results: { other: results } }
     }
     createData = () => {
-        if(this.isEmpty(this.dbReturnData)){
+        if (this.isEmpty(this.dbReturnData)) {
             return this.caseEmpty()
         }
         if (this.isErrorResult(this.dbReturnData)) {
