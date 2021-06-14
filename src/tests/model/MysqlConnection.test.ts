@@ -1,5 +1,5 @@
 import { MysqlExecuter } from 'model/MysqlExecuter'
-import { DBConfig } from 'type/DBConfig'
+import { DBConfig } from 'types/DB-types/DBConfig'
 
 const DBInfo: DBConfig = {
     user: 'root',

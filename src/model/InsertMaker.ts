@@ -1,4 +1,4 @@
-import { InsertInfo } from 'type/InsertInfo'
+import { InsertInfo } from 'types/DB-types/InsertInfo'
 import { WhereClauseMaker } from 'model/WhereClauseMaker'
 
 export class InsertMaker {

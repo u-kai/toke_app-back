@@ -1,5 +1,5 @@
 import { UpdateMaker } from 'model/UpdateMaker'
-import { UpdateInfo } from 'type/UpdateInfo'
+import { UpdateInfo } from 'types/DB-types/UpdateInfo'
 
 const updateInfo: UpdateInfo = {
     tableName: 'test',

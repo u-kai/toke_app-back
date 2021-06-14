@@ -1,4 +1,4 @@
-import { SelectInfo } from 'type/SelectInfo'
+import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { WhereClauseMaker } from 'model/WhereClauseMaker'
 export class SelectMaker {
     private headSql: string

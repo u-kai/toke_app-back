@@ -1,7 +1,7 @@
-import { SQLError } from 'type/SQLError'
-import { BackendSelectResult, SelectResult } from 'type/SelectResult'
+import { SQLError } from 'types/backend-return-types/SQLError'
+import { BackendSelectResult, SelectResult } from 'types/backend-return-types/SelectResult'
 import { BackendReturnDataMaker } from 'model/BackEndReturnDataMaker'
-import { BackendInsertUpdateDeleteResult } from 'type/InsertUpdateDeleteResult'
+import { BackendInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
 const error: SQLError = {
     code: 'error',
     sqlMessage: 'couse error',

@@ -1,5 +1,5 @@
-import { UpdateInfo } from 'type/UpdateInfo'
-import { WhereClauseElements } from 'type/WhereClauseElements'
+import { UpdateInfo } from 'types/DB-types/UpdateInfo'
+import { WhereClauseElements } from 'types/DB-types/WhereClauseElements'
 import { WhereClauseMaker } from 'model/WhereClauseMaker'
 export class UpdateMaker {
     private headSQL: string

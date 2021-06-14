@@ -1,5 +1,5 @@
 import { InsertMaker } from 'model/InsertMaker'
-import { InsertInfo } from 'type/InsertInfo'
+import { InsertInfo } from 'types/DB-types/InsertInfo'
 
 const insertInfo: InsertInfo = {
     tableName: 'test',

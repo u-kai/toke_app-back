@@ -1,5 +1,5 @@
 import * as mysql from 'mysql2/promise'
-import { DBConfig } from 'type/DBConfig'
+import { DBConfig } from 'types/DB-types/DBConfig'
 
 export class MysqlExecuter {
     private dbConfig: DBConfig

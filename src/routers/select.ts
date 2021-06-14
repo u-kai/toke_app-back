@@ -3,9 +3,9 @@ import { dbConfig } from 'datas/dbConfig'
 import { MysqlExecuter } from 'model/MysqlExecuter'
 import { SelectMaker } from 'model/SelectMaker'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
-import { SelectInfo } from 'type/SelectInfo'
-import { SelectResult } from 'type/SelectResult'
-import { DBReturn } from 'type/DBReturn'
+import { SelectInfo } from 'types/DB-types/SelectInfo'
+import { SelectResult } from 'types/backend-return-types/SelectResult'
+import { DBReturn } from 'types/backend-return-types/DBReturn'
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter(dbConfig)
 router.post('/', (req: express.Request, res: express.Response) => {

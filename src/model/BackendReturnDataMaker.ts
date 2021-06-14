@@ -1,7 +1,7 @@
-import { SelectResult, BackendSelectResult } from 'type/SelectResult'
-import { SQLError } from 'type/SQLError'
-import { DBReturn } from 'type/DBReturn'
-import { InsertUpdateDeleteResult, BackendInsertUpdateDeleteResult } from 'type/InsertUpdateDeleteResult'
+import { SelectResult, BackendSelectResult } from 'types/backend-return-types/SelectResult'
+import { SQLError } from 'types/backend-return-types/SQLError'
+import { DBReturn } from 'types/backend-return-types/DBReturn'
+import { InsertUpdateDeleteResult, BackendInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
 export class BackendReturnDataMaker {
     private dbReturnData: DBReturn
     constructor(dbReturnData: DBReturn) {
