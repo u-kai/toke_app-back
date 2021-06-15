@@ -5,7 +5,8 @@ export class InsertMakerForNewRequest extends InsertMakerForSomething{
     private insertKeys:string[]
     private insertValuse:string[]
     constructor(purpose:string,
-        date:Date,
+        start_date:string,
+        end_date:string,
         location:string,
         organizer_id:string,
         describe:string,
@@ -13,8 +14,8 @@ export class InsertMakerForNewRequest extends InsertMakerForSomething{
         organizer_name:string){
             super()
             this.tableName = "attendance_requests"
-            this.insertKeys = ["purpose","date","location","organizer_id","describe","bring","organizer_name"]
-            this.insertValuse = [purpose,date.toString(),location,organizer_id,describe,brings,organizer_name]
+            this.insertKeys = ["purpose","start_date","end_date","location","organizer_id","describe","bring","organizer_name"]
+            this.insertValuse = [purpose,start_date,end_date,location,organizer_id,describe,brings,organizer_name]
         }
     private makeForNewRequest = () => {
         return this.makeInsertInfo(this.tableName,this.insertKeys,this.insertValuse)
