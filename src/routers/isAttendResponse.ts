@@ -8,8 +8,9 @@ export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter(dbConfig)
 
 router.post('/', (req: express.Request, res: express.Response) => {
-    const userName: string = req.body.userName
-    const password: string = req.body.password
+    const userId: string = req.body.userId
+    const isAttend: string = req.body.isAttend
+    const message:string = req.body.message
     const selectMakerForLogin = new SelectMakerForLogin('user_login')
     const sql = selectMakerForLogin.forLogin(userName, password)
     mysqlExecuter.execute(sql).then((data) => {

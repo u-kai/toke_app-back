@@ -1,13 +1,11 @@
-import {DBReturn} from "types/backend-return-types/DBReturn"
-import {  BackendSelectResult } from 'types/backend-return-types/SelectResult'
+import { DBReturn } from 'types/backend-return-types/DBReturn'
+import { BackendSelectResult } from 'types/backend-return-types/SelectResult'
 import { SQLError } from 'types/backend-return-types/SQLError'
-import {
-    BackendInsertUpdateDeleteResult,
-} from 'types/backend-return-types/InsertUpdateDeleteResult'
+import { BackendInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
 
-export class BackendReturnDataCaster{
-    dbReturn:DBReturn
-    constructor(dbReturn:DBReturn){
+export class BackendReturnDataCaster {
+    dbReturn: DBReturn
+    constructor(dbReturn: DBReturn) {
         this.dbReturn = dbReturn
     }
     isSelectResult = (dbData: any): dbData is BackendSelectResult => {
@@ -45,14 +43,14 @@ export class BackendReturnDataCaster{
         )
     }
     castSelect = () => {
-        if(this.isSelectResult(this.dbReturn)){
+        if (this.isSelectResult(this.dbReturn)) {
             const selectData = this.dbReturn as BackendSelectResult
             return selectData[0]
         }
         return
     }
     castError = () => {
-        if(this.isErrorResult(this.dbReturn) || this.isEmpty(this.dbReturn)){
+        if (this.isErrorResult(this.dbReturn) || this.isEmpty(this.dbReturn)) {
             const errorData = this.dbReturn as SQLError
             return errorData
         }

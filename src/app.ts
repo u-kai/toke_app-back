@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
 import * as select from 'routers/schedule'
 import * as login from 'routers/login'
+import * as isAttendResponse from "routers/isAttendResponse"
 const app = express()
 app.use(
     bodyParser.urlencoded({
@@ -16,6 +17,7 @@ const server = app.listen(8080, function () {
 })
 app.use('/schedule', select.router)
 app.use('/login', login.router)
+app.use("isAttendResponse",isAttendResponse.router)
 app.post('/', (req: express.Request, res: express.Response) => {
     const data = req.body
     console.log(data)
