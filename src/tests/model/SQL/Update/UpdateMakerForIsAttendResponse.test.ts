@@ -7,7 +7,7 @@ const attendance_request_id = "1"
 const isAttend = "true"
 const messge = "this is test"
 
-const forIsAttendResponse = new UpdateMakerForIsAttendResponse(tableName,userId,attendance_request_id,isAttend,messge)
+const forIsAttendResponse = new UpdateMakerForIsAttendResponse(userId,attendance_request_id,isAttend,messge)
 const sql = forIsAttendResponse.SQLForIsAttendResponse()
 
 it("response update test",()=>{

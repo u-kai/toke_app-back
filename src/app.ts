@@ -17,7 +17,7 @@ const server = app.listen(8080, function () {
 })
 app.use('/schedule', select.router)
 app.use('/login', login.router)
-app.use("isAttendResponse",isAttendResponse.router)
+app.use("/isAttendResponse",isAttendResponse.router)
 app.post('/', (req: express.Request, res: express.Response) => {
     const data = req.body
     console.log(data)

@@ -67,6 +67,9 @@ export class BackendReturnDataMaker {
     private caseOther = () => {
         const otherInfos = this.dbReturnData as BackendInsertUpdateDeleteResult
         const results: InsertUpdateDeleteResult = otherInfos[0]
+        if(results.affectedRows === 0){
+            return this.caseEmpty()
+        }
         return { status: 200, results: { other: results } }
     }
     createData = () => {

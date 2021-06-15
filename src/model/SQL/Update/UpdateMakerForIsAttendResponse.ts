@@ -6,19 +6,21 @@ export class UpdateMakerForIsAttendResponse extends UpdateMakerForSomething{
     attendanceRequestId:string
     isAttend:"true"|"false"
     message:string
-    constructor(tableName:string,userId:string,attendanceRequestId:string,isAttend:"true"|"false",message:string){
-        super(tableName)
+    tableName:string
+    constructor(userId:string,attendanceRequestId:string,isAttend:"true"|"false",message:string){
+        super()
         this.userId = userId
         this.attendanceRequestId = attendanceRequestId
         this.isAttend = isAttend
         this.message = message
+        this.tableName = "user_attendance_requests_info"
     }
     private makeIsAttendResponseUpdateInfo = ()=>{
-        const whereKeys = ["attendance_requests_id","user_id"]
+        const whereKeys = ["attendance_request_id","user_id"]
         const whereValues = [this.attendanceRequestId,this.userId]
         const whereOperators:WhereOperator[] = ["AND"]
         
-        return this.makeUpdateInfo(["is_response","is_attendance","message"],
+        return this.makeUpdateInfo(this.tableName,["is_response","is_attendance","message"],
         ["true",this.isAttend,this.message],whereKeys,whereValues,whereOperators)
     }
     SQLForIsAttendResponse = () => {
