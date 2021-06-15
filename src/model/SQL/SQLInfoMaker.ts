@@ -2,7 +2,7 @@ import { WhereOperator } from 'types/DB-types/WhereOperator'
 import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { InsertInfo } from 'types/DB-types/InsertInfo'
 import { UpdateInfo } from 'types/DB-types/UpdateInfo'
-
+import { DeleteInfo } from 'types/DB-types/DeleteInfo'
 export class SQLInfoMaker {
     tableName: string
     constructor(tableName: string) {
@@ -24,22 +24,11 @@ export class SQLInfoMaker {
             },
         }
     }
-    makeInsertInfo = (
-        insertKeys: string[],
-        insertValues: string[],
-        // whereKeys: string[],
-        // whereValues: string[],
-        // whereOperators: WhereOperator[]
-    ): InsertInfo => {
+    makeInsertInfo = (insertKeys: string[], insertValues: string[]): InsertInfo => {
         return {
             tableName: this.tableName,
             insertKeys: insertKeys,
             insertValues: insertValues,
-            // whereClauseElements: {
-            //     whereKeys: whereKeys,
-            //     whereValues: whereValues,
-            //     whereOperators: whereOperators,
-            // },
         }
     }
     makeUpdateInfo = (
@@ -60,5 +49,14 @@ export class SQLInfoMaker {
             },
         }
     }
-    // makeDeleteInfo = ():DeleteInfo=>{}
+    makeDeleteInfo = (whereKeys: string[], whereValues: string[], whereOperators: WhereOperator[]): DeleteInfo => {
+        return {
+            tableName: this.tableName,
+            whereClauseElements: {
+                whereKeys: whereKeys,
+                whereValues: whereValues,
+                whereOperators: whereOperators,
+            },
+        }
+    }
 }
