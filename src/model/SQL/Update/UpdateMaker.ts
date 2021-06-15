@@ -10,7 +10,7 @@ export class UpdateMaker {
         this.updateInfo = updateInfo
         this.whereClauseElements = updateInfo.whereClauseElements
     }
-    createWhereClase = (): string => {
+    private createWhereClause = (): string => {
         const whereClauseMaker = new WhereClauseMaker(this.whereClauseElements)
         return whereClauseMaker.createWhereClause()
     }
@@ -21,6 +21,6 @@ export class UpdateMaker {
         return keyValues.join(',')
     }
     outputSQL = () => {
-        return `${this.headSQL} ${this.updateInfo.tableName} SET ${this.createkeyValues()} ${this.createWhereClase()}`
+        return `${this.headSQL} ${this.updateInfo.tableName} SET ${this.createkeyValues()} ${this.createWhereClause()}`
     }
 }
