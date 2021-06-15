@@ -2,11 +2,11 @@ import { UpdateMakerForSomething } from 'model/SQL/Update/UpdateMakerForSomethin
 import { WhereOperator } from 'types/DB-types/WhereOperator'
 
 export class UpdateMakerForIsAttendResponse extends UpdateMakerForSomething {
-    userId: string
-    attendanceRequestId: string
-    isAttend: 'true' | 'false'
-    message: string
-    tableName: string
+    private userId: string
+    private attendanceRequestId: string
+    private isAttend: 'true' | 'false'
+    private message: string
+    private tableName: string
     constructor(userId: string, attendanceRequestId: string, isAttend: 'true' | 'false', message: string) {
         super()
         this.userId = userId
