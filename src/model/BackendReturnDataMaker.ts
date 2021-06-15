@@ -22,11 +22,11 @@ export class BackendReturnDataMaker {
         return dbData[0][0] !== undefined && dbData[0].length !== 0
     }
     private isEmpty = (dbData: any): dbData is SQLError => {
-        try{
-            if(dbData[0].length === 0){
+        try {
+            if (dbData[0].length === 0) {
                 return true
             }
-        }catch(e){
+        } catch (e) {
             console.log(e)
             return false
         }

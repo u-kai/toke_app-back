@@ -1,6 +1,6 @@
-import { WhereClauseElements } from "./WhereClauseElements";
+import { WhereClauseElements } from './WhereClauseElements'
 
 export type DeleteInfo = {
-    tableName:string,
-    whereClauseElements:WhereClauseElements
+    tableName: string
+    whereClauseElements: WhereClauseElements
 }
