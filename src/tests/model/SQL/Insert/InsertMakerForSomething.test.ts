@@ -18,3 +18,8 @@ it("test insert maker info",()=>{
         }
     )
 })
+
+const sql = insertMaker.outputSQL(insertInfo)
+it("test sql insert",()=>{
+    expect(sql).toStrictEqual("INSERT INTO test (user,age) VALUES('kai','25')")
+})
