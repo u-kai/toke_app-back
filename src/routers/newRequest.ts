@@ -12,7 +12,8 @@ const mysqlExecuter = new MysqlExecuter(dbConfig)
 
 router.post('/', (req: express.Request, res: express.Response) => {
     const purpose: string = req.body.purpose
-    const date:string = req.body.date
+    const start_date:string = req.body.start_date
+    const end_date:string = req.body.end_date
     const location: string = req.body.location
     const organizer_id:string = req.body.organizer_id
     const organizer_name:string = req.body.organizer_name
@@ -20,7 +21,8 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const bring:string = req.body.describe
     const insertMakerForNewRequest = new InsertMakerForNewRequest(
         purpose,
-        date,
+        start_date,
+        end_date,
         location,
         organizer_id,
         describe,
@@ -28,6 +30,7 @@ router.post('/', (req: express.Request, res: express.Response) => {
         organizer_name
     )
     const sql = insertMakerForNewRequest.SQLForNewRequest()
+    console.log(sql)
     mysqlExecuter.execute(sql).then((data: DBReturn) => {
         const insertBackendReturnDataMaker = new BackendReturnDataMaker(data)
         const insertResponseData = insertBackendReturnDataMaker.createData()
