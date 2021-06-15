@@ -27,19 +27,19 @@ export class SQLInfoMaker {
     makeInsertInfo = (
         insertKeys: string[],
         insertValues: string[],
-        whereKeys: string[],
-        whereValues: string[],
-        whereOperators: WhereOperator[]
+        // whereKeys: string[],
+        // whereValues: string[],
+        // whereOperators: WhereOperator[]
     ): InsertInfo => {
         return {
             tableName: this.tableName,
             insertKeys: insertKeys,
             insertValues: insertValues,
-            whereClauseElements: {
-                whereKeys: whereKeys,
-                whereValues: whereValues,
-                whereOperators: whereOperators,
-            },
+            // whereClauseElements: {
+            //     whereKeys: whereKeys,
+            //     whereValues: whereValues,
+            //     whereOperators: whereOperators,
+            // },
         }
     }
     makeUpdateInfo = (

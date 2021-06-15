@@ -8,10 +8,10 @@ export class InsertMaker {
         this.headSQL = 'INSERT INTO'
         this.insertInfo = insertInfo
     }
-    private createWhereClause = (): string => {
-        const whereClauseMaker = new WhereClauseMaker(this.insertInfo.whereClauseElements)
-        return whereClauseMaker.createWhereClause()
-    }
+    // private createWhereClause = (): string => {
+    //     const whereClauseMaker = new WhereClauseMaker(this.insertInfo.whereClauseElements)
+    //     return whereClauseMaker.createWhereClause()
+    // }
     private createKeyValuses = (): string => {
         const keys = `(${this.insertInfo.insertKeys.join(',')})`
         const values = `VALUES(${this.addSingleQuoteForValues()})`
@@ -24,6 +24,6 @@ export class InsertMaker {
         return addSingleQuoteValues.join(',')
     }
     outputSQL = () => {
-        return `${this.headSQL} ${this.insertInfo.tableName} ${this.createKeyValuses()} ${this.createWhereClause()}`
+        return `${this.headSQL} ${this.insertInfo.tableName} ${this.createKeyValuses()}`
     }
 }

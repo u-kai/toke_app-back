@@ -28,11 +28,11 @@ router.post('/ids', (req: express.Request, res: express.Response) => {
     const user_id: string = req.body.user_id
     const selectMakerForIds = new SelectMakerForSchedule(user_id)
     const sql = selectMakerForIds.SQLForAttendanceRequestsIds()
-    console.log("ids",sql)
+    console.log('ids', sql)
     mysqlExecuter.execute(sql).then((results: DBReturn) => {
         const backendReturnDataCaster = new BackendReturnDataCaster(results)
-        const errorData= backendReturnDataCaster.castError()
-        if(errorData){
+        const errorData = backendReturnDataCaster.castError()
+        if (errorData) {
             const backendReturnDataMaker = new BackendReturnDataMaker(errorData)
             console.log(backendReturnDataMaker.createData())
             res.json(backendReturnDataMaker.createData())
@@ -50,9 +50,8 @@ router.post('/ids', (req: express.Request, res: express.Response) => {
             })
             const selectMakerForInfos = new SelectMakerForSchedule(user_id)
             const sql = selectMakerForInfos.SQLForAttendanceRequestsInfos(ids)
-            console.log("info",sql)
+            console.log('info', sql)
             mysqlExecuter.execute(sql).then((results: DBReturn) => {
-                
                 const backendReturnDataMaker = new BackendReturnDataMaker(results)
                 console.log('22222222222222', backendReturnDataMaker.createData())
                 res.json(backendReturnDataMaker.createData())

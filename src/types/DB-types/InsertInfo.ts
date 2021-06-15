@@ -3,5 +3,5 @@ export type InsertInfo = {
     tableName: string
     insertKeys: string[]
     insertValues: string[]
-    whereClauseElements: WhereClauseElements
+    // whereClauseElements: WhereClauseElements
 }

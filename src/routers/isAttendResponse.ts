@@ -11,12 +11,12 @@ const mysqlExecuter = new MysqlExecuter(dbConfig)
 
 router.post('/', (req: express.Request, res: express.Response) => {
     const userId: string = req.body.userId
-    const attendanceRequestId:string = req.body.attendanceRequestId
-    const isAttend: "true"|"false" = req.body.isAttend
-    const message:string = req.body.message
-    const selectMakerForLogin = new UpdateMakerForIsAttendResponse(userId,attendanceRequestId,isAttend,message)
+    const attendanceRequestId: string = req.body.attendanceRequestId
+    const isAttend: 'true' | 'false' = req.body.isAttend
+    const message: string = req.body.message
+    const selectMakerForLogin = new UpdateMakerForIsAttendResponse(userId, attendanceRequestId, isAttend, message)
     const sql = selectMakerForLogin.SQLForIsAttendResponse()
-    mysqlExecuter.execute(sql).then((data:DBReturn) => {
+    mysqlExecuter.execute(sql).then((data: DBReturn) => {
         const backendReturnDataMaker = new BackendReturnDataMaker(data)
         console.log(backendReturnDataMaker.createData())
         res.json(backendReturnDataMaker.createData())
