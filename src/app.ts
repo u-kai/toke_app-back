@@ -5,6 +5,7 @@ import * as select from 'routers/schedule'
 import * as login from 'routers/login'
 import * as isAttendResponse from 'routers/isAttendResponse'
 import * as newRequest from "routers/newRequest"
+import * as getMembers from "routers/getMembers"
 const app = express()
 app.use(
     bodyParser.urlencoded({
@@ -20,6 +21,7 @@ app.use('/schedule', select.router)
 app.use('/login', login.router)
 app.use('/isAttendResponse', isAttendResponse.router)
 app.use("/newRequest",newRequest.router)
+app.use("/getMembers",getMembers.router)
 app.post('/', (req: express.Request, res: express.Response) => {
     const data = req.body
     console.log(data)

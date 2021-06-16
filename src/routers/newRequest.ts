@@ -5,8 +5,6 @@ import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
 import {InsertMakerForNewRequest} from "model/SQL/Insert/InsertMakerForNewRequest"
 import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerForisAttendResponse'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
-import { InsertMakerForCaseIsAttendResponseTrue } from 'model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue'
-import { urlToHttpOptions } from 'http'
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter(dbConfig)
 
@@ -34,6 +32,9 @@ router.post('/', (req: express.Request, res: express.Response) => {
     mysqlExecuter.execute(sql).then((data: DBReturn) => {
         const insertBackendReturnDataMaker = new BackendReturnDataMaker(data)
         const insertResponseData = insertBackendReturnDataMaker.createData()
+        if(insertResponseData?.status === 200){
+
+        }
         res.json(insertResponseData)
     })
 })
