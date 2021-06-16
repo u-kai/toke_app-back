@@ -53,7 +53,6 @@ router.post('/ids', (req: express.Request, res: express.Response) => {
             console.log('info', sql)
             mysqlExecuter.execute(sql).then((results: DBReturn) => {
                 const backendReturnDataMaker = new BackendReturnDataMaker(results)
-                console.log('22222222222222', backendReturnDataMaker.createData())
                 res.json(backendReturnDataMaker.createData())
             })
         }
@@ -66,13 +65,11 @@ router.post('/loop', (req: express.Request, res: express.Response) => {
     ;(async () => {
         for (let i = 0; i < req.body.length; i++) {
             const selectMaker = new SelectMaker(selectInfos[i])
-            await console.log(selectMaker.outputSQL())
             await mysqlExecuter.execute(selectMaker.outputSQL()).then((result: DBReturn) => {
                 const backendReturnDataMaker = new BackendReturnDataMaker(result)
                 results = [...results, backendReturnDataMaker.createResults()]
             })
         }
-        await console.log(results)
-        await res.json({ status: 202, results: { select: results } })
+        await res.json({ status: 200, results: { select: results } })
     })()
 })

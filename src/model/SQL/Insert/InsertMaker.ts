@@ -8,12 +8,12 @@ export class InsertMaker {
         this.headSQL = 'INSERT INTO'
         this.insertInfo = insertInfo
     }
-    private createKeyValuses = (): string => {
+    createKeyValuses = (): string => {
         const keys = `(${this.insertInfo.insertKeys.join(',')})`
         const values = `VALUES(${this.addSingleQuoteForValues()})`
         return `${keys} ${values}`
     }
-    private addSingleQuoteForValues = (): string => {
+    addSingleQuoteForValues = (): string => {
         const addSingleQuoteValues = this.insertInfo.insertValues.map((value) => {
             return "'" + value + "'"
         })
