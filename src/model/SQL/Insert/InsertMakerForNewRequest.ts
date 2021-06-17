@@ -11,11 +11,12 @@ export class InsertMakerForNewRequest extends InsertMakerForSomething{
         organizer_id:string,
         describes:string,
         brings:string,
-        organizer_name:string){
+        organizer_name:string,
+        attendanceRequestId:string){
             super()
             this.tableName = "attendance_requests"
-            this.insertKeys = ["purpose","start_date","end_date","location","organizer_id","describes","bring","organizer_name"]
-            this.insertValuse = [purpose,start_date,end_date,location,organizer_id,describes,brings,organizer_name]
+            this.insertKeys = ["attendance_request_id","purpose","start_date","end_date","location","organizer_id","describes","bring","organizer_name"]
+            this.insertValuse = [attendanceRequestId,purpose,start_date,end_date,location,organizer_id,describes,brings,organizer_name]
         }
     private makeForNewRequest = () => {
         return this.makeInsertInfo(this.tableName,this.insertKeys,this.insertValuse)
