@@ -21,3 +21,6 @@ const SQLForInsertNew = `INSERT INTO ${insertTableName} (name,password,user_id) 
 it("test select",()=>{
     expect(insertNewTest.SQLForGetCurrentSeqId()).toBe(sqlForGetCurrentId)
 })
+it("test updateSeq",()=>{
+    expect(insertNewTest.SQLForUpdateSeqTable(currentId)).toBe(sqlForUpdateSeq)
+})
