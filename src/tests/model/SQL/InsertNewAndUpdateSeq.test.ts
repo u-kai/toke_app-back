@@ -24,3 +24,6 @@ it("test select",()=>{
 it("test updateSeq",()=>{
     expect(insertNewTest.SQLForUpdateSeqTable(currentId)).toBe(sqlForUpdateSeq)
 })
+it("test insert new",()=>{
+    expect(insertNewTest.SQLForInsertNew(currentId+1)).toBe(SQLForInsertNew)
+})
