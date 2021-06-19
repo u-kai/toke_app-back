@@ -2,7 +2,6 @@ import * as express from 'express'
 import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
 import { SelectMakerForLogin } from 'model/SQL/Select/SelectMakerForLogin'
-
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()
 

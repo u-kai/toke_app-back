@@ -31,7 +31,6 @@ router.post('/ids', (req: express.Request, res: express.Response) => {
         const errorData = backendReturnDataCaster.castError()
         if (errorData) {
             const backendReturnDataMaker = new BackendReturnDataMaker(errorData)
-            console.log(backendReturnDataMaker.createData())
             res.json(backendReturnDataMaker.createData())
         }
         const selectData = backendReturnDataCaster.castSelectResult()

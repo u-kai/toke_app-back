@@ -7,7 +7,9 @@ import * as isAttendResponse from 'routers/isAttendResponse'
 import * as getMembers from 'routers/getMembers'
 import * as newUserRegist from 'routers/newUserRegist'
 import * as newEventRegist from 'routers/newEventRegist'
-import * as newGroupRegist from "routers/newGroupRegist"
+import * as newGroupRegist from 'routers/newGroupRegist'
+import * as socketIo from 'socket.io'
+import * as http from 'http'
 const app = express()
 app.use(
     bodyParser.urlencoded({
@@ -16,9 +18,9 @@ app.use(
 )
 app.use(cors())
 app.use(bodyParser.json())
-const server = app.listen(8080, function () {
-    console.log('start server')
-})
+// const server = app.listen(8080, function () {
+//     console.log('start server')
+// })
 app.use('/schedule', select.router)
 app.use('/login', login.router)
 app.use('/isAttendResponse', isAttendResponse.router)
@@ -26,6 +28,19 @@ app.use('/newEventRegist', newEventRegist.router)
 app.use('/getMembers', getMembers.router)
 app.use('/newUserRegist', newUserRegist.router)
 app.use('/newGroupRegist', newGroupRegist.router)
+const server = http.createServer(app)
+export const io: socketIo.Server = new socketIo.Server(server, {
+    cors: {
+        origin: '*',
+        methods: ['GET', 'POST'],
+    },
+})
+// io.on("connection",(socket:socketIo.Socket)=>{
+//     socket.on("setName",(name:string)=>{
+//         console.log(name)
+//         io.emit("chat message",name)
+//     })
+// })
 app.post('/', (req: express.Request, res: express.Response) => {
     const data = req.body
     console.log(data)
@@ -34,3 +49,4 @@ app.post('/', (req: express.Request, res: express.Response) => {
 app.get('/', (req: express.Request, res: express.Response) => {
     res.json({ data: 'test' })
 })
+server.listen(8080, () => console.log('start server'))
