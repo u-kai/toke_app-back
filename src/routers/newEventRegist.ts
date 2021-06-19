@@ -6,9 +6,8 @@ import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerFori
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForRequestMembers'
 import { SQLInfoMaker } from 'model/SQL/SQLInfoMaker'
-import {InsertNewAndUpdateSeqEvent} from "model/SQL/InsertNewAndUpdateSeqEvent"
+import { InsertNewAndUpdateSeqEvent } from 'model/SQL/InsertNewAndUpdateSeqEvent'
 import { DBResultChecker } from 'model/DBResultChecker'
-import { Certificate } from 'crypto'
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()
 
@@ -32,14 +31,13 @@ router.post('/', (req: express.Request, res: express.Response) => {
         organizer_id,
         organizer_name,
     ])
-    insertNewAndUpdateSeqEvent.run()
-    .then((results:DBReturn)=>{
+    insertNewAndUpdateSeqEvent.run().then((results: DBReturn) => {
         const backendReturnDataMaker = new BackendReturnDataMaker(results)
         const checker = new DBResultChecker()
-        if(checker.isErrorResult(results)){
+        if (checker.isErrorResult(results)) {
             res.json(backendReturnDataMaker.createData())
         }
-        if(checker.isSelectResult(results)){
+        if (checker.isSelectResult(results)) {
             res.json(backendReturnDataMaker.createData())
         }
     })

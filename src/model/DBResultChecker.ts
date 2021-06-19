@@ -1,7 +1,7 @@
 import { DBSelectResult } from 'types/backend-return-types/SelectResult'
 import { SQLError } from 'types/backend-return-types/SQLError'
 import { DBInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
-
+import { Success } from 'types/backend-return-types/Success'
 export class DBResultChecker {
     isSelectResult = (dbData: any): dbData is DBSelectResult => {
         try {
@@ -13,6 +13,12 @@ export class DBResultChecker {
             return false
         }
         return dbData[0][0] !== undefined && dbData[0].length !== 0
+    }
+    isSuccess = (dbData: any): dbData is Success => {
+        if (this.isSelectResult(dbData)) {
+            return dbData[0][0]['success'] !== undefined && dbData[0][0]['success'] === 'success'
+        }
+        return false
     }
 
     isEmpty = (dbData: any): dbData is SQLError => {

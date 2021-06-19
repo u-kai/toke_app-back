@@ -2,6 +2,7 @@ import { SQLError } from 'types/backend-return-types/SQLError'
 import { DBSelectResult, SelectResult } from 'types/backend-return-types/SelectResult'
 import { BackendReturnDataMaker } from 'model/BackEndReturnDataMaker'
 import { DBInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
+import { success } from 'datas/success'
 const error: SQLError = {
     code: 'error',
     sqlMessage: 'couse error',
@@ -32,6 +33,7 @@ const emptyError: SQLError = {
     sqlState: '',
     errno: -1000,
 }
+
 const selectResultEmpty: DBSelectResult = [[], [{}]]
 const backendReturnMakerCaseError = new BackendReturnDataMaker(error)
 const dataCaseError = backendReturnMakerCaseError.createData()
