@@ -3,7 +3,6 @@ import Connection = require('mysql2/typings/mysql/lib/Connection')
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { DBConfig } from 'types/DB-types/DBConfig'
 
-
 export class MysqlExecuter {
     private dbConfig: DBConfig
     constructor(dbConfig: DBConfig) {
@@ -22,29 +21,28 @@ export class MysqlExecuter {
         }
         return results
     }
-    multiExecutes = async (sqls:string[]) => {
-        let results:DBReturn = [[{"success":"success"}]]
-        let connection:mysql.Connection
+    multiExecutes = async (sqls: string[]) => {
+        const results: DBReturn = [[{ success: 'success' }]]
+        let connection: mysql.Connection
         try {
             connection = await mysql.createConnection(this.dbConfig)
-        }catch(e){
-            console.log("connection error",e)
+        } catch (e) {
+            console.log('connection error', e)
             return e
         }
-        try{
-            for(let i in sqls){
+        try {
+            for (const i in sqls) {
                 await connection.query(sqls[i])
             }
-            console.log("all success1")
+            console.log('all success1')
             await connection.commit()
-            console.log("all success2")
+            console.log('all success2')
             return results
-        }catch(e){
-            console.log("rollback",e)
+        } catch (e) {
+            console.log('rollback', e)
             await connection.rollback()
             await connection.end()
             return e
         }
     }
-    
 }

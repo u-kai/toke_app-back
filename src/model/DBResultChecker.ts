@@ -1,12 +1,11 @@
-import { DBReturn } from 'types/backend-return-types/DBReturn'
-import { BackendSelectResult } from 'types/backend-return-types/SelectResult'
+import { DBSelectResult } from 'types/backend-return-types/SelectResult'
 import { SQLError } from 'types/backend-return-types/SQLError'
-import { BackendInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
+import { DBInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
 
 export class DBResultChecker {
-    isSelectResult = (dbData: any): dbData is BackendSelectResult => {
+    isSelectResult = (dbData:any): dbData is DBSelectResult => {
         try {
-            if (dbData[0][0] === undefined) {
+            if (dbData[0].length === undefined) {
                 return false
             }
         } catch (e) {
@@ -15,8 +14,14 @@ export class DBResultChecker {
         }
         return dbData[0][0] !== undefined && dbData[0].length !== 0
     }
+
     isEmpty = (dbData: any): dbData is SQLError => {
-        return dbData[0].length === 0
+        try{
+            return dbData[0].length === 0
+        }catch(e){
+            console.log(e)
+            return false
+        }
     }
     isErrorResult = (dbData: any): dbData is SQLError => {
         return (
@@ -26,7 +31,7 @@ export class DBResultChecker {
             dbData.sqlState !== undefined
         )
     }
-    isOtherResult = (dbData: any): dbData is BackendInsertUpdateDeleteResult => {
+    isOtherResult = (dbData: any): dbData is DBInsertUpdateDeleteResult => {
         const otherResutls = dbData[0]
         return (
             otherResutls.fieldCount !== undefined &&

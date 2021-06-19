@@ -1,6 +1,6 @@
-import { SQLError } from "types/backend-return-types/SQLError"
+import { SQLError } from 'types/backend-return-types/SQLError'
 
-export const causeUnknownError = (e:any):SQLError => {
+export const causeUnknownError = (e: any): SQLError => {
     return {
         code: '1',
         sqlMessage: `エラーが発生しています．管理者に問い合わせください．${e}`,

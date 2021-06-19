@@ -1,21 +1,21 @@
 import { SQLError } from 'types/backend-return-types/SQLError'
-import { BackendSelectResult, SelectResult } from 'types/backend-return-types/SelectResult'
+import { DBSelectResult, SelectResult } from 'types/backend-return-types/SelectResult'
 import { BackendReturnDataMaker } from 'model/BackEndReturnDataMaker'
-import { BackendInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
+import { DBInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
 const error: SQLError = {
     code: 'error',
     sqlMessage: 'couse error',
     sqlState: 'error state',
     errno: 41999,
 }
-const selectResult: BackendSelectResult = [
+const selectResult: DBSelectResult = [
     [
         { user: 'kai', age: 22 },
         { user: 'takashi', age: 33 },
     ],
     [{ fa: 'dfafasffa' }, { fa: 'dfafasffa' }, { fa: 'dfafasffa' }],
 ]
-const otherResutls: BackendInsertUpdateDeleteResult = [
+const otherResutls: DBInsertUpdateDeleteResult = [
     {
         fieldCount: 2,
         affectedRows: 2,
@@ -26,7 +26,13 @@ const otherResutls: BackendInsertUpdateDeleteResult = [
         changedRows: 2,
     },
 ]
-const selectResultEmpty: BackendSelectResult = [[], [{}]]
+const emptyError: SQLError = {
+    code: '0',
+    sqlMessage: 'データが見つかりませんでした．',
+    sqlState: '',
+    errno: -1000,
+}
+const selectResultEmpty: DBSelectResult = [[], [{}]]
 const backendReturnMakerCaseError = new BackendReturnDataMaker(error)
 const dataCaseError = backendReturnMakerCaseError.createData()
 
@@ -42,7 +48,7 @@ it('case Select', () => {
 const backendReturnMakerCaseSelectEmpty = new BackendReturnDataMaker(selectResultEmpty)
 const dataCaseSelectEmpty = backendReturnMakerCaseSelectEmpty.createData()
 it('case Select', () => {
-    expect(dataCaseSelectEmpty).toStrictEqual({ status: 200, results: { select: selectResultEmpty[0] } })
+    expect(dataCaseSelectEmpty).toStrictEqual({ status: 400, results: { error: emptyError }  })
 })
 
 const backendReturnMakerCaseOther = new BackendReturnDataMaker(otherResutls)

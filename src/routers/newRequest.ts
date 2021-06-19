@@ -2,7 +2,7 @@ import * as express from 'express'
 import { dbConfig } from 'datas/dbConfig'
 import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
-import {InsertMakerForNewRequest} from "model/SQL/Insert/InsertMakerForNewRequest"
+import { InsertMakerForNewRequest } from 'model/SQL/Insert/InsertMakerForNewRequest'
 import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerForisAttendResponse'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForRequestMembers'
@@ -12,14 +12,14 @@ const mysqlExecuter = new MysqlExecuter(dbConfig)
 
 router.post('/', (req: express.Request, res: express.Response) => {
     const purpose: string = req.body.purpose
-    const start_date:string = req.body.start_date
-    const end_date:string = req.body.end_date
+    const start_date: string = req.body.start_date
+    const end_date: string = req.body.end_date
     const location: string = req.body.location
-    const organizer_id:string = req.body.organizer_id
-    const organizer_name:string = req.body.organizer_name
-    const describe:string = req.body.describe
-    const bring:string = req.body.describe
-    const memberIds:string[] = req.body.memberIds
+    const organizer_id: string = req.body.organizer_id
+    const organizer_name: string = req.body.organizer_name
+    const describe: string = req.body.describe
+    const bring: string = req.body.describe
+    const memberIds: string[] = req.body.memberIds
     const insertMakerForNewRequest = new InsertMakerForNewRequest(
         purpose,
         start_date,
@@ -29,21 +29,21 @@ router.post('/', (req: express.Request, res: express.Response) => {
         describe,
         bring,
         organizer_name,
-        "13"
+        '13'
     )
     const sqlForNewRequest = insertMakerForNewRequest.SQLForNewRequest()
-    const insertMakerForRequestMembers = new InsertMakerForRequestMembers(memberIds,"13") 
+    const insertMakerForRequestMembers = new InsertMakerForRequestMembers(memberIds, '13')
     const sqlForRequestMembers = insertMakerForRequestMembers.SQLForRequestMembers()
     console.log(sqlForRequestMembers)
     console.log(sqlForNewRequest)
-    mysqlExecuter.multiExecutes([sqlForNewRequest,sqlForRequestMembers]).then((data:DBReturn)=>{
-        console.log("reutrnData",data)
+    mysqlExecuter.multiExecutes([sqlForNewRequest, sqlForRequestMembers]).then((data: DBReturn) => {
+        console.log('reutrnData', data)
         const insertBackendReturnDataMaker = new BackendReturnDataMaker(data)
-        console.log("json data",insertBackendReturnDataMaker.createData())
+        console.log('json data', insertBackendReturnDataMaker.createData())
         res.json(insertBackendReturnDataMaker.createData())
     })
     // const sqlForNewRequest = insertMakerForNewRequest.SQLForNewRequest()
-    // const insertMakerForRequestMembers = new InsertMakerForRequestMembers(memberIds,"test") 
+    // const insertMakerForRequestMembers = new InsertMakerForRequestMembers(memberIds,"test")
     // const sqlForRequestMembers = insertMakerForRequestMembers.SQLForRequestMembers()
     // mysqlExecuter.execute(sqlForNewRequest).then((insertNewRequestResult: DBReturn) => {
     //     const insertBackendReturnDataMaker = new BackendReturnDataMaker(insertNewRequestResult)

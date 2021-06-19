@@ -1,9 +1,9 @@
-import {SelectMakerForSomething} from "model/SQL/Select/SelectMakerForSomething"
+import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
 
-export class SelectMakerForGetMembers extends SelectMakerForSomething{
-    userId:string
-    constructor(userId:string){
-        super("user_info")
+export class SelectMakerForGetMembers extends SelectMakerForSomething {
+    userId: string
+    constructor(userId: string) {
+        super('user_info')
         this.userId = userId
     }
     SQLForGetMembers = () => {

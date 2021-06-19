@@ -7,4 +7,4 @@ export type InsertUpdateDeleteResult = {
     warningStatus: number
     changedRows: number
 }
-export type BackendInsertUpdateDeleteResult = InsertUpdateDeleteResult[]
+export type DBInsertUpdateDeleteResult = InsertUpdateDeleteResult[]
