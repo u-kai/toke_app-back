@@ -5,7 +5,7 @@ import {
     InsertUpdateDeleteResult,
     DBInsertUpdateDeleteResult,
 } from 'types/backend-return-types/InsertUpdateDeleteResult'
-import {DBResultChecker} from "model/DBResultChecker"
+import { DBResultChecker } from 'model/DBResultChecker'
 export class BackendReturnDataMaker {
     private dbReturnData: DBReturn
     constructor(dbReturnData: DBReturn) {

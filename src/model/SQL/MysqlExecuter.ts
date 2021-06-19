@@ -4,7 +4,7 @@ import * as mysql from 'mysql2/promise'
 import Connection = require('mysql2/typings/mysql/lib/Connection')
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { DBConfig } from 'types/DB-types/DBConfig'
-import {dbConfig} from "datas/dbConfig"
+import { dbConfig } from 'datas/dbConfig'
 export class MysqlExecuter {
     private dbConfig: DBConfig
     constructor() {

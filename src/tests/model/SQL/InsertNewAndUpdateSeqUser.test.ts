@@ -20,4 +20,3 @@ it('test insert new', () => {
 it('test updateSeq', () => {
     expect(insertNewTest.SQLForUpdateSeqTable()).toBe(sqlForUpdateSeq)
 })
-

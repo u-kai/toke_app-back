@@ -3,7 +3,7 @@ import { SQLError } from 'types/backend-return-types/SQLError'
 import { DBInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
 
 export class DBResultChecker {
-    isSelectResult = (dbData:any): dbData is DBSelectResult => {
+    isSelectResult = (dbData: any): dbData is DBSelectResult => {
         try {
             if (dbData[0].length === undefined) {
                 return false
@@ -16,9 +16,9 @@ export class DBResultChecker {
     }
 
     isEmpty = (dbData: any): dbData is SQLError => {
-        try{
+        try {
             return dbData[0].length === 0
-        }catch(e){
+        } catch (e) {
             console.log(e)
             return false
         }

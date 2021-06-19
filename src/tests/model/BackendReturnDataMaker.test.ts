@@ -48,7 +48,7 @@ it('case Select', () => {
 const backendReturnMakerCaseSelectEmpty = new BackendReturnDataMaker(selectResultEmpty)
 const dataCaseSelectEmpty = backendReturnMakerCaseSelectEmpty.createData()
 it('case Select', () => {
-    expect(dataCaseSelectEmpty).toStrictEqual({ status: 400, results: { error: emptyError }  })
+    expect(dataCaseSelectEmpty).toStrictEqual({ status: 400, results: { error: emptyError } })
 })
 
 const backendReturnMakerCaseOther = new BackendReturnDataMaker(otherResutls)

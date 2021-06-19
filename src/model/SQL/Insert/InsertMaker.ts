@@ -8,21 +8,21 @@ export class InsertMaker {
         this.headSQL = 'INSERT INTO'
         this.insertInfo = insertInfo
     }
-    createKeyValuses = (sqlStatementIndex?:number): string => {
+    createKeyValuses = (sqlStatementIndex?: number): string => {
         const keys = `(${this.insertInfo.insertKeys.join(',')})`
         const values = `VALUES(${this.addSingleQuoteForValues(sqlStatementIndex)})`
         return `${keys} ${values}`
     }
-    addSingleQuoteForValues = (sqlStatementIndex?:number): string => {
-        const addSingleQuoteValues = this.insertInfo.insertValues.map((value,i) => {
-            if(sqlStatementIndex === i){
+    addSingleQuoteForValues = (sqlStatementIndex?: number): string => {
+        const addSingleQuoteValues = this.insertInfo.insertValues.map((value, i) => {
+            if (sqlStatementIndex === i) {
                 return value
             }
             return "'" + value + "'"
         })
         return addSingleQuoteValues.join(',')
     }
-    outputSQL = (sqlStatementIndex?:number) => {
+    outputSQL = (sqlStatementIndex?: number) => {
         return `${this.headSQL} ${this.insertInfo.tableName} ${this.createKeyValuses(sqlStatementIndex)}`
     }
 }
