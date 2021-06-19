@@ -8,7 +8,7 @@ const DBInfo: DBConfig = {
     database: 'firstwebapp',
 }
 
-const mysqlConnection = new MysqlExecuter(DBInfo)
+const mysqlConnection = new MysqlExecuter()
 it('test connection', () => {
     mysqlConnection.execute('select * from test').then((data) => {
         console.log(data)

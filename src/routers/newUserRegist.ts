@@ -1,15 +1,6 @@
 import * as express from 'express'
-import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
-import { InsertMakerForNewRequest } from 'model/SQL/Insert/InsertMakerForNewRequest'
-import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerForisAttendResponse'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
-import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForRequestMembers'
-import { SQLInfoMaker } from 'model/SQL/SQLInfoMaker'
-import { SelectMakerForLogin } from 'model/SQL/Select/SelectMakerForLogin'
-import { SQLError } from 'types/backend-return-types/SQLError'
-import { InsertNewAndUpdateSeqSomething } from 'model/SQL/InsertNewAndUpdateSeqSomething'
-import e = require('express')
 import { InsertNewAndUpdateSeqUser } from 'model/SQL/InsertNewAndUpdateSeqUser'
 export const router = express.Router()
 

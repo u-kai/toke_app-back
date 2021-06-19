@@ -10,7 +10,7 @@ const dataCaseSelect: DBReturn = [
     ],
 ]
 const dataCast = new DBResultCaster(dataCaseSelect)
-const castSelect = dataCast.castSelect()
+const castSelect = dataCast.castSelectResult()
 
 it('test select cast', () => {
     if (castSelect && castSelect)

@@ -5,11 +5,6 @@ const insertInfo: InsertInfo = {
     tableName: 'test',
     insertKeys: ['user', 'name', 'age'],
     insertValues: ['kai', 'kai', '25'],
-    whereClauseElements: {
-        whereKeys: ['user', 'name', 'age'],
-        whereValues: ['kai', 'kai', '25'],
-        whereOperators: ['AND', 'AND'],
-    },
 }
 
 const insertMaker = new InsertMaker(insertInfo)

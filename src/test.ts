@@ -9,7 +9,7 @@ const DBInfo: DBConfig = {
     database: 'firstwebapp',
 }
 let results = ''
-const m = new MysqlExecuter(DBInfo)
+const m = new MysqlExecuter()
 const data = m.execute('select * from test').then((data) => {
     console.log(data)
     results = data
