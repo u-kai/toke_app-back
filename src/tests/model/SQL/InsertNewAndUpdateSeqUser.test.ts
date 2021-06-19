@@ -10,13 +10,13 @@ const insertNewTest = new InsertNewAndUpdateSeqUser(insertValues)
 const currentId = 1
 const SQLForConfirmNotExist = `SELECT * FROM user_login WHERE name = 'kai' AND password = 'kaitest'`
 const SQLForInsertNew = `INSERT INTO ${insertTableName} (name,password,user_id) VALUES('kai','kaitest',(SELECT ${seqIdName} FROM ${seqTable}))`
-const sqlForUpdateSeq = `UPDATE ${seqTable} SET ${seqIdName} = (${seqIdName}+1)`
+const sqlForUpdateSeq = `UPDATE ${seqTable} SET ${seqIdName} = (${seqIdName} + 1)`
 it('test confirm not exist', () => {
     expect(insertNewTest.SQLForConfirmIsNotExist()).toBe(SQLForConfirmNotExist)
 })
-// it('test updateSeq', () => {
-//     expect(insertNewTest.SQLForUpdateSeqTable(currentId)).toBe(sqlForUpdateSeq)
-// })
+it('test updateSeq', () => {
+    expect(insertNewTest.SQLForUpdateSeqTable()).toBe(sqlForUpdateSeq)
+})
 // it('test insert new', () => {
 //     expect(insertNewTest.SQLForInsertNew(currentId + 1)).toBe(SQLForInsertNew)
 // })
