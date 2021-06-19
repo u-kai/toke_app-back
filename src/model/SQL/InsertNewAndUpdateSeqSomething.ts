@@ -67,9 +67,9 @@ export class InsertNewAndUpdateSeqSomething implements InsertNewAndUpdateSeq {
         return mysqlExecuter.multiExecutes([this.SQLForInsertNew(), this.SQLForUpdateSeqTable()])
     }
 
-    run = () => {
-        return this.confirmIsNotExist().then((results: boolean) => {
-            if (!results) {
+    run = async() => {
+        return await this.confirmIsNotExist().then((results: boolean) => {
+            if (results===false) {
                 return duplicateEntryError
             }
             return this.insertNewAndUpdateSeq()

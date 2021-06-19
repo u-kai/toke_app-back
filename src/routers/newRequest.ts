@@ -36,30 +36,7 @@ router.post('/', (req: express.Request, res: express.Response) => {
     console.log(sqlForRequestMembers)
     console.log(sqlForNewRequest)
     mysqlExecuter.multiExecutes([sqlForNewRequest, sqlForRequestMembers]).then((data: DBReturn) => {
-        console.log('reutrnData', data)
         const insertBackendReturnDataMaker = new BackendReturnDataMaker(data)
-        console.log('json data', insertBackendReturnDataMaker.createData())
         res.json(insertBackendReturnDataMaker.createData())
     })
-    // const sqlForNewRequest = insertMakerForNewRequest.SQLForNewRequest()
-    // const insertMakerForRequestMembers = new InsertMakerForRequestMembers(memberIds,"test")
-    // const sqlForRequestMembers = insertMakerForRequestMembers.SQLForRequestMembers()
-    // mysqlExecuter.execute(sqlForNewRequest).then((insertNewRequestResult: DBReturn) => {
-    //     const insertBackendReturnDataMaker = new BackendReturnDataMaker(insertNewRequestResult)
-    //     const newRequestResponseData = insertBackendReturnDataMaker.createData()
-    //     if(newRequestResponseData?.status === 400){
-    //         res.json(newRequestResponseData)
-    //     }else{
-    //         mysqlExecuter.execute(sqlForRequestMembers).then((insertRequestMembers)=>{
-    //             const insertBackendReturnDataMaker = new BackendReturnDataMaker(insertRequestMembers)
-    //             const requestMembersResponseData = insertBackendReturnDataMaker.createData()
-    //             if(requestMembersResponseData?.status === 400){
-    //                 //rolback
-    //                 res.json(requestMembersResponseData)
-    //             }else{
-    //                 res.json(requestMembersResponseData)
-    //             }
-    //         })
-    //     }
-    // })
 })

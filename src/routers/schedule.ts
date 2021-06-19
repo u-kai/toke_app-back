@@ -15,10 +15,8 @@ router.post('/count', (req: express.Request, res: express.Response) => {
     const user_id: string = req.body.user_id
     const selectMakerForCount = new SelectMakerForSchedule(user_id)
     const sql = selectMakerForCount.SQLForAttendanceRequestsCount()
-
     mysqlExecuter.execute(sql).then((count: DBReturn) => {
         const backendReturnDataMaker = new BackendReturnDataMaker(count)
-        console.log(backendReturnDataMaker.createData())
         res.json(backendReturnDataMaker.createData())
     })
 })
@@ -38,7 +36,6 @@ router.post('/ids', (req: express.Request, res: express.Response) => {
         }
         const selectData = backendReturnDataCaster.castSelectResult()
         if (selectData) {
-            console.log('selectData', selectData)
             const ids = selectData.map((select) => {
                 const id = select.attendance_request_id?.toString()
                 if (id !== undefined) {

@@ -15,20 +15,20 @@ export class DBResultCaster extends DBResultChecker {
             const selectData = this.dbReturn as DBSelectResult
             return selectData[0]
         }
-        return //causeUnknownError("undefined error")
+        return false
     }
     castError = () => {
         if (this.isErrorResult(this.dbReturn) || this.isEmpty(this.dbReturn)) {
             const errorData = this.dbReturn as SQLError
             return errorData
         }
-        return causeUnknownError('undefined error')
+        return false
     }
     castOtherResult = () => {
         if (this.isOtherResult(this.dbReturn)) {
             const otherData = this.dbReturn as DBInsertUpdateDeleteResult
             return otherData[0]
         }
-        return causeUnknownError('undefined error')
+        return false
     }
 }

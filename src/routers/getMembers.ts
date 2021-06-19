@@ -12,6 +12,7 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const sql = selectMaker.SQLForGetMembers()
     console.log('getmembers', sql)
     mysqlExecuter.execute(sql).then((data: DBReturn) => {
+        console.log('getmembers',data)
         const selectBackendReturnDataMaker = new BackendReturnDataMaker(data)
         const selectResponseData = selectBackendReturnDataMaker.createData()
         res.json(selectResponseData)

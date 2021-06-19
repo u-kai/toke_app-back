@@ -10,21 +10,18 @@ import { SelectMakerForLogin } from 'model/SQL/Select/SelectMakerForLogin'
 import { SQLError } from 'types/backend-return-types/SQLError'
 import { InsertNewAndUpdateSeqSomething } from 'model/SQL/InsertNewAndUpdateSeqSomething'
 import e = require('express')
+import { InsertNewAndUpdateSeqUser } from 'model/SQL/InsertNewAndUpdateSeqUser'
 export const router = express.Router()
-const mysqlExecuter = new MysqlExecuter()
 
 router.post('/', (req: express.Request, res: express.Response) => {
     const userName: string = req.body.userName
     const password: string = req.body.password
-    const testsum = new InsertNewAndUpdateSeqSomething(
-        'seq_user_id',
-        'seq_user_id',
-        'user_login',
-        ['name', 'password'],
+    const insertNewAndUpdateSeqUser = new InsertNewAndUpdateSeqUser(
         [userName, password]
     )
-    // testsum.run().then((data:DBReturn)=>{
-    //     const backendReturnDataCaster = new BackendReturnDataMaker(data)
-    //     res.json(backendReturnDataCaster.createData())
-    // })
+    insertNewAndUpdateSeqUser.run()
+    .then((results:DBReturn)=>{
+        const backendReturnDataMaker = new BackendReturnDataMaker(results)
+        res.json(backendReturnDataMaker.createData())
+    })
 })
