@@ -32,13 +32,16 @@ export class MysqlExecuter {
             console.log('connection error', e)
             return createConnectionError
         }
+        connection.beginTransaction()
         try {
             for (const i in sqls) {
                 await connection.query(sqls[i])
+                console.log("clear",i)
             }
             console.log('all success1')
             await connection.commit()
             console.log('all success2')
+            await connection.end()
             return results
         } catch (e) {
             console.log('rollback', e)

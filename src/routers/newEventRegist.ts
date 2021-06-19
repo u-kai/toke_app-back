@@ -8,6 +8,7 @@ import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForReq
 import { SQLInfoMaker } from 'model/SQL/SQLInfoMaker'
 import { InsertNewAndUpdateSeqEvent } from 'model/SQL/InsertNewAndUpdateSeqEvent'
 import { DBResultChecker } from 'model/DBResultChecker'
+import { NewEventRegister } from 'model/SQL/NewEventRegister'
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()
 
@@ -16,28 +17,33 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const start_date: string = req.body.start_date
     const end_date: string = req.body.end_date
     const location: string = req.body.location
-    const organizer_id: string = req.body.organizer_id
+    const organizer_id: string = req.body.organizer_id 
     const organizer_name: string = req.body.organizer_name
     const describe: string = req.body.describe
-    const bring: string = req.body.describe
+    const bring: string = req.body.bring
+    const insertValuesInsufficientId = [
+        purpose,location,start_date,end_date,describe,bring,organizer_id,organizer_name,
+    ]
     const memberIds: string[] = req.body.memberIds
-    const insertNewAndUpdateSeqEvent = new InsertNewAndUpdateSeqEvent([
-        purpose,
-        location,
-        start_date,
-        end_date,
-        describe,
-        bring,
-        organizer_id,
-        organizer_name,
-    ])
-    insertNewAndUpdateSeqEvent.run().then((results: DBReturn) => {
+    const newEventRegister = new NewEventRegister(insertValuesInsufficientId,memberIds)
+    // const insertNewAndUpdateSeqEvent = new InsertNewAndUpdateSeqEvent([
+    //     purpose,
+    //     location,
+    //     start_date,
+    //     end_date,
+    //     describe,
+    //     bring,
+    //     organizer_id,
+    //     organizer_name,
+    // ])
+    // insertNewAndUpdateSeqEvent
+    newEventRegister.run().then((results: DBReturn) => {
         const backendReturnDataMaker = new BackendReturnDataMaker(results)
         const checker = new DBResultChecker()
         if (checker.isErrorResult(results)) {
             res.json(backendReturnDataMaker.createData())
         }
-        if (checker.isSelectResult(results)) {
+        if (checker.isSuccessResult(results)) {
             res.json(backendReturnDataMaker.createData())
         }
     })

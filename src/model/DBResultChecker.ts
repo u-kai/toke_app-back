@@ -14,7 +14,7 @@ export class DBResultChecker {
         }
         return dbData[0][0] !== undefined && dbData[0].length !== 0
     }
-    isSuccess = (dbData: any): dbData is Success => {
+    isSuccessResult = (dbData: any): dbData is Success => {
         if (this.isSelectResult(dbData)) {
             return dbData[0][0]['success'] !== undefined && dbData[0][0]['success'] === 'success'
         }
