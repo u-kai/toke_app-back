@@ -6,7 +6,7 @@ import * as login from 'routers/login'
 import * as isAttendResponse from 'routers/isAttendResponse'
 import * as getMembers from 'routers/getMembers'
 import * as newUserRegist from 'routers/newUserRegist'
-import * as newEventRegist from "routers/newEventRegist"
+import * as newEventRegist from 'routers/newEventRegist'
 const app = express()
 app.use(
     bodyParser.urlencoded({

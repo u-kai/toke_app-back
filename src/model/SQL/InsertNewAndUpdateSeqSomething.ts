@@ -53,7 +53,7 @@ export class InsertNewAndUpdateSeqSomething implements InsertNewAndUpdateSeq {
             this.insertKeys,
             this.addIdDataToInsertValues()
         )
-        return insertMaker.outputSQL(insertInfo, 2)
+        return insertMaker.outputSQL(insertInfo, this.insertKeys.length - 1)
     }
     SQLForUpdateSeqTable = () => {
         return `UPDATE ${this.seqTableName} SET ${this.seqIdName} = (${this.seqIdName} + 1)`
@@ -67,9 +67,9 @@ export class InsertNewAndUpdateSeqSomething implements InsertNewAndUpdateSeq {
         return mysqlExecuter.multiExecutes([this.SQLForInsertNew(), this.SQLForUpdateSeqTable()])
     }
 
-    run = async() => {
+    run = async () => {
         return await this.confirmIsNotExist().then((results: boolean) => {
-            if (results===false) {
+            if (results === false) {
                 return duplicateEntryError
             }
             return this.insertNewAndUpdateSeq()

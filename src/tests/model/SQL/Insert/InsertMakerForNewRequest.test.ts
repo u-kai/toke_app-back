@@ -8,7 +8,7 @@ const organizer_id = '1'
 const describe = 'this is descibe'
 const brings = 'brings'
 const organizer_name = 'udo'
-const attendanceRequestId = "1"
+const attendanceRequestId = '1'
 const insertNew = new InsertMakerForNewRequest(
     purpose,
     start_date.toString(),
