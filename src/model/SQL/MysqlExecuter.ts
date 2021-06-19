@@ -1,3 +1,5 @@
+import { causeUnknownError } from 'datas/errors/causeUnknownError'
+import { createConnectionError } from 'datas/errors/createConnectionError'
 import * as mysql from 'mysql2/promise'
 import Connection = require('mysql2/typings/mysql/lib/Connection')
 import { DBReturn } from 'types/backend-return-types/DBReturn'
@@ -28,7 +30,7 @@ export class MysqlExecuter {
             connection = await mysql.createConnection(this.dbConfig)
         } catch (e) {
             console.log('connection error', e)
-            return e
+            return createConnectionError
         }
         try {
             for (const i in sqls) {
@@ -42,7 +44,7 @@ export class MysqlExecuter {
             console.log('rollback', e)
             await connection.rollback()
             await connection.end()
-            return e
+            return causeUnknownError(e)
         }
     }
 }

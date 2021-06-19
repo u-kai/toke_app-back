@@ -11,47 +11,6 @@ export class BackendReturnDataMaker {
     constructor(dbReturnData: DBReturn) {
         this.dbReturnData = dbReturnData
     }
-    // private isSelectResult = (dbData: any): dbData is DBSelectResult => {
-    //     try {
-    //         if (dbData[0][0] === undefined) {
-    //             return false
-    //         }
-    //     } catch (e) {
-    //         console.log(e)
-    //         return false
-    //     }
-    //     return dbData[0][0] !== undefined && dbData[0].length !== 0
-    // }
-    // isEmpty = (dbData: any): dbData is SQLError => {
-    //     try {
-    //         if (dbData[0].length === 0) {
-    //             return true
-    //         }
-    //     } catch (e) {
-    //         return false
-    //     }
-    //     return false
-    // }
-    // private isErrorResult = (dbData: any): dbData is SQLError => {
-    //     return (
-    //         dbData.code !== undefined &&
-    //         dbData.sqlMessage !== undefined &&
-    //         dbData.errno !== undefined &&
-    //         dbData.sqlState !== undefined
-    //     )
-    // }
-    // private isOtherResult = (dbData: any): dbData is DBInsertUpdateDeleteResult => {
-    //     const otherResutls = dbData[0]
-    //     return (
-    //         otherResutls.fieldCount !== undefined &&
-    //         otherResutls.affectedRows !== undefined &&
-    //         otherResutls.info !== undefined &&
-    //         otherResutls.insertId !== undefined &&
-    //         otherResutls.serverStatus !== undefined &&
-    //         otherResutls.warningStatus !== undefined &&
-    //         otherResutls.changedRows !== undefined
-    //     )
-    // }
     private caseError = () => {
         return { status: 400, results: { error: this.dbReturnData as SQLError } }
     }

@@ -9,13 +9,15 @@ import { causeUnknownError } from 'datas/errors/causeUnknownError'
 import { DBSelectResult } from 'types/backend-return-types/SelectResult'
 import { DBResultCaster } from 'model/DBResultCaster'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
-export class InsertNewAndUpdateSeqSomething {
-    private seqTableName: string
-    private seqIdName: string
-    private insertTableName: string
-    private insertValues: string[]
-    private insertKeys: string[]
-    private dbConfig: DBConfig
+import {MysqlConnecter} from "model/SQL/MysqlConnecter"
+import {InsertNewAndUpdateSeq} from "interfaces/InsertNewAndUpdateSeq"
+import { DBResultChecker } from 'model/DBResultChecker'
+export class InsertNewAndUpdateSeqSomething implements InsertNewAndUpdateSeq {
+    seqTableName: string
+    seqIdName: string
+    insertTableName: string
+    insertValues: string[]
+    insertKeys: string[]
     constructor(
         seqTableName: string,
         seqIdName: string,
@@ -28,50 +30,42 @@ export class InsertNewAndUpdateSeqSomething {
         this.insertTableName = insertTableName
         this.insertKeys = insertKeys
         this.insertValues = insertValues
-        this.dbConfig = dbConfig
     }
-
+    SQLForConfirmIsNotExist = () => {
+        const selectMakerForLogin = new SelectMakerForLogin('user_login')
+        return selectMakerForLogin.forLogin(this.insertKeys[0], this.insertKeys[1])
+    }
+    confirmIsNotExist = async (): Promise<boolean> => {
+        const mySqlConnecter = new MysqlConnecter()
+        return mySqlConnecter.returnConnection()
+        .then(async(connection:mysql.Connection|false)=>{
+            if(connection){
+                const confirmNotExist = await connection.query(this.SQLForConfirmIsNotExist())
+                const checker = new DBResultChecker()
+                return checker.isEmpty(confirmNotExist)
+            }
+            return false
+        })
+    }
     SQLForInsertNew = () => {
         const insertMaker = new InsertMakerForSomething()
         const insertInfo = insertMaker.makeInsertInfo(
             this.insertTableName,
             this.insertKeys,
-            this.addIdForInsertValues()
+            this.addIdDataToInsertValues()
         )
         return insertMaker.outputSQL(insertInfo)
     }
     SQLForUpdateSeqTable = () => {
         return `UPDATE ${this.seqTableName} SET ${this.seqIdName} = (${this.seqIdName} + 1)`
     }
-    addIdForInsertValues = (): string[] => {
+    addIdDataToInsertValues = (): string[] => {
         return [...this.insertValues, `(SELECT ${this.seqIdName} from ${this.seqTableName})`]
     }
-    SQLForConfirmIsNotExist = () => {
-        const selectMakerForLogin = new SelectMakerForLogin('user_login')
-        return selectMakerForLogin.forLogin(this.insertKeys[0], this.insertKeys[1])
-    }
-    createConnection = async (): Promise<mysql.Connection | false> => {
-        try {
-            const connection = await mysql.createConnection(this.dbConfig)
-            return connection
-        } catch (e) {
-            return false
-        }
-    }
-    confirmIsNotExist = async (connection: mysql.Connection): Promise<boolean | SQLError> => {
-        try {
-            const confirmNotExist = await connection.query(this.SQLForConfirmIsNotExist())
-            // const checker = new DBResultCaster()
-            // if(this.isSelectResult(confirmNotExist)){
-            //     return false
-            // }
-        } catch (e) {
-            console.log(e)
-            return false
-        }
-        return true
-    }
+    
+    run = async()=>{
 
+    }
     // run = async()=> {
     //     const promiseConnection = this.createConnection()
     //     promiseConnection.then((connection:false|mysql.Connection)=>{
