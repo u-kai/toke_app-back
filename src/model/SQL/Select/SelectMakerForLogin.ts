@@ -1,8 +1,8 @@
 import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
 
 export class SelectMakerForLogin extends SelectMakerForSomething {
-    constructor(tableName: string) {
-        super(tableName)
+    constructor() {
+        super("user_login")
     }
     private makeLoginSelectInfo = (userName: string, password: string) => {
         return this.makeSelectInfo(['*'], ['name', 'password'], [userName, password], ['AND'])

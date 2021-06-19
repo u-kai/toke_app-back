@@ -1,5 +1,4 @@
 import * as express from 'express'
-import { dbConfig } from 'datas/dbConfig'
 import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
 import { InsertMakerForNewRequest } from 'model/SQL/Insert/InsertMakerForNewRequest'
@@ -8,7 +7,7 @@ import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForRequestMembers'
 import { SQLInfoMaker } from 'model/SQL/SQLInfoMaker'
 export const router = express.Router()
-const mysqlExecuter = new MysqlExecuter(dbConfig)
+const mysqlExecuter = new MysqlExecuter()
 
 router.post('/', (req: express.Request, res: express.Response) => {
     const purpose: string = req.body.purpose

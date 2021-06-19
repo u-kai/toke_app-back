@@ -1,5 +1,4 @@
 import * as express from 'express'
-import { dbConfig } from 'datas/dbConfig'
 import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
 import { SelectMakerForLogin } from 'model/SQL/Select/SelectMakerForLogin'
@@ -7,7 +6,7 @@ import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerFori
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { InsertMakerForCaseIsAttendResponseTrue } from 'model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue'
 export const router = express.Router()
-const mysqlExecuter = new MysqlExecuter(dbConfig)
+const mysqlExecuter = new MysqlExecuter()
 
 router.post('/', (req: express.Request, res: express.Response) => {
     const userId: string = req.body.userId

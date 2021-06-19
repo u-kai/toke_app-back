@@ -1,4 +1,5 @@
 import {DBReturn} from "types/backend-return-types/DBReturn"
+
 export interface InsertNewAndUpdateSeq{
     seqTableName: string
     seqIdName: string
@@ -9,5 +10,6 @@ export interface InsertNewAndUpdateSeq{
     SQLForConfirmIsNotExist:()=>string
     SQLForInsertNew:()=>string
     SQLForUpdateSeqTable:()=>string
+    confirmIsNotExist:()=>Promise<boolean>
     run:()=>DBReturn
 }

@@ -1,5 +1,4 @@
 import * as express from 'express'
-import { dbConfig } from 'datas/dbConfig'
 import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { SelectMaker } from 'model/SQL/Select/SelectMaker'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
@@ -10,7 +9,7 @@ import { SelectMakerForSchedule } from 'model/SQL/Select/SelectMakerForSchedule'
 import { DBResultCaster } from 'model/DBResultCaster'
 import e = require('express')
 export const router = express.Router()
-const mysqlExecuter = new MysqlExecuter(dbConfig)
+const mysqlExecuter = new MysqlExecuter()
 
 router.post('/count', (req: express.Request, res: express.Response) => {
     const user_id: string = req.body.user_id
