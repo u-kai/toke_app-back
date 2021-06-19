@@ -7,6 +7,7 @@ import * as isAttendResponse from 'routers/isAttendResponse'
 import * as getMembers from 'routers/getMembers'
 import * as newUserRegist from 'routers/newUserRegist'
 import * as newEventRegist from 'routers/newEventRegist'
+import * as newGroupRegist from "routers/newGroupRegist"
 const app = express()
 app.use(
     bodyParser.urlencoded({
@@ -24,6 +25,7 @@ app.use('/isAttendResponse', isAttendResponse.router)
 app.use('/newEventRegist', newEventRegist.router)
 app.use('/getMembers', getMembers.router)
 app.use('/newUserRegist', newUserRegist.router)
+app.use('/newGroupRegist', newGroupRegist.router)
 app.post('/', (req: express.Request, res: express.Response) => {
     const data = req.body
     console.log(data)
