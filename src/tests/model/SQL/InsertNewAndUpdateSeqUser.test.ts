@@ -1,11 +1,11 @@
-import { InsertNewAndUpdateSeqSomething } from 'model/SQL/InsertNewAndUpdateSeqSomething'
+import { InsertNewAndUpdateSeqUser } from 'model/SQL/InsertNewAndUpdateSeqUser'
 
 const seqTable = 'seq_user_id'
 const seqIdName = 'seq_user_id'
 const insertTableName = 'user_login'
 const insertKeys = ['name', 'password', 'user_id']
 const insertValues = ['kai', 'kaitest']
-const insertNewTest = new InsertNewAndUpdateSeqSomething(seqTable, seqIdName, insertTableName, insertKeys, insertValues)
+const insertNewTest = new InsertNewAndUpdateSeqUser(insertValues)
 
 const currentId = 1
 const SQLForConfirmNotExist = `SELECT * FROM user_login WHERE name = 'kai' AND password = 'kaitest'`

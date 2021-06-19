@@ -7,7 +7,7 @@ import { SelectResult } from 'types/backend-return-types/SelectResult'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { SelectMakerForSchedule } from 'model/SQL/Select/SelectMakerForSchedule'
 import { DBResultCaster } from 'model/DBResultCaster'
-import e = require('express')
+
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()
 

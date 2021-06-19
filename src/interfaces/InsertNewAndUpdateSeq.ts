@@ -4,12 +4,12 @@ export interface InsertNewAndUpdateSeq{
     seqTableName: string
     seqIdName: string
     insertTableName: string
-    insertValues: string[]
+    insertValuesInsufficientId: string[]
     insertKeys: string[]
     addIdDataToInsertValues:()=>string[]
     SQLForConfirmIsNotExist:()=>string
     SQLForInsertNew:()=>string
     SQLForUpdateSeqTable:()=>string
     confirmIsNotExist:()=>Promise<boolean>
-    run:()=>DBReturn
+    run:()=>Promise<DBReturn>
 }

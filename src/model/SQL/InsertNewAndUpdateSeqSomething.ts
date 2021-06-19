@@ -12,28 +12,30 @@ import { DBReturn } from 'types/backend-return-types/DBReturn'
 import {MysqlConnecter} from "model/SQL/MysqlConnecter"
 import {InsertNewAndUpdateSeq} from "interfaces/InsertNewAndUpdateSeq"
 import { DBResultChecker } from 'model/DBResultChecker'
+import { MysqlExecuter } from './MysqlExecuter'
 export class InsertNewAndUpdateSeqSomething implements InsertNewAndUpdateSeq {
     seqTableName: string
     seqIdName: string
     insertTableName: string
-    insertValues: string[]
+    insertValuesInsufficientId: string[]
     insertKeys: string[]
     constructor(
         seqTableName: string,
         seqIdName: string,
         insertTableName: string,
         insertKeys: string[],
-        insertValues: string[]
+        insertValuesInsufficientId: string[]
     ) {
         this.seqTableName = seqTableName
         this.seqIdName = seqIdName
         this.insertTableName = insertTableName
         this.insertKeys = insertKeys
-        this.insertValues = insertValues
+        this.insertValuesInsufficientId = insertValuesInsufficientId
     }
     SQLForConfirmIsNotExist = () => {
-        const selectMakerForLogin = new SelectMakerForLogin('user_login')
-        return selectMakerForLogin.forLogin(this.insertKeys[0], this.insertKeys[1])
+        // const selectMakerForLogin = new SelectMakerForLogin()
+        // return selectMakerForLogin.forLogin(this.insertKeys[0], this.insertKeys[1])
+        return "each select statement"
     }
     confirmIsNotExist = async (): Promise<boolean> => {
         const mySqlConnecter = new MysqlConnecter()
@@ -60,11 +62,25 @@ export class InsertNewAndUpdateSeqSomething implements InsertNewAndUpdateSeq {
         return `UPDATE ${this.seqTableName} SET ${this.seqIdName} = (${this.seqIdName} + 1)`
     }
     addIdDataToInsertValues = (): string[] => {
-        return [...this.insertValues, `(SELECT ${this.seqIdName} from ${this.seqTableName})`]
+        return [...this.insertValuesInsufficientId, `(SELECT ${this.seqIdName} from ${this.seqTableName})`]
+    }
+
+    insertNewAndUpdateSeq = ():Promise<DBReturn> =>{
+        const mysqlExecuter = new MysqlExecuter()
+        return mysqlExecuter.multiExecutes([
+            this.SQLForInsertNew(),
+            this.SQLForUpdateSeqTable()
+        ])
     }
     
-    run = async()=>{
-
+    run = ()=>{
+        return this.confirmIsNotExist()
+        .then((results:boolean)=>{
+            if(!results){
+                return duplicateEntryError
+            }
+            return this.insertNewAndUpdateSeq()
+        })
     }
     // run = async()=> {
     //     const promiseConnection = this.createConnection()
