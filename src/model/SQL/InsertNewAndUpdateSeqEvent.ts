@@ -12,7 +12,7 @@ const insertKeys = [
     'describes',
     'bring',
     'organizer_id',
-    'organizer',
+    'organizer_name',
     'attendance_request_id',
 ]
 export class InsertNewAndUpdateSeqEvent extends InsertNewAndUpdateSeqSomething {
