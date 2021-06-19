@@ -2,8 +2,8 @@ import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { BackendSelectResult } from 'types/backend-return-types/SelectResult'
 import { SQLError } from 'types/backend-return-types/SQLError'
 import { BackendInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
-
-export class BackendReturnDataCaster {
+import {causeUnknownError} from "datas/errors/causeUnknownError"
+export class DBResultCaster {
     dbReturn: DBReturn
     constructor(dbReturn: DBReturn) {
         this.dbReturn = dbReturn
@@ -42,18 +42,25 @@ export class BackendReturnDataCaster {
             otherResutls.changedRows !== undefined
         )
     }
-    castSelect = () => {
+    castSelectResult = () => {
         if (this.isSelectResult(this.dbReturn)) {
             const selectData = this.dbReturn as BackendSelectResult
             return selectData[0]
         }
-        return
+        return //causeUnknownError("undefined error")
     }
     castError = () => {
         if (this.isErrorResult(this.dbReturn) || this.isEmpty(this.dbReturn)) {
             const errorData = this.dbReturn as SQLError
             return errorData
         }
-        return
+        return causeUnknownError("undefined error")
+    }
+    castOtherResult = () => {
+        if(this.isOtherResult(this.dbReturn)) {
+            const otherData = this.dbReturn as BackendInsertUpdateDeleteResult
+            return otherData[0]
+        }
+        return causeUnknownError("undefined error")
     }
 }

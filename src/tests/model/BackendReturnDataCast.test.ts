@@ -1,4 +1,4 @@
-import { BackendReturnDataCast } from 'model/BackendReturnDataCaster'
+import { DBResultCaster } from 'model/DBResultCaster'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 
 const dataCaseSelect: DBReturn = [
@@ -9,7 +9,7 @@ const dataCaseSelect: DBReturn = [
         },
     ],
 ]
-const dataCast = new BackendReturnDataCast(dataCaseSelect)
+const dataCast = new DBResultCaster(dataCaseSelect)
 const castSelect = dataCast.castSelect()
 
 it('test select cast', () => {

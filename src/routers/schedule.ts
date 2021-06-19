@@ -7,7 +7,7 @@ import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { SelectResult } from 'types/backend-return-types/SelectResult'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { SelectMakerForSchedule } from 'model/SQL/Select/SelectMakerForSchedule'
-import { BackendReturnDataCaster } from 'model/BackendReturnDataCaster'
+import { DBResultCaster } from 'model/DBResultCaster'
 import e = require('express')
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter(dbConfig)
@@ -30,14 +30,14 @@ router.post('/ids', (req: express.Request, res: express.Response) => {
     const sql = selectMakerForIds.SQLForAttendanceRequestsIds()
     console.log('ids', sql)
     mysqlExecuter.execute(sql).then((results: DBReturn) => {
-        const backendReturnDataCaster = new BackendReturnDataCaster(results)
+        const backendReturnDataCaster = new DBResultCaster(results)
         const errorData = backendReturnDataCaster.castError()
         if (errorData) {
             const backendReturnDataMaker = new BackendReturnDataMaker(errorData)
             console.log(backendReturnDataMaker.createData())
             res.json(backendReturnDataMaker.createData())
         }
-        const selectData = backendReturnDataCaster.castSelect()
+        const selectData = backendReturnDataCaster.castSelectResult()
         if (selectData) {
             console.log('selectData', selectData)
             const ids = selectData.map((select) => {

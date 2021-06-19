@@ -2,13 +2,19 @@ import { InsertMakerForSomething } from "./Insert/InsertMakerForSomething"
 import * as mysql from "mysql2/promise"
 import {dbConfig} from "datas/dbConfig"
 import {SelectMakerForLogin} from "model/SQL/Select/SelectMakerForLogin"
+import { connect } from "http2"
+import {createConnectionError} from "datas/errors/createConnectionError"
+import { SQLError } from "types/backend-return-types/SQLError"
+import {duplicateEntryError} from "datas/errors/duplicateEntryError"
+import {causeUnknownError} from "datas/errors/causeUnknownError"
+import {BackendSelectResult} from "types/backend-return-types/SelectResult"
 export class InsertNewAndUpdateSeqSomething{
-    seqTableName:string
-    seqIdName:string
-    insertTableName:string
-    insertValues:string[]
-    insertKeys:string[]
-    dbConfig:{}
+    private seqTableName:string
+    private seqIdName:string
+    private insertTableName:string
+    private insertValues:string[]
+    private insertKeys:string[]
+    private dbConfig:{}
     constructor(seqTableName:string,seqIdName:string,insertTableName:string,insertKeys:string[],insertValues:string[]){
         this.seqTableName = seqTableName
         this.seqIdName = seqIdName
@@ -26,32 +32,80 @@ export class InsertNewAndUpdateSeqSomething{
     }
     SQLForInsertNew = (insertId:number) => {
         const insertMaker = new InsertMakerForSomething()
-        const insertInfo = insertMaker.makeInsertInfo(this.insertTableName,this.insertKeys,this.addInsertIdInfoForValues(insertId.toString()))
+        const insertInfo = insertMaker.makeInsertInfo(this.insertTableName,this.insertKeys,this.addIdForInsertValues(insertId.toString()))
         return insertMaker.outputSQL(insertInfo)
     }
-    addInsertIdInfoForValues = (insertId:string):string[] => {
+    addIdForInsertValues = (insertId:string):string[] => {
         return [...this.insertValues,insertId]
     }
     SQLForConfirmNotExist = () => {
         const selectMakerForLogin = new SelectMakerForLogin("user_login")
         return selectMakerForLogin.forLogin(this.insertKeys[0],this.insertKeys[1])
     }
-    run = async()=> {
-        let connection:mysql.Connection
+    createConnection = async():Promise<mysql.Connection|false> => {
         try{
-            connection = await mysql.createConnection(this.dbConfig)
+            const connection = await mysql.createConnection(this.dbConfig)
+            return connection
         }catch(e){
-            return e
+            return false
         }
+    }
+    confirmNotExist = async(connection:mysql.Connection):Promise<boolean|SQLError> => {
         try{
             const confirmNotExist = await connection.query(this.SQLForConfirmNotExist())
             if(this.isSelectResult(confirmNotExist)){
-                return {
-                    code: '1',
-                    sqlMessage: 'データが既に存在しています．別の名前，パスワードを設定してください',
-                    sqlState: '',
-                    errno: -2000,
+                return false
+            }
+        }catch(e){
+            console.log(e)
+            return causeUnknownError(e)
+        }
+        return true
+    }   
+    returnCurrentId = async(connection:mysql.Connection) => {
+        try{
+            return connection.query(this.SQLForGetCurrentSeqId())
+            .then((selects)=>{
+                if(this.isSelectResult(selects)){
+                    const results = selects as BackendSelectResult
+                    const currentId = Object.values(results[0][0])[0]
+                    if(typeof currentId === "number"){
+                        return currentId
+                    }
+                    return causeUnknownError("")
                 }
+                return causeUnknownError("")
+            })
+        }catch(e){
+            return causeUnknownError(e)
+        }
+    }
+    run = async()=> {
+        // let connection:mysql.Connection
+        // try{
+        //     connection = await mysql.createConnection(this.dbConfig)
+        // }catch(e){
+        //     return e
+        // }
+        const primiseConnection = this.createConnection()
+        primiseConnection.then((connection)=>{
+            if(connection){
+                this.confirmNotExist(connection)
+                .then((confirmResults:boolean|SQLError)=>{
+                    if(!confirmResults){
+                        return duplicateEntryError
+                    }
+                    if(confirmResults === true){
+                        const getCurrentId = 
+                    }
+                })
+            }
+            return createConnectionError
+        })
+        try{
+            const confirmNotExist = await connection.query(this.SQLForConfirmNotExist())
+            if(this.isSelectResult(confirmNotExist)){
+                return duplicateEntryError
             }
             let results = await connection.query(this.SQLForGetCurrentSeqId())
             if(this.isSelectResult(results)){
