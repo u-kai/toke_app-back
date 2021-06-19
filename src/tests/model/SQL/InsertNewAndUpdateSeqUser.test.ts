@@ -14,9 +14,10 @@ const sqlForUpdateSeq = `UPDATE ${seqTable} SET ${seqIdName} = (${seqIdName} + 1
 it('test confirm not exist', () => {
     expect(insertNewTest.SQLForConfirmIsNotExist()).toBe(SQLForConfirmNotExist)
 })
+it('test insert new', () => {
+    expect(insertNewTest.SQLForInsertNew()).toBe(SQLForInsertNew)
+})
 it('test updateSeq', () => {
     expect(insertNewTest.SQLForUpdateSeqTable()).toBe(sqlForUpdateSeq)
 })
-// it('test insert new', () => {
-//     expect(insertNewTest.SQLForInsertNew(currentId + 1)).toBe(SQLForInsertNew)
-// })
+

@@ -6,8 +6,8 @@ export class InsertMakerForSomething {
         const insertInfoMaker = new SQLInfoMaker(tableName)
         return insertInfoMaker.makeInsertInfo(insertKeys, insertValues)
     }
-    outputSQL = (insertInfo: InsertInfo) => {
+    outputSQL = (insertInfo: InsertInfo,sqlStatementIndex?:number) => {
         const insertMaker = new InsertMaker(insertInfo)
-        return insertMaker.outputSQL()
+        return insertMaker.outputSQL(sqlStatementIndex)
     }
 }
