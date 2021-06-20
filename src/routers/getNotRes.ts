@@ -7,13 +7,16 @@ import { SelectResult } from 'types/backend-return-types/SelectResult'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { SelectMakerForSchedule } from 'model/SQL/Select/SelectMakerForSchedule'
 import { DBResultCaster } from 'model/DBResultCaster'
+import {SelectMakerForGetRequests} from "model/SQL/Select/SelectMakerForGetRequests"
+
 
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()
 
 router.post('/count', (req: express.Request, res: express.Response) => {
     const userId: string = req.body.userId
-    const selectMakerForCount = new SelectMakerForSchedule(userId)
+    const isResponse = false
+    const selectMakerForCount = new SelectMakerForGetRequests(userId,isResponse)
     const sql = selectMakerForCount.SQLForAttendanceRequestsCount()
     console.log("count",sql)
     mysqlExecuter.execute(sql).then((count: DBReturn) => {
