@@ -14,25 +14,33 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const attendanceRequestId: string = req.body.attendanceRequestId
     const isAttend: 'true' | 'false' = req.body.isAttend
     const message: string = req.body.message
-    const updateMakerForIsAttendResponse = new UpdateMakerForIsAttendResponse(userId, attendanceRequestId, isAttend, message)
+    const updateMakerForIsAttendResponse = new UpdateMakerForIsAttendResponse(
+        userId,
+        attendanceRequestId,
+        isAttend,
+        message
+    )
     const updateIsAttendResponseSql = updateMakerForIsAttendResponse.SQLForIsAttendResponse()
-    if(isAttend === "true"){
-        const insertMakerForCaseIsAttendResponseTrue = new InsertMakerForCaseIsAttendResponseTrue([userId, attendanceRequestId])
-        const insertCaseIsAttendTrueSql  = insertMakerForCaseIsAttendResponseTrue.SQLForCaseIsAttendResponseTrue()
-        const sqls = [updateIsAttendResponseSql,insertCaseIsAttendTrueSql]
+    if (isAttend === 'true') {
+        const insertMakerForCaseIsAttendResponseTrue = new InsertMakerForCaseIsAttendResponseTrue([
+            userId,
+            attendanceRequestId,
+        ])
+        const insertCaseIsAttendTrueSql = insertMakerForCaseIsAttendResponseTrue.SQLForCaseIsAttendResponseTrue()
+        const sqls = [updateIsAttendResponseSql, insertCaseIsAttendTrueSql]
         console.log(sqls)
-        mysqlExecuter.multiExecutes(sqls).then((data:DBReturn)=>{
+        mysqlExecuter.multiExecutes(sqls).then((data: DBReturn) => {
             const insertAndBackendReturnDataMaker = new BackendReturnDataMaker(data)
             const responseData = insertAndBackendReturnDataMaker.createData()
             res.json(responseData)
         })
     }
-    if(isAttend === "false"){
-        const deleteMakerForChangeAbsent = new DeleteMakerForChangeAbsent(userId,attendanceRequestId)
+    if (isAttend === 'false') {
+        const deleteMakerForChangeAbsent = new DeleteMakerForChangeAbsent(userId, attendanceRequestId)
         const deleteSql = deleteMakerForChangeAbsent.SQLForChangeAbsent()
-        const sqls = [updateIsAttendResponseSql,deleteSql]
+        const sqls = [updateIsAttendResponseSql, deleteSql]
         console.log(sqls)
-        mysqlExecuter.multiExecutes(sqls).then((data:DBReturn)=>{
+        mysqlExecuter.multiExecutes(sqls).then((data: DBReturn) => {
             const updateAndDeleteDataMaker = new BackendReturnDataMaker(data)
             const responseData = updateAndDeleteDataMaker.createData()
             res.json(responseData)

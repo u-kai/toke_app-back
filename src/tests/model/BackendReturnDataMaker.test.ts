@@ -35,7 +35,7 @@ const emptyError: SQLError = {
     errno: -1000,
 }
 const selectResultEmpty: DBSelectResult = [[], [{}]]
-const success:Success = [[{success:"success"}]]
+const success: Success = [[{ success: 'success' }]]
 
 const backendReturnMakerCaseError = new BackendReturnDataMaker(error)
 const dataCaseError = backendReturnMakerCaseError.createData()
@@ -62,6 +62,6 @@ it('case Other', () => {
 
 const backendReturnMakerCaseSuccess = new BackendReturnDataMaker(success)
 const dataCaseSuccess = backendReturnMakerCaseSuccess.createData()
-it("case success",()=>{
-    expect(dataCaseSuccess).toStrictEqual({status:200,results:{success:success[0]}})
+it('case success', () => {
+    expect(dataCaseSuccess).toStrictEqual({ status: 200, results: { success: success[0] } })
 })

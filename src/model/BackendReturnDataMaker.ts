@@ -35,7 +35,7 @@ export class BackendReturnDataMaker {
     private caseSuccess = () => {
         const successInfos = this.dbReturnData as Success
         const result = successInfos[0]
-        return {status:200, results:{success:result}}
+        return { status: 200, results: { success: result } }
     }
     private caseOther = () => {
         const otherInfos = this.dbReturnData as DBInsertUpdateDeleteResult
@@ -53,7 +53,7 @@ export class BackendReturnDataMaker {
         if (checker.isErrorResult(this.dbReturnData)) {
             return this.caseError()
         }
-        if(checker.isSuccessResult(this.dbReturnData)){
+        if (checker.isSuccessResult(this.dbReturnData)) {
             return this.caseSuccess()
         }
         if (checker.isSelectResult(this.dbReturnData)) {

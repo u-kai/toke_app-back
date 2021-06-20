@@ -11,7 +11,7 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const password: string = req.body.password
     const selectMakerForLogin = new SelectMakerForLogin()
     const sql = selectMakerForLogin.forLogin(userName, password)
-    mysqlExecuter.execute(sql).then((data:DBReturn) => {
+    mysqlExecuter.execute(sql).then((data: DBReturn) => {
         const backendReturnDataMaker = new BackendReturnDataMaker(data)
         res.json(backendReturnDataMaker.createData())
     })

@@ -1,8 +1,8 @@
-import {SelectMakerForGetRequestsIds} from "model/SQL/Select/SelectMakerForGetRequestsIds"
+import { SelectMakerForGetRequestsIds } from 'model/SQL/Select/SelectMakerForGetRequestsIds'
 
 const userId = '0'
 const res = false
-const selectMaker = new SelectMakerForGetRequestsIds(userId,res)
+const selectMaker = new SelectMakerForGetRequestsIds(userId, res)
 const sqlForNotResIds = selectMaker.sql()
 it('test info ids sql', () => {
     expect(sqlForNotResIds).toBe(

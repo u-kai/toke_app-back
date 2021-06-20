@@ -1,9 +1,9 @@
 import { SelectInfo } from 'types/DB-types/SelectInfo'
 import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
-export class SelectMakerForGetRequestsIds extends SelectMakerForSomething{
-    private userId:string
-    private isResponse:boolean
-    constructor(userId:string,isResponse:boolean){
+export class SelectMakerForGetRequestsIds extends SelectMakerForSomething {
+    private userId: string
+    private isResponse: boolean
+    constructor(userId: string, isResponse: boolean) {
         super('user_attendance_requests_info')
         this.userId = userId
         this.isResponse = isResponse

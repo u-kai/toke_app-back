@@ -13,21 +13,29 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const attendanceRequestId: string = req.body.attendanceRequestId
     const isAttend: 'true' | 'false' = req.body.isAttend
     const message: string = req.body.message
-    const updateMakerForIsAttendResponse = new UpdateMakerForIsAttendResponse(userId, attendanceRequestId, isAttend, message)
+    const updateMakerForIsAttendResponse = new UpdateMakerForIsAttendResponse(
+        userId,
+        attendanceRequestId,
+        isAttend,
+        message
+    )
     const updateIsAttendResponseSql = updateMakerForIsAttendResponse.SQLForIsAttendResponse()
-    if(isAttend === "true"){
-        const insertMakerForCaseIsAttendResponseTrue = new InsertMakerForCaseIsAttendResponseTrue([userId, attendanceRequestId])
-        const insertCaseIsAttendTrueSql  = insertMakerForCaseIsAttendResponseTrue.SQLForCaseIsAttendResponseTrue()
-        const sqls = [updateIsAttendResponseSql,insertCaseIsAttendTrueSql]
-        mysqlExecuter.multiExecutes(sqls).then((data:DBReturn)=>{
+    if (isAttend === 'true') {
+        const insertMakerForCaseIsAttendResponseTrue = new InsertMakerForCaseIsAttendResponseTrue([
+            userId,
+            attendanceRequestId,
+        ])
+        const insertCaseIsAttendTrueSql = insertMakerForCaseIsAttendResponseTrue.SQLForCaseIsAttendResponseTrue()
+        const sqls = [updateIsAttendResponseSql, insertCaseIsAttendTrueSql]
+        mysqlExecuter.multiExecutes(sqls).then((data: DBReturn) => {
             const insertAndBackendReturnDataMaker = new BackendReturnDataMaker(data)
             const responseData = insertAndBackendReturnDataMaker.createData()
             res.json(responseData)
         })
     }
-    if(isAttend === "false"){
-        console.log("isattned",updateIsAttendResponseSql)
-        mysqlExecuter.execute(updateIsAttendResponseSql).then((data:DBReturn)=>{
+    if (isAttend === 'false') {
+        console.log('isattned', updateIsAttendResponseSql)
+        mysqlExecuter.execute(updateIsAttendResponseSql).then((data: DBReturn) => {
             const onlyUpdateDataMaker = new BackendReturnDataMaker(data)
             const responseData = onlyUpdateDataMaker.createData()
             res.json(responseData)
