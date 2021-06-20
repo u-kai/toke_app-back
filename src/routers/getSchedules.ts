@@ -12,9 +12,10 @@ export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()
 
 router.post('/count', (req: express.Request, res: express.Response) => {
-    const user_id: string = req.body.user_id
-    const selectMakerForCount = new SelectMakerForSchedule(user_id)
+    const userId: string = req.body.userId
+    const selectMakerForCount = new SelectMakerForSchedule(userId)
     const sql = selectMakerForCount.SQLForAttendanceRequestsCount()
+    console.log("count",sql)
     mysqlExecuter.execute(sql).then((count: DBReturn) => {
         const backendReturnDataMaker = new BackendReturnDataMaker(count)
         res.json(backendReturnDataMaker.createData())
@@ -22,8 +23,8 @@ router.post('/count', (req: express.Request, res: express.Response) => {
 })
 
 router.post('/ids', (req: express.Request, res: express.Response) => {
-    const user_id: string = req.body.user_id
-    const selectMakerForIds = new SelectMakerForSchedule(user_id)
+    const userId: string = req.body.userId
+    const selectMakerForIds = new SelectMakerForSchedule(userId)
     const sql = selectMakerForIds.SQLForAttendanceRequestsIds()
     console.log('ids', sql)
     mysqlExecuter.execute(sql).then((results: DBReturn) => {
@@ -43,7 +44,7 @@ router.post('/ids', (req: express.Request, res: express.Response) => {
                     return 'error'
                 }
             })
-            const selectMakerForInfos = new SelectMakerForSchedule(user_id)
+            const selectMakerForInfos = new SelectMakerForSchedule(userId)
             const sql = selectMakerForInfos.SQLForAttendanceRequestsInfos(ids)
             console.log('info', sql)
             mysqlExecuter.execute(sql).then((results: DBReturn) => {

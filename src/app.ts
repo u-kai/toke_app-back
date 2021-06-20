@@ -3,7 +3,7 @@ import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
 import * as getSchedules from 'routers/getSchedules'
 import * as login from 'routers/login'
-import * as isAttendResponse from 'routers/isAttendResponse'
+import * as newAttendResponseRegist from 'routers/newAttendResponseRegist'
 import * as getMembers from 'routers/getMembers'
 import * as newUserRegist from 'routers/newUserRegist'
 import * as newEventRegist from 'routers/newEventRegist'
@@ -22,7 +22,7 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use('/getSchedules', getSchedules.router)
 app.use('/login', login.router)
-app.use('/isAttendResponse', isAttendResponse.router)
+app.use('/newAttendResponseRegist', newAttendResponseRegist.router)
 app.use('/newEventRegist', newEventRegist.router)
 app.use('/getMembers', getMembers.router)
 app.use("/getGroups",getGroups.router)

@@ -20,7 +20,7 @@ router.post('/', (req: express.Request, res: express.Response) => {
         const insertMakerForCaseIsAttendResponseTrue = new InsertMakerForCaseIsAttendResponseTrue([userId, attendanceRequestId])
         const insertCaseIsAttendTrueSql  = insertMakerForCaseIsAttendResponseTrue.SQLForCaseIsAttendResponseTrue()
         const sqls = [updateIsAttendResponseSql,insertCaseIsAttendTrueSql]
-        console.log("ue",sqls)
+        console.log(sqls)
         mysqlExecuter.multiExecutes(sqls).then((data:DBReturn)=>{
             const insertAndBackendReturnDataMaker = new BackendReturnDataMaker(data)
             const responseData = insertAndBackendReturnDataMaker.createData()
