@@ -11,7 +11,9 @@ export class InsertMakerForRequestMembers {
         return '(user_id,attendance_request_id,is_attendance,is_response,message)'
     }
     createValues = () => {
-        const values = this.memberIds.map((id) => `('${id}',(SELECT seq_event_id FROM seq_event_id),'false','false','')`)
+        const values = this.memberIds.map(
+            (id) => `('${id}',(SELECT seq_event_id FROM seq_event_id),'false','false','')`
+        )
         return values.join(',')
     }
     SQLForRequestMembers = () => {

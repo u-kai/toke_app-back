@@ -68,8 +68,7 @@ export class InsertNewAndUpdateSeqSomething implements InsertNewAndUpdateSeq {
     }
 
     run = async () => {
-        return await this.confirmIsNotExist()
-        .then((results: boolean) => {
+        return await this.confirmIsNotExist().then((results: boolean) => {
             if (results === false) {
                 return duplicateEntryError
             }

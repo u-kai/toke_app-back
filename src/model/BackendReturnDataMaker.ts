@@ -6,6 +6,7 @@ import {
     DBInsertUpdateDeleteResult,
 } from 'types/backend-return-types/InsertUpdateDeleteResult'
 import { DBResultChecker } from 'model/DBResultChecker'
+import { Success } from 'types/backend-return-types/Success'
 export class BackendReturnDataMaker {
     private dbReturnData: DBReturn
     constructor(dbReturnData: DBReturn) {
@@ -31,6 +32,11 @@ export class BackendReturnDataMaker {
         const results: SelectResult = selectInfos[0]
         return { status: 200, results: { select: results } }
     }
+    private caseSuccess = () => {
+        const successInfos = this.dbReturnData as Success
+        const result = successInfos[0]
+        return {status:200, results:{success:result}}
+    }
     private caseOther = () => {
         const otherInfos = this.dbReturnData as DBInsertUpdateDeleteResult
         const results: InsertUpdateDeleteResult = otherInfos[0]
@@ -46,6 +52,9 @@ export class BackendReturnDataMaker {
         }
         if (checker.isErrorResult(this.dbReturnData)) {
             return this.caseError()
+        }
+        if(checker.isSuccessResult(this.dbReturnData)){
+            return this.caseSuccess()
         }
         if (checker.isSelectResult(this.dbReturnData)) {
             return this.caseSelect()

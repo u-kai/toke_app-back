@@ -24,6 +24,9 @@ export class DBResultCaster extends DBResultChecker {
         }
         return false
     }
+    castEmpty = () => {
+        
+    }
     castOtherResult = () => {
         if (this.isOtherResult(this.dbReturn)) {
             const otherData = this.dbReturn as DBInsertUpdateDeleteResult

@@ -36,7 +36,7 @@ export class MysqlExecuter {
         try {
             for (const i in sqls) {
                 await connection.query(sqls[i])
-                console.log("clear",i)
+                console.log('clear', i)
             }
             console.log('all success1')
             await connection.commit()
