@@ -9,6 +9,7 @@ import * as newUserRegist from 'routers/newUserRegist'
 import * as newEventRegist from 'routers/newEventRegist'
 import * as newGroupRegist from 'routers/newGroupRegist'
 import * as getGroups from "routers/getGroups"
+import * as changResponse from "routers/changeResponse"
 import * as socketIo from 'socket.io'
 import * as http from 'http'
 const app = express()
@@ -27,6 +28,7 @@ app.use('/getMembers', getMembers.router)
 app.use("/getGroups",getGroups.router)
 app.use('/newUserRegist', newUserRegist.router)
 app.use('/newGroupRegist', newGroupRegist.router)
+app.use("/changeResponse",changResponse.router)
 const server = http.createServer(app)
 export const io: socketIo.Server = new socketIo.Server(server, {
     cors: {

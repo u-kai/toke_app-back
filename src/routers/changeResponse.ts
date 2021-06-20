@@ -4,6 +4,7 @@ import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
 import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerForisAttendResponse'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { InsertMakerForCaseIsAttendResponseTrue } from 'model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue'
+import { DeleteMakerForChangeAbsent } from 'model/SQL/Delete/DeleteMakerForChangeAbsent'
 
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()
@@ -19,6 +20,7 @@ router.post('/', (req: express.Request, res: express.Response) => {
         const insertMakerForCaseIsAttendResponseTrue = new InsertMakerForCaseIsAttendResponseTrue([userId, attendanceRequestId])
         const insertCaseIsAttendTrueSql  = insertMakerForCaseIsAttendResponseTrue.SQLForCaseIsAttendResponseTrue()
         const sqls = [updateIsAttendResponseSql,insertCaseIsAttendTrueSql]
+        console.log("ue",sqls)
         mysqlExecuter.multiExecutes(sqls).then((data:DBReturn)=>{
             const insertAndBackendReturnDataMaker = new BackendReturnDataMaker(data)
             const responseData = insertAndBackendReturnDataMaker.createData()
@@ -26,10 +28,13 @@ router.post('/', (req: express.Request, res: express.Response) => {
         })
     }
     if(isAttend === "false"){
-        console.log("isattned",updateIsAttendResponseSql)
-        mysqlExecuter.execute(updateIsAttendResponseSql).then((data:DBReturn)=>{
-            const onlyUpdateDataMaker = new BackendReturnDataMaker(data)
-            const responseData = onlyUpdateDataMaker.createData()
+        const deleteMakerForChangeAbsent = new DeleteMakerForChangeAbsent(userId,attendanceRequestId)
+        const deleteSql = deleteMakerForChangeAbsent.SQLForChangeAbsent()
+        const sqls = [updateIsAttendResponseSql,deleteSql]
+        console.log(sqls)
+        mysqlExecuter.multiExecutes(sqls).then((data:DBReturn)=>{
+            const updateAndDeleteDataMaker = new BackendReturnDataMaker(data)
+            const responseData = updateAndDeleteDataMaker.createData()
             res.json(responseData)
         })
     }
