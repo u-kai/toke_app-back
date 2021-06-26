@@ -1,0 +1,24 @@
+import * as express from 'express'
+import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
+import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
+import { DBReturn } from 'types/backend-return-types/DBReturn'
+import { SelectMakerForGetEvents } from 'model/SQL/Select/SelectMakerForGetEvents'
+
+export const router = express.Router()
+const mysqlExecuter = new MysqlExecuter()
+
+router.post('/', (req: express.Request, res: express.Response) => {
+    const organizerId: string = req.body.userId
+    // const selectMakerForEvents = new SelectMakerForGetEvents(userId)
+    // const sql = selectMakerForEvents.SQLForEventInfos()
+    const sql = `select * from attendance_requests where organizer_id = ${organizerId}`
+    console.log('ids', sql)
+    mysqlExecuter.execute(sql).then((results: DBReturn) => {
+        const backendReturnDataMaker = new BackendReturnDataMaker(results)
+        res.json(backendReturnDataMaker.createData())
+    })
+})
+// router.post("/getParticipants",(req:express.Request,res:express.Response)=>{
+//     const attendanceRequestId:string = req.body.attendanceRequestId
+//     const sql = `select user_name from user_info where user_id IN (select participant_id from event_participants where attendance_requests_id = ${attendanceRequestId})`
+// })

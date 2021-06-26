@@ -3,7 +3,7 @@ import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
 import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
 import { DBReturn } from 'types/backend-return-types/DBReturn'
 import { SelectMakerForGetRequests } from 'model/SQL/Select/SelectMakerForGetRequests'
-import { SelectMakerForGetMyEventInfo } from 'model/SQL/Select/SelectMakerForGetMyEvent'
+import { SelectMakerForGetMyEventInfo } from 'model/SQL/Select/SelectMakerForGetEventsByEventIds'
 
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()

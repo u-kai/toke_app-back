@@ -15,6 +15,7 @@ import * as getEvent from "routers/getEvent"
 import * as getPaticipants from "routers/getPaticipants"
 import * as getMyEvents from "routers/getMyEvents"
 import * as getUserName from "routers/getUserName"
+import * as getRequests from "routers/getRequests"
 import * as socketIo from 'socket.io'
 import * as http from 'http'
 const app = express()
@@ -39,6 +40,7 @@ app.use("/getEvent",getEvent.router)
 app.use("/getPaticipants",getPaticipants.router)
 app.use("/getMyEvents",getMyEvents.router)
 app.use("/getUserName",getUserName.router)
+app.use("/getRequests",getRequests.router)
 const server = http.createServer(app)
 export const io: socketIo.Server = new socketIo.Server(server, {
     cors: {
