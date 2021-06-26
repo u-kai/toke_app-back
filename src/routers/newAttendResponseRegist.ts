@@ -38,6 +38,7 @@ router.post('/', (req: express.Request, res: express.Response) => {
         mysqlExecuter.execute(updateIsAttendResponseSql).then((data: DBReturn) => {
             const onlyUpdateDataMaker = new BackendReturnDataMaker(data)
             const responseData = onlyUpdateDataMaker.createData()
+            console.log("change",responseData)
             res.json(responseData)
         })
     }

@@ -2,6 +2,7 @@ import { InsertNewAndUpdateSeqEvent } from 'model/SQL/InsertNewAndUpdateSeqEvent
 import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForRequestMembers'
 import { duplicateEntryError } from 'datas/errors/duplicateEntryError'
 import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
+import { InsertMakerForCaseIsAttendResponseTrue } from './Insert/InsertMakerForCaseIsAttendResponseTrue'
 
 export class NewEventRegister {
     private memberIds: string[]
@@ -14,6 +15,9 @@ export class NewEventRegister {
         const insertMaker = new InsertMakerForRequestMembers(this.memberIds)
         return insertMaker.SQLForRequestMembers()
     }
+    private SQLForInsertOrganizerSelf = () => {
+        const insertMaker = new InsertMakerForCaseIsAttendResponseTrue([])
+    }
     run = async () => {
         return await this.insertNewAndUpdateSeqEvent.confirmIsNotExist().then((results: boolean) => {
             if (results === false) {
@@ -22,6 +26,7 @@ export class NewEventRegister {
             const mysqlExecuter = new MysqlExecuter()
             const sqls: string[] = [
                 this.SQLForInsertRequestMembers(),
+                
                 this.insertNewAndUpdateSeqEvent.SQLForInsertNew(),
                 this.insertNewAndUpdateSeqEvent.SQLForUpdateSeqTable(),
             ]

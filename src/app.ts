@@ -10,6 +10,11 @@ import * as newEventRegist from 'routers/newEventRegist'
 import * as newGroupRegist from 'routers/newGroupRegist'
 import * as getGroups from 'routers/getGroups'
 import * as changResponse from 'routers/changeResponse'
+import * as getResed from "routers/getResed"
+import * as getEvent from "routers/getEvent"
+import * as getPaticipants from "routers/getPaticipants"
+import * as getMyEvents from "routers/getMyEvents"
+import * as getUserName from "routers/getUserName"
 import * as socketIo from 'socket.io'
 import * as http from 'http'
 const app = express()
@@ -21,6 +26,7 @@ app.use(
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/getNotRes', getNotRes.router)
+app.use('/getResed', getResed.router)
 app.use('/login', login.router)
 app.use('/newAttendResponseRegist', newAttendResponseRegist.router)
 app.use('/newEventRegist', newEventRegist.router)
@@ -29,6 +35,10 @@ app.use('/getGroups', getGroups.router)
 app.use('/newUserRegist', newUserRegist.router)
 app.use('/newGroupRegist', newGroupRegist.router)
 app.use('/changeResponse', changResponse.router)
+app.use("/getEvent",getEvent.router)
+app.use("/getPaticipants",getPaticipants.router)
+app.use("/getMyEvents",getMyEvents.router)
+app.use("/getUserName",getUserName.router)
 const server = http.createServer(app)
 export const io: socketIo.Server = new socketIo.Server(server, {
     cors: {
