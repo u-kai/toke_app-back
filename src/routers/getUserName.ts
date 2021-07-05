@@ -10,9 +10,11 @@ const mysqlExecuter = new MysqlExecuter()
 router.post('/', (req: express.Request, res: express.Response) => {
     const userId: string = req.body.userId
     const selectMakerForIds = new SelectMakerForGetMyEventInfo(userId)
-    const sql = `SELECT name from user_login where user_id = ${userId}`
+    const sql = `SELECT name from users_login where user_id = ${userId}`
+    console.log("userName",sql)
     mysqlExecuter.execute(sql).then((results: DBReturn) => {
         const backendReturnDataMaker = new BackendReturnDataMaker(results)
+        console.log("userName",results)
         res.json(backendReturnDataMaker.createData())
     })
 })

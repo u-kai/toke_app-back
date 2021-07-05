@@ -13,7 +13,7 @@ class InsertMakerForCaseIsAttendResponseTrue extends InsertMakerForSomething_1.I
             return this.outputSQL(insertInfo);
         };
         this.tableName = 'event_participants';
-        this.insertKeys = ['participant_id', 'attendance_requests_id'];
+        this.insertKeys = ['participant_id', 'attendance_request_id'];
         this.insertValues = insertValues;
     }
 }

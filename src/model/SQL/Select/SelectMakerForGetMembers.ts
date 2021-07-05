@@ -3,7 +3,7 @@ import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomethin
 export class SelectMakerForGetMembers extends SelectMakerForSomething {
     userId: string
     constructor(userId: string) {
-        super('user_info')
+        super('users_info')
         this.userId = userId
     }
     SQLForGetMembers = () => {

@@ -9,5 +9,5 @@ const forChangeAbsent = new DeleteMakerForChangeAbsent(userId, attendance_reques
 const sql = forChangeAbsent.SQLForChangeAbsent()
 
 it('delete for change absent', () => {
-    expect(sql).toBe("DELETE FROM event_participants WHERE participant_id = '1' AND attendance_requests_id = '1'")
+    expect(sql).toBe("DELETE FROM event_participants WHERE participant_id = '1' AND attendance_request_id = '1'")
 })

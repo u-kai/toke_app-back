@@ -20,5 +20,5 @@ router.post('/', (req: express.Request, res: express.Response) => {
 })
 // router.post("/getParticipants",(req:express.Request,res:express.Response)=>{
 //     const attendanceRequestId:string = req.body.attendanceRequestId
-//     const sql = `select user_name from user_info where user_id IN (select participant_id from event_participants where attendance_requests_id = ${attendanceRequestId})`
+//     const sql = `select user_name from users_info where user_id IN (select participant_id from event_participants where attendance_request_id = ${attendanceRequestId})`
 // })

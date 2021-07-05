@@ -49,7 +49,7 @@ export const io: socketIo.Server = new socketIo.Server(server, {
     },
 })
 // io.on("connection",(socket:socketIo.Socket)=>{
-//     socket.on("setName",(name:string)=>{
+//     socket.on("responseEvent",(:string)=>{
 //         console.log(name)
 //         io.emit("chat message",name)
 //     })

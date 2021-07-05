@@ -4,7 +4,7 @@ exports.SelectMakerForGetMembers = void 0;
 const SelectMakerForSomething_1 = require("model/SQL/Select/SelectMakerForSomething");
 class SelectMakerForGetMembers extends SelectMakerForSomething_1.SelectMakerForSomething {
     constructor(userId) {
-        super('user_info');
+        super('users_info');
         this.SQLForGetMembers = () => {
             return `SELECT user_name,user_id FROM ${this.tableName} WHERE user_id != ${this.userId}`;
         };

@@ -5,7 +5,7 @@ const InsertNewAndUpdateSeqSomething_1 = require("model/SQL/InsertNewAndUpdateSe
 const SelectMakerForLogin_1 = require("./Select/SelectMakerForLogin");
 const seqTableName = 'seq_user_id';
 const seqIdName = 'seq_user_id';
-const insertTableName = 'user_login';
+const insertTableName = 'users_login';
 const insertKeys = ['name', 'password', 'user_id'];
 class InsertNewAndUpdateSeqUser extends InsertNewAndUpdateSeqSomething_1.InsertNewAndUpdateSeqSomething {
     constructor(insertValuesInsufficientId) {

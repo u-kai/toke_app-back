@@ -8,5 +8,5 @@ const list = [userId, attendance_request_id];
 const forChangeAbsent = new DeleteMakerForChangeAbsent_1.DeleteMakerForChangeAbsent(userId, attendance_request_id);
 const sql = forChangeAbsent.SQLForChangeAbsent();
 it('delete for change absent', () => {
-    expect(sql).toBe("DELETE FROM event_participants WHERE participant_id = '1' AND attendance_requests_id = '1'");
+    expect(sql).toBe("DELETE FROM event_participants WHERE participant_id = '1' AND attendance_request_id = '1'");
 });

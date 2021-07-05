@@ -8,5 +8,5 @@ export const dbConfig: DBConfig = {
     user: 'root',
     password: 'oyyg83019%',
     host: 'localhost',
-    database: 'firstwebapp',
+    database: 'toke_app',
 }

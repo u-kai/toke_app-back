@@ -6,7 +6,7 @@ class DeleteMakerForChangeAbsent extends DeleteMakerForSomething_1.DeleteMakerFo
     constructor(userId, attendanceRequestId) {
         super();
         this.makeChangeAbsentDeleteInfo = () => {
-            const whereKeys = ['participant_id', 'attendance_requests_id'];
+            const whereKeys = ['participant_id', 'attendance_request_id'];
             const whereValues = [this.userId, this.attendanceRequestId];
             const whereOperators = ['AND'];
             return this.makeDeleteInfo(this.tableName, whereKeys, whereValues, whereOperators);

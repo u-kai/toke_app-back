@@ -11,6 +11,6 @@ const sql = forIsAttendResponse.SQLForIsAttendResponse()
 
 it('response update test', () => {
     expect(sql).toBe(
-        "UPDATE test SET is_response = 'true',is_attendance = 'true',message = 'this is test' WHERE attendance_requests_id = '1' AND user_id = '1'"
+        "UPDATE test SET is_response = 'true',is_attendance = 'true',message = 'this is test' WHERE attendance_request_id = '1' AND user_id = '1'"
     )
 })

@@ -11,7 +11,7 @@ export class NewUserRegiser {
     constructor(userName: string, password: string) {
         this.userName = userName
         this.password = password
-        this.tableName = 'user_info'
+        this.tableName = 'users_info'
         this.insertNewAndUpdateSeqUser = new InsertNewAndUpdateSeqUser([this.userName, this.password])
     }
     SQLForGetCurrentId = () => {

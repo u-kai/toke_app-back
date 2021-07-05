@@ -7,7 +7,7 @@ const insertValues = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 const insertNewTest = new InsertNewAndUpdateSeqEvent(insertValues)
 
 const currentId = 1
-const SQLForConfirmNotExist = `SELECT * FROM user_login WHERE name = 'kai' AND password = 'kaitest'`
+const SQLForConfirmNotExist = `SELECT * FROM users_login WHERE name = 'kai' AND password = 'kaitest'`
 const SQLForInsertNew = `INSERT INTO ${insertTableName} (name,password,user_id) VALUES('kai','kaitest',(SELECT ${seqIdName} FROM ${seqTableName}))`
 const sqlForUpdateSeq = `UPDATE ${seqTableName} SET ${seqIdName} = (${seqIdName} + 1)`
 it('test confirm not exist', () => {

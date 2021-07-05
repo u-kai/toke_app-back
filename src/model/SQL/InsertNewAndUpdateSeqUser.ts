@@ -3,7 +3,7 @@ import { SelectMakerForLogin } from './Select/SelectMakerForLogin'
 
 const seqTableName = 'seq_user_id'
 const seqIdName = 'seq_user_id'
-const insertTableName = 'user_login'
+const insertTableName = 'users_login'
 const insertKeys = ['name', 'password', 'user_id']
 export class InsertNewAndUpdateSeqUser extends InsertNewAndUpdateSeqSomething {
     constructor(insertValuesInsufficientId: string[]) {

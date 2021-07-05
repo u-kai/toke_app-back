@@ -12,7 +12,7 @@ export class DeleteMakerForChangeAbsent extends DeleteMakerForSomething {
         this.tableName = 'event_participants'
     }
     private makeChangeAbsentDeleteInfo = () => {
-        const whereKeys = ['participant_id', 'attendance_requests_id']
+        const whereKeys = ['participant_id', 'attendance_request_id']
         const whereValues = [this.userId, this.attendanceRequestId]
         const whereOperators: WhereOperator[] = ['AND']
 

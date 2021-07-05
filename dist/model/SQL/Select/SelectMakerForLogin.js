@@ -4,7 +4,7 @@ exports.SelectMakerForLogin = void 0;
 const SelectMakerForSomething_1 = require("model/SQL/Select/SelectMakerForSomething");
 class SelectMakerForLogin extends SelectMakerForSomething_1.SelectMakerForSomething {
     constructor() {
-        super('user_login');
+        super('users_login');
         this.makeLoginSelectInfo = (userName, password) => {
             return this.makeSelectInfo(['*'], ['name', 'password'], [userName, password], ['AND']);
         };
