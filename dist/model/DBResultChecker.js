@@ -15,6 +15,12 @@ class DBResultChecker {
             }
             return dbData[0][0] !== undefined && dbData[0].length !== 0;
         };
+        this.isSuccessResult = (dbData) => {
+            if (this.isSelectResult(dbData)) {
+                return dbData[0][0]['success'] !== undefined && dbData[0][0]['success'] === 'success';
+            }
+            return false;
+        };
         this.isEmpty = (dbData) => {
             try {
                 return dbData[0].length === 0;

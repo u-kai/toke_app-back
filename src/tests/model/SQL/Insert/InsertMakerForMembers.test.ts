@@ -2,7 +2,7 @@ import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForReq
 
 const insertMemberIds = ['1', '2']
 const requestId = '4'
-const forRequestMembers = new InsertMakerForRequestMembers(insertMemberIds, requestId)
+const forRequestMembers = new InsertMakerForRequestMembers(insertMemberIds)
 const sql = forRequestMembers.SQLForRequestMembers()
 
 it('test for request members', () => {

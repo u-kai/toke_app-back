@@ -24,6 +24,11 @@ class BackendReturnDataMaker {
             const results = selectInfos[0];
             return { status: 200, results: { select: results } };
         };
+        this.caseSuccess = () => {
+            const successInfos = this.dbReturnData;
+            const result = successInfos[0];
+            return { status: 200, results: { success: result } };
+        };
         this.caseOther = () => {
             const otherInfos = this.dbReturnData;
             const results = otherInfos[0];
@@ -39,6 +44,9 @@ class BackendReturnDataMaker {
             }
             if (checker.isErrorResult(this.dbReturnData)) {
                 return this.caseError();
+            }
+            if (checker.isSuccessResult(this.dbReturnData)) {
+                return this.caseSuccess();
             }
             if (checker.isSelectResult(this.dbReturnData)) {
                 return this.caseSelect();

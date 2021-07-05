@@ -19,6 +19,8 @@ class DBResultCaster extends DBResultChecker_1.DBResultChecker {
             }
             return false;
         };
+        // castEmpty = () => {
+        // }
         this.castOtherResult = () => {
             if (this.isOtherResult(this.dbReturn)) {
                 const otherData = this.dbReturn;

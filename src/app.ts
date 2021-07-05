@@ -1,7 +1,7 @@
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as cors from 'cors'
-import * as getNotRes from 'routers/getNotRes'
+import * as getNotRes from './routers/getNotRes'
 import * as login from 'routers/login'
 import * as newAttendResponseRegist from 'routers/newAttendResponseRegist'
 import * as getMembers from 'routers/getMembers'

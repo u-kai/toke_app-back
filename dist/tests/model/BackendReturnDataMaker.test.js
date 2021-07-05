@@ -32,6 +32,7 @@ const emptyError = {
     errno: -1000,
 };
 const selectResultEmpty = [[], [{}]];
+const success = [[{ success: 'success' }]];
 const backendReturnMakerCaseError = new BackEndReturnDataMaker_1.BackendReturnDataMaker(error);
 const dataCaseError = backendReturnMakerCaseError.createData();
 it('error case', () => {
@@ -51,4 +52,9 @@ const backendReturnMakerCaseOther = new BackEndReturnDataMaker_1.BackendReturnDa
 const dataCaseOther = backendReturnMakerCaseOther.createData();
 it('case Other', () => {
     expect(dataCaseOther).toStrictEqual({ status: 200, results: { other: otherResutls[0] } });
+});
+const backendReturnMakerCaseSuccess = new BackEndReturnDataMaker_1.BackendReturnDataMaker(success);
+const dataCaseSuccess = backendReturnMakerCaseSuccess.createData();
+it('case success', () => {
+    expect(dataCaseSuccess).toStrictEqual({ status: 200, results: { success: success[0] } });
 });

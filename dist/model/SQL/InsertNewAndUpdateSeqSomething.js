@@ -34,7 +34,7 @@ class InsertNewAndUpdateSeqSomething {
         this.SQLForInsertNew = () => {
             const insertMaker = new InsertMakerForSomething_1.InsertMakerForSomething();
             const insertInfo = insertMaker.makeInsertInfo(this.insertTableName, this.insertKeys, this.addIdDataToInsertValues());
-            return insertMaker.outputSQL(insertInfo, 2);
+            return insertMaker.outputSQL(insertInfo, this.insertKeys.length - 1);
         };
         this.SQLForUpdateSeqTable = () => {
             return `UPDATE ${this.seqTableName} SET ${this.seqIdName} = (${this.seqIdName} + 1)`;
