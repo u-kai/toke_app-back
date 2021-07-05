@@ -1,4 +1,4 @@
-import { SelectMakerForGetRequestsCount } from 'model/SQL/Select/SelectMakerForGetRequestsCount'
+import { SelectMakerForGetRequestsCount } from '~/model/SQL/Select/SelectMakerForGetRequestsCount'
 
 const userId = '0'
 const res = false

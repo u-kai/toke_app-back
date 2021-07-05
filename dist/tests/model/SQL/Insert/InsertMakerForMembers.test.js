@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InsertMakerForRequestMembers_1 = require("model/SQL/Insert/InsertMakerForRequestMembers");
+const InsertMakerForRequestMembers_1 = require("~/model/SQL/Insert/InsertMakerForRequestMembers");
 const insertMemberIds = ['1', '2'];
 const requestId = '4';
 const forRequestMembers = new InsertMakerForRequestMembers_1.InsertMakerForRequestMembers(insertMemberIds);

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const BackEndReturnDataMaker_1 = require("model/BackEndReturnDataMaker");
+const BackEndReturnDataMaker_1 = require("~/model/BackEndReturnDataMaker");
 const error = {
     code: 'error',
     sqlMessage: 'couse error',

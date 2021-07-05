@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteMakerForSomething = void 0;
-const DeleteMaker_1 = require("model/SQL/Delete/DeleteMaker");
-const SQLInfoMaker_1 = require("model/SQL/SQLInfoMaker");
+const DeleteMaker_1 = require("~/model/SQL/Delete/DeleteMaker");
+const SQLInfoMaker_1 = require("~/model/SQL/SQLInfoMaker");
 class DeleteMakerForSomething {
     constructor() {
         this.makeDeleteInfo = (tableName, whereKeys, whereValues, whereOperators) => {

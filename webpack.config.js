@@ -6,7 +6,7 @@ module.exports = {
     resolve:{
         extensions:[".ts"],
         alias:{
-            "":path.resolve(__dirname, "src")
+            "~":path.resolve(__dirname, "/src")
         }
     },
     target: "node",

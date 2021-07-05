@@ -1,3 +1,5 @@
+const path = require("path/posix");
+
 module.exports = {
 env: {
     browser: true,
@@ -15,6 +17,11 @@ parser: "@typescript-eslint/parser",
 parserOptions: {
     "sourceType": "module",
     "project": "./tsconfig.json" // TypeScriptのLint時に参照するconfigファイルを指定
+},
+setting:{
+    "import/resolver":{
+        webpack:{config:path.join(__dirname,"/webpack.config.js")}
+    }
 },
 root: true, // 上位ディレクトリにある他のeslintrcを参照しないようにする
 rules: {}

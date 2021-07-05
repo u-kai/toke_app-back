@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InsertMakerForNewRequest_1 = require("model/SQL/Insert/InsertMakerForNewRequest");
+const InsertMakerForNewRequest_1 = require("~/model/SQL/Insert/InsertMakerForNewRequest");
 const purpose = 'this is purpose';
 const start_date = new Date();
 const end_date = new Date();

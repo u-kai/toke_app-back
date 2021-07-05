@@ -1,5 +1,5 @@
-import { WhereClauseElements } from 'types/DB-types/WhereClauseElements'
-import { WhereClauseMaker } from 'model/SQL/WhereClauseMaker'
+import { WhereClauseElements } from '~/types/DB-types/WhereClauseElements'
+import { WhereClauseMaker } from '~/model/SQL/WhereClauseMaker'
 
 const whereClauseElements: WhereClauseElements = {
     whereKeys: ['a', 'b', 'c'],

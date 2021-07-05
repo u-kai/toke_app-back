@@ -1,5 +1,5 @@
-import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
-import { SelectMakerForGetEventIds } from 'model/SQL/Select/SelectMakerForGetEventIds'
+import { SelectMakerForSomething } from '~/model/SQL/Select/SelectMakerForSomething'
+import { SelectMakerForGetEventIds } from '~/model/SQL/Select/SelectMakerForGetEventIds'
 
 export class SelectMakerForGetEvents extends SelectMakerForSomething {
     private forIds: SelectMakerForGetEventIds

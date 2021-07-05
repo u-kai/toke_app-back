@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express = require("express");
-const BackendReturnDataMaker_1 = require("model/BackendReturnDataMaker");
-const NewEventRegister_1 = require("model/SQL/NewEventRegister");
+const BackendReturnDataMaker_1 = require("~/model/BackendReturnDataMaker");
+const NewEventRegister_1 = require("~/model/SQL/NewEventRegister");
 exports.router = express.Router();
 exports.router.post('/', (req, res) => {
     const purpose = req.body.purpose;

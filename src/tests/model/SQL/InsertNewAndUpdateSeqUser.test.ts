@@ -1,4 +1,4 @@
-import { InsertNewAndUpdateSeqUser } from 'model/SQL/InsertNewAndUpdateSeqUser'
+import { InsertNewAndUpdateSeqUser } from '~/model/SQL/InsertNewAndUpdateSeqUser'
 
 const seqTable = 'seq_user_id'
 const seqIdName = 'seq_user_id'

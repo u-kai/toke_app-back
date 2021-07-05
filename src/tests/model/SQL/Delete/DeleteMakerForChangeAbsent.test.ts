@@ -1,4 +1,4 @@
-import { DeleteMakerForChangeAbsent } from 'model/SQL/Delete/DeleteMakerForChangeAbsent'
+import { DeleteMakerForChangeAbsent } from '~/model/SQL/Delete/DeleteMakerForChangeAbsent'
 
 const tableName = 'test'
 const userId = '1'

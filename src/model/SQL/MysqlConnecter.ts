@@ -1,6 +1,6 @@
 import * as mysql from 'mysql2/promise'
-import { dbConfig } from 'datas/DBConfig'
-import { DBConfig } from 'types/DB-types/DBConfig'
+import { dbConfig } from '~/datas/DBConfig'
+import { DBConfig } from '~/types/DB-types/DBConfig'
 export class MysqlConnecter {
     dbConfig: DBConfig
     constructor() {

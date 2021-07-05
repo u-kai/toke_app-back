@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InsertNewAndUpdateSeqUser_1 = require("model/SQL/InsertNewAndUpdateSeqUser");
+const InsertNewAndUpdateSeqUser_1 = require("~/model/SQL/InsertNewAndUpdateSeqUser");
 const seqTable = 'seq_user_id';
 const seqIdName = 'seq_user_id';
 const insertTableName = 'users_login';

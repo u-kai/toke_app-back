@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const WhereClauseMaker_1 = require("model/WhereClauseMaker");
+const WhereClauseMaker_1 = require("~/model/WhereClauseMaker");
 const whereClauseElements = {
     whereKeys: ['a', 'b', 'c'],
     whereValues: ['d', 'e', 'f'],

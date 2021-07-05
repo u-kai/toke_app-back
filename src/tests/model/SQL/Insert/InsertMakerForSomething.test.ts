@@ -1,4 +1,4 @@
-import { InsertMakerForSomething } from 'model/SQL/Insert/InsertMakerForSomething'
+import { InsertMakerForSomething } from '~/model/SQL/Insert/InsertMakerForSomething'
 
 const tableName = 'test'
 const insertKeys = ['user', 'age']

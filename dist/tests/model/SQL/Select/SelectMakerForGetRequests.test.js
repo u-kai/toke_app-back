@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const SelectMakerForGetRequests_1 = require("model/SQL/Select/SelectMakerForGetRequests");
+const SelectMakerForGetRequests_1 = require("~/model/SQL/Select/SelectMakerForGetRequests");
 const userId = '0';
 const res = false;
 const selectInfoMakerForSchedule = new SelectMakerForGetRequests_1.SelectMakerForGetRequests(userId, res);

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateMaker = void 0;
-const WhereClauseMaker_1 = require("model/SQL/WhereClauseMaker");
+const WhereClauseMaker_1 = require("~/model/SQL/WhereClauseMaker");
 class UpdateMaker {
     constructor(updateInfo) {
         this.createWhereClause = () => {

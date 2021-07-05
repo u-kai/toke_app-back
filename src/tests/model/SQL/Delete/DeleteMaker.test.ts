@@ -1,6 +1,6 @@
-import { DeleteMaker } from 'model/SQL/Delete/DeleteMaker'
-import { DeleteInfo } from 'types/DB-types/DeleteInfo'
-import { WhereOperator } from 'types/DB-types/WhereOperator'
+import { DeleteMaker } from '~/model/SQL/Delete/DeleteMaker'
+import { DeleteInfo } from '~/types/DB-types/DeleteInfo'
+import { WhereOperator } from '~/types/DB-types/WhereOperator'
 
 const tableName = 'test'
 const whereKeys = ['user', 'age']

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InsertMakerForSomething_1 = require("model/SQL/Insert/InsertMakerForSomething");
+const InsertMakerForSomething_1 = require("~/model/SQL/Insert/InsertMakerForSomething");
 const tableName = 'test';
 const insertKeys = ['user', 'age'];
 const insertValues = ['kai', '25'];

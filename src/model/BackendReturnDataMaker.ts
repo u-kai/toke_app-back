@@ -1,12 +1,12 @@
-import { SelectResult, DBSelectResult } from 'types/backend-return-types/SelectResult'
-import { SQLError } from 'types/backend-return-types/SQLError'
-import { DBReturn } from 'types/backend-return-types/DBReturn'
+import { SelectResult, DBSelectResult } from '~/types/backend-return-types/SelectResult'
+import { SQLError } from '~/types/backend-return-types/SQLError'
+import { DBReturn } from '~/types/backend-return-types/DBReturn'
 import {
     InsertUpdateDeleteResult,
     DBInsertUpdateDeleteResult,
-} from 'types/backend-return-types/InsertUpdateDeleteResult'
-import { DBResultChecker } from 'model/DBResultChecker'
-import { Success } from 'types/backend-return-types/Success'
+} from '~/types/backend-return-types/InsertUpdateDeleteResult'
+import { DBResultChecker } from '~/model/DBResultChecker'
+import { Success } from '~/types/backend-return-types/Success'
 export class BackendReturnDataMaker {
     private dbReturnData: DBReturn
     constructor(dbReturnData: DBReturn) {

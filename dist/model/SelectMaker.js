@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SelectMaker = void 0;
-const WhereClauseMaker_1 = require("model/WhereClauseMaker");
+const WhereClauseMaker_1 = require("~/model/WhereClauseMaker");
 class SelectMaker {
     constructor(selectInfo) {
-        this.expandSelectDatas = () => {
+        this.expandselectDatas = () => {
             return this.selectInfo.selectDatas.join(',');
         };
         this.createWhereClause = () => {
@@ -12,7 +12,7 @@ class SelectMaker {
             return whereClauseMaker.createWhereClause();
         };
         this.outputSQL = () => {
-            return `${this.headSql} ${this.expandSelectDatas()} FROM ${this.selectInfo.tableName} ${this.createWhereClause()}`;
+            return `${this.headSql} ${this.expandselectDatas()} FROM ${this.selectInfo.tableName} ${this.createWhereClause()}`;
         };
         this.headSql = 'SELECT';
         if (selectInfo.selectDatas) {

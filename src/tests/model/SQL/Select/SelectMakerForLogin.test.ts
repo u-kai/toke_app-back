@@ -1,4 +1,4 @@
-import { SelectMakerForLogin } from 'model/SQL/Select/SelectMakerForLogin'
+import { SelectMakerForLogin } from '~/model/SQL/Select/SelectMakerForLogin'
 
 const forLogin = new SelectMakerForLogin()
 const sql = forLogin.forLogin('k', 'pass')

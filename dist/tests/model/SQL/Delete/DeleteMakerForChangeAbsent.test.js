@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const DeleteMakerForChangeAbsent_1 = require("model/SQL/Delete/DeleteMakerForChangeAbsent");
+const DeleteMakerForChangeAbsent_1 = require("~/model/SQL/Delete/DeleteMakerForChangeAbsent");
 const tableName = 'test';
 const userId = '1';
 const attendance_request_id = '1';

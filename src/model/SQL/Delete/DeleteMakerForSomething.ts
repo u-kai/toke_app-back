@@ -1,7 +1,7 @@
-import { DeleteMaker } from 'model/SQL/Delete/DeleteMaker'
-import { SQLInfoMaker } from 'model/SQL/SQLInfoMaker'
-import { DeleteInfo } from 'types/DB-types/DeleteInfo'
-import { WhereOperator } from 'types/DB-types/WhereOperator'
+import { DeleteMaker } from '~/model/SQL/Delete/DeleteMaker'
+import { SQLInfoMaker } from '~/model/SQL/SQLInfoMaker'
+import { DeleteInfo } from '~/types/DB-types/DeleteInfo'
+import { WhereOperator } from '~/types/DB-types/WhereOperator'
 
 export class DeleteMakerForSomething {
     makeDeleteInfo = (

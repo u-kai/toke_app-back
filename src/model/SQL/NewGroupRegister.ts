@@ -1,7 +1,7 @@
-import { InsertNewAndUpdateSeqGroup } from 'model/SQL/InsertNewAndUpdateSeqGroup'
+import { InsertNewAndUpdateSeqGroup } from '~/model/SQL/InsertNewAndUpdateSeqGroup'
 
-import { duplicateEntryError } from 'datas/errors/duplicateEntryError'
-import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
+import { duplicateEntryError } from '~/datas/errors/duplicateEntryError'
+import { MysqlExecuter } from '~/model/SQL/MysqlExecuter'
 import { InsertMakerForSomething } from './Insert/InsertMakerForSomething'
 
 export class NewGroupRegister {

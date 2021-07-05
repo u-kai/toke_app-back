@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SelectMakerForSomething = void 0;
-const SQLInfoMaker_1 = require("model/SQL/SQLInfoMaker");
-const SelectMaker_1 = require("model/SQL/Select/SelectMaker");
+const SQLInfoMaker_1 = require("~/model/SQL/SQLInfoMaker");
+const SelectMaker_1 = require("~/model/SQL/Select/SelectMaker");
 class SelectMakerForSomething {
     constructor(tableName) {
         this.makeSelectInfo = (selectDatas, whereKeys, whereValues, whereOperators, tableName) => {

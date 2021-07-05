@@ -1,8 +1,8 @@
 import * as express from 'express'
-import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
-import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
-import { DBReturn } from 'types/backend-return-types/DBReturn'
-import { SelectMakerForGetEvents } from 'model/SQL/Select/SelectMakerForGetEvents'
+import { MysqlExecuter } from '~/model/SQL/MysqlExecuter'
+import { BackendReturnDataMaker } from '~/model/BackendReturnDataMaker'
+import { DBReturn } from '~/types/backend-return-types/DBReturn'
+import { SelectMakerForGetEvents } from '~/model/SQL/Select/SelectMakerForGetEvents'
 
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()

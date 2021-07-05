@@ -1,10 +1,10 @@
 import * as express from 'express'
-import { MysqlExecuter } from 'model/SQL/MysqlExecuter'
-import { BackendReturnDataMaker } from 'model/BackendReturnDataMaker'
-import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerForisAttendResponse'
-import { DBReturn } from 'types/backend-return-types/DBReturn'
-import { InsertMakerForCaseIsAttendResponseTrue } from 'model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue'
-import { DeleteMakerForChangeAbsent } from 'model/SQL/Delete/DeleteMakerForChangeAbsent'
+import { MysqlExecuter } from '~/model/SQL/MysqlExecuter'
+import { BackendReturnDataMaker } from '~/model/BackendReturnDataMaker'
+import { UpdateMakerForIsAttendResponse } from '~/model/SQL/Update/UpdateMakerForisAttendResponse'
+import { DBReturn } from '~/types/backend-return-types/DBReturn'
+import { InsertMakerForCaseIsAttendResponseTrue } from '~/model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue'
+import { DeleteMakerForChangeAbsent } from '~/model/SQL/Delete/DeleteMakerForChangeAbsent'
 
 export const router = express.Router()
 const mysqlExecuter = new MysqlExecuter()

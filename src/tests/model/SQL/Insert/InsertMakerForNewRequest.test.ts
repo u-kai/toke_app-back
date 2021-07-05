@@ -1,4 +1,4 @@
-import { InsertMakerForNewRequest } from 'model/SQL/Insert/InsertMakerForNewRequest'
+import { InsertMakerForNewRequest } from '~/model/SQL/Insert/InsertMakerForNewRequest'
 
 const purpose = 'this is purpose'
 const start_date = new Date()

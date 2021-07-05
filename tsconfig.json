@@ -5,7 +5,10 @@
 		"moduleResolution": "node",
 		"module": "commonjs",
 		"strict": true,
-		"baseUrl": "src",
+		"baseUrl": "./",
+		"paths": {
+			"~/*":["src/*"]
+		}
 	},
 	"include": [
 		"./src/**/*"

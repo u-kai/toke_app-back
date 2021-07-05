@@ -1,5 +1,5 @@
-import { UpdateMakerForSomething } from 'model/SQL/Update/UpdateMakerForSomething'
-import { WhereOperator } from 'types/DB-types/WhereOperator'
+import { UpdateMakerForSomething } from '~/model/SQL/Update/UpdateMakerForSomething'
+import { WhereOperator } from '~/types/DB-types/WhereOperator'
 
 export class UpdateMakerForIsAttendResponse extends UpdateMakerForSomething {
     private userId: string

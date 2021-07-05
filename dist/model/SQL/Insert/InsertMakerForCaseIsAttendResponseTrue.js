@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InsertMakerForCaseIsAttendResponseTrue = void 0;
-const InsertMakerForSomething_1 = require("model/SQL/Insert/InsertMakerForSomething");
+const InsertMakerForSomething_1 = require("~/model/SQL/Insert/InsertMakerForSomething");
 class InsertMakerForCaseIsAttendResponseTrue extends InsertMakerForSomething_1.InsertMakerForSomething {
     constructor(insertValues) {
         super();

@@ -1,5 +1,5 @@
-import { SelectInfo } from 'types/DB-types/SelectInfo'
-import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
+import { SelectInfo } from '~/types/DB-types/SelectInfo'
+import { SelectMakerForSomething } from '~/model/SQL/Select/SelectMakerForSomething'
 export class SelectMakerForGetEventIds extends SelectMakerForSomething {
     private userId: string
     constructor(userId: string) {

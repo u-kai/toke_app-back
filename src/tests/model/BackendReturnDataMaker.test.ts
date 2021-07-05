@@ -1,8 +1,8 @@
-import { SQLError } from 'types/backend-return-types/SQLError'
-import { DBSelectResult, SelectResult } from 'types/backend-return-types/SelectResult'
-import { BackendReturnDataMaker } from 'model/BackEndReturnDataMaker'
-import { DBInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
-import { Success } from 'types/backend-return-types/Success'
+import { SQLError } from '~/types/backend-return-types/SQLError'
+import { DBSelectResult, SelectResult } from '~/types/backend-return-types/SelectResult'
+import { BackendReturnDataMaker } from '~/model/BackEndReturnDataMaker'
+import { DBInsertUpdateDeleteResult } from '~/types/backend-return-types/InsertUpdateDeleteResult'
+import { Success } from '~/types/backend-return-types/Success'
 
 const error: SQLError = {
     code: 'error',

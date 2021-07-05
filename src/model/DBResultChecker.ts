@@ -1,7 +1,7 @@
-import { DBSelectResult } from 'types/backend-return-types/SelectResult'
-import { SQLError } from 'types/backend-return-types/SQLError'
-import { DBInsertUpdateDeleteResult } from 'types/backend-return-types/InsertUpdateDeleteResult'
-import { Success } from 'types/backend-return-types/Success'
+import { DBSelectResult } from '~/types/backend-return-types/SelectResult'
+import { SQLError } from '~/types/backend-return-types/SQLError'
+import { DBInsertUpdateDeleteResult } from '~/types/backend-return-types/InsertUpdateDeleteResult'
+import { Success } from '~/types/backend-return-types/Success'
 export class DBResultChecker {
     isSelectResult = (dbData: any): dbData is DBSelectResult => {
         try {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const SelectMakerForGetRequestsCount_1 = require("model/SQL/Select/SelectMakerForGetRequestsCount");
+const SelectMakerForGetRequestsCount_1 = require("~/model/SQL/Select/SelectMakerForGetRequestsCount");
 const userId = '0';
 const res = false;
 const selectMakerForNotResCount = new SelectMakerForGetRequestsCount_1.SelectMakerForGetRequestsCount(userId, res);

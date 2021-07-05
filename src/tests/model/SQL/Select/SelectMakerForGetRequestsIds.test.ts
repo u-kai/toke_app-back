@@ -1,4 +1,4 @@
-import { SelectMakerForGetRequestsIds } from 'model/SQL/Select/SelectMakerForGetRequestsIds'
+import { SelectMakerForGetRequestsIds } from '~/model/SQL/Select/SelectMakerForGetRequestsIds'
 
 const userId = '0'
 const res = false

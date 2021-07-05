@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const SelectMakerForLogin_1 = require("model/SQL/Select/SelectMakerForLogin");
+const SelectMakerForLogin_1 = require("~/model/SQL/Select/SelectMakerForLogin");
 const forLogin = new SelectMakerForLogin_1.SelectMakerForLogin();
 const sql = forLogin.forLogin('k', 'pass');
 it('test login select sql', () => {

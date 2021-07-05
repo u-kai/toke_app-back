@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BackendReturnDataMaker = void 0;
-const DBResultChecker_1 = require("model/DBResultChecker");
+const DBResultChecker_1 = require("~/model/DBResultChecker");
 class BackendReturnDataMaker {
     constructor(dbReturnData) {
         this.caseError = () => {

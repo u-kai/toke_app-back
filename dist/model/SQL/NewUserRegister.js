@@ -10,9 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NewUserRegiser = void 0;
-const InsertNewAndUpdateSeqUser_1 = require("model/SQL/InsertNewAndUpdateSeqUser");
-const duplicateEntryError_1 = require("datas/errors/duplicateEntryError");
-const MysqlExecuter_1 = require("model/SQL/MysqlExecuter");
+const InsertNewAndUpdateSeqUser_1 = require("~/model/SQL/InsertNewAndUpdateSeqUser");
+const duplicateEntryError_1 = require("~/datas/errors/duplicateEntryError");
+const MysqlExecuter_1 = require("~/model/SQL/MysqlExecuter");
 class NewUserRegiser {
     constructor(userName, password) {
         this.SQLForGetCurrentId = () => {

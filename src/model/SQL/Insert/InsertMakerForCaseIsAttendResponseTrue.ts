@@ -1,4 +1,4 @@
-import { InsertMakerForSomething } from 'model/SQL/Insert/InsertMakerForSomething'
+import { InsertMakerForSomething } from '~/model/SQL/Insert/InsertMakerForSomething'
 
 export class InsertMakerForCaseIsAttendResponseTrue extends InsertMakerForSomething {
     private tableName: string

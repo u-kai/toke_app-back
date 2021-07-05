@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SelectMakerForGetRequestsIds = void 0;
-const SelectMakerForSomething_1 = require("model/SQL/Select/SelectMakerForSomething");
+const SelectMakerForSomething_1 = require("~/model/SQL/Select/SelectMakerForSomething");
 class SelectMakerForGetRequestsIds extends SelectMakerForSomething_1.SelectMakerForSomething {
     constructor(userId, isResponse) {
         super('user_attendance_requests_info');

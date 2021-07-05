@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const url_1 = require("datas/url");
+const url_1 = require("~/datas/url");
 const request = require("request");
 const data = {
     method: 'post',

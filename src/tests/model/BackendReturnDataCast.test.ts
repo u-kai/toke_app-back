@@ -1,5 +1,5 @@
-import { DBResultCaster } from 'model/DBResultCaster'
-import { DBReturn } from 'types/backend-return-types/DBReturn'
+import { DBResultCaster } from '~/model/DBResultCaster'
+import { DBReturn } from '~/types/backend-return-types/DBReturn'
 
 const dataCaseSelect: DBReturn = [
     [

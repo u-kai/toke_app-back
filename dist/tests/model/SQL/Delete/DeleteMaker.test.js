@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const DeleteMaker_1 = require("model/SQL/Delete/DeleteMaker");
+const DeleteMaker_1 = require("~/model/SQL/Delete/DeleteMaker");
 const tableName = 'test';
 const whereKeys = ['user', 'age'];
 const whereValues = ['kai', '25'];

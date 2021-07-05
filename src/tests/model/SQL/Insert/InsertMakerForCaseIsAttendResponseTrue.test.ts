@@ -1,4 +1,4 @@
-import { InsertMakerForCaseIsAttendResponseTrue } from 'model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue'
+import { InsertMakerForCaseIsAttendResponseTrue } from '~/model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue'
 const userId = '0'
 const attendanceRequestId = '1'
 const list = [userId, attendanceRequestId]

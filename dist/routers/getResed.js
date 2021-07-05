@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express = require("express");
-const MysqlExecuter_1 = require("model/SQL/MysqlExecuter");
-const BackendReturnDataMaker_1 = require("model/BackendReturnDataMaker");
-const SelectMakerForGetRequests_1 = require("model/SQL/Select/SelectMakerForGetRequests");
+const MysqlExecuter_1 = require("~/model/SQL/MysqlExecuter");
+const BackendReturnDataMaker_1 = require("~/model/BackendReturnDataMaker");
+const SelectMakerForGetRequests_1 = require("~/model/SQL/Select/SelectMakerForGetRequests");
 exports.router = express.Router();
 const mysqlExecuter = new MysqlExecuter_1.MysqlExecuter();
 const isResponse = true;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const UpdateMakerForIsAttendResponse_1 = require("model/SQL/Update/UpdateMakerForIsAttendResponse");
+const UpdateMakerForIsAttendResponse_1 = require("~/model/SQL/Update/UpdateMakerForIsAttendResponse");
 const tableName = 'test';
 const userId = '1';
 const attendance_request_id = '1';

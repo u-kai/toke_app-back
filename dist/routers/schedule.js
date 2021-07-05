@@ -11,11 +11,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express = require("express");
-const MysqlExecuter_1 = require("model/SQL/MysqlExecuter");
-const SelectMaker_1 = require("model/SQL/Select/SelectMaker");
-const BackendReturnDataMaker_1 = require("model/BackendReturnDataMaker");
-const SelectMakerForSchedule_1 = require("model/SQL/Select/SelectMakerForSchedule");
-const DBResultCaster_1 = require("model/DBResultCaster");
+const MysqlExecuter_1 = require("~/model/SQL/MysqlExecuter");
+const SelectMaker_1 = require("~/model/SQL/Select/SelectMaker");
+const BackendReturnDataMaker_1 = require("~/model/BackendReturnDataMaker");
+const SelectMakerForSchedule_1 = require("~/model/SQL/Select/SelectMakerForSchedule");
+const DBResultCaster_1 = require("~/model/DBResultCaster");
 exports.router = express.Router();
 const mysqlExecuter = new MysqlExecuter_1.MysqlExecuter();
 exports.router.post('/count', (req, res) => {

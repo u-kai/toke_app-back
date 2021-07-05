@@ -1,4 +1,4 @@
-import { SelectMakerForGetGroups } from 'model/SQL/Select/SelectMakerForGetGroups'
+import { SelectMakerForGetGroups } from '~/model/SQL/Select/SelectMakerForGetGroups'
 
 const userId = '1'
 const expectSql =

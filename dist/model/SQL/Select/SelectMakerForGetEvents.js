@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SelectMakerForGetEvents = void 0;
-const SelectMakerForSomething_1 = require("model/SQL/Select/SelectMakerForSomething");
-const SelectMakerForGetEventIds_1 = require("model/SQL/Select/SelectMakerForGetEventIds");
+const SelectMakerForSomething_1 = require("~/model/SQL/Select/SelectMakerForSomething");
+const SelectMakerForGetEventIds_1 = require("~/model/SQL/Select/SelectMakerForGetEventIds");
 class SelectMakerForGetEvents extends SelectMakerForSomething_1.SelectMakerForSomething {
     constructor(userId) {
         super('user_attendance_requests_info');

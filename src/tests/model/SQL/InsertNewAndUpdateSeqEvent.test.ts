@@ -1,4 +1,4 @@
-import { InsertNewAndUpdateSeqEvent } from 'model/SQL/InsertNewAndUpdateSeqEvent'
+import { InsertNewAndUpdateSeqEvent } from '~/model/SQL/InsertNewAndUpdateSeqEvent'
 
 const seqTableName = 'seq_event_id'
 const seqIdName = 'seq_event_id'

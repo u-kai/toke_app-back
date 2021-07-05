@@ -1,8 +1,8 @@
-import { WhereOperator } from 'types/DB-types/WhereOperator'
-import { SelectInfo } from 'types/DB-types/SelectInfo'
-import { InsertInfo } from 'types/DB-types/InsertInfo'
-import { UpdateInfo } from 'types/DB-types/UpdateInfo'
-import { DeleteInfo } from 'types/DB-types/DeleteInfo'
+import { WhereOperator } from '~/types/DB-types/WhereOperator'
+import { SelectInfo } from '~/types/DB-types/SelectInfo'
+import { InsertInfo } from '~/types/DB-types/InsertInfo'
+import { UpdateInfo } from '~/types/DB-types/UpdateInfo'
+import { DeleteInfo } from '~/types/DB-types/DeleteInfo'
 export class SQLInfoMaker {
     tableName: string
     constructor(tableName: string) {

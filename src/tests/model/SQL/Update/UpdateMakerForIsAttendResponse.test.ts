@@ -1,4 +1,4 @@
-import { UpdateMakerForIsAttendResponse } from 'model/SQL/Update/UpdateMakerForIsAttendResponse'
+import { UpdateMakerForIsAttendResponse } from '~/model/SQL/Update/UpdateMakerForIsAttendResponse'
 
 const tableName = 'test'
 const userId = '1'

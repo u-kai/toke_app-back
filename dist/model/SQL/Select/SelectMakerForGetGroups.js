@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SelectMakerForGetGroups = void 0;
-const SelectMakerForSomething_1 = require("model/SQL/Select/SelectMakerForSomething");
+const SelectMakerForSomething_1 = require("~/model/SQL/Select/SelectMakerForSomething");
 const groupsTable = 'groups';
 const selectKeys = ['group_id', 'group_name'];
 const groupsWhereKey = 'group_id';

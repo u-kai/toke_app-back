@@ -1,7 +1,7 @@
-import { SelectInfo } from 'types/DB-types/SelectInfo'
-import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
-import { SelectMakerForGetRequestsCount } from 'model/SQL/Select/SelectMakerForGetRequestsCount'
-import { SelectMakerForGetRequestsIds } from 'model/SQL/Select/SelectMakerForGetRequestsIds'
+import { SelectInfo } from '~/types/DB-types/SelectInfo'
+import { SelectMakerForSomething } from '~/model/SQL/Select/SelectMakerForSomething'
+import { SelectMakerForGetRequestsCount } from '~/model/SQL/Select/SelectMakerForGetRequestsCount'
+import { SelectMakerForGetRequestsIds } from '~/model/SQL/Select/SelectMakerForGetRequestsIds'
 
 export class SelectMakerForGetRequests extends SelectMakerForSomething {
     private forIds: SelectMakerForGetRequestsIds

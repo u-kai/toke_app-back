@@ -1,4 +1,4 @@
-import { SQLError } from 'types/backend-return-types/SQLError'
+import { SQLError } from '~/types/backend-return-types/SQLError'
 
 export const duplicateEntryError: SQLError = {
     code: '1',

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const UpdateMaker_1 = require("model/SQL/Update/UpdateMaker");
+const UpdateMaker_1 = require("~/model/SQL/Update/UpdateMaker");
 const updateInfo = {
     tableName: 'test',
     updateKeys: ['user', 'age'],

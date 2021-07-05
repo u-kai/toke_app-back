@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InsertNewAndUpdateSeqEvent_1 = require("model/SQL/InsertNewAndUpdateSeqEvent");
+const InsertNewAndUpdateSeqEvent_1 = require("~/model/SQL/InsertNewAndUpdateSeqEvent");
 const seqTableName = 'seq_event_id';
 const seqIdName = 'seq_event_id';
 const insertTableName = 'attendance_requests';

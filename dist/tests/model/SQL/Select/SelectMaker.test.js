@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const SelectMaker_1 = require("model/SQL/Select/SelectMaker");
+const SelectMaker_1 = require("~/model/SQL/Select/SelectMaker");
 const selectInfo = {
     tableName: 'test',
     selectDatas: ['kai', 'udo'],

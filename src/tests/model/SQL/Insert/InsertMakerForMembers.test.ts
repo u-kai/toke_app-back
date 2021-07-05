@@ -1,4 +1,4 @@
-import { InsertMakerForRequestMembers } from 'model/SQL/Insert/InsertMakerForRequestMembers'
+import { InsertMakerForRequestMembers } from '~/model/SQL/Insert/InsertMakerForRequestMembers'
 
 const insertMemberIds = ['1', '2']
 const requestId = '4'

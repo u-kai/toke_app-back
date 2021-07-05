@@ -1,4 +1,4 @@
-import { url } from 'datas/url'
+import { url } from '~/datas/url'
 import * as fetch from 'node-fetch'
 import * as request from 'request'
 const data: RequestInit = {

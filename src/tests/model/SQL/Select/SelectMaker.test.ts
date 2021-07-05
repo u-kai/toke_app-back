@@ -1,5 +1,5 @@
-import { SelectMaker } from 'model/SQL/Select/SelectMaker'
-import { SelectInfo } from 'types/DB-types/SelectInfo'
+import { SelectMaker } from '~/model/SQL/Select/SelectMaker'
+import { SelectInfo } from '~/types/DB-types/SelectInfo'
 
 const selectInfo: SelectInfo = {
     tableName: 'test',

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const InsertMakerForCaseIsAttendResponseTrue_1 = require("model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue");
+const InsertMakerForCaseIsAttendResponseTrue_1 = require("~/model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue");
 const userId = '0';
 const attendanceRequestId = '1';
 const list = [userId, attendanceRequestId];

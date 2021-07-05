@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MysqlConnecter = void 0;
 const mysql = require("mysql2/promise");
-const DBConfig_1 = require("datas/DBConfig");
+const DBConfig_1 = require("~/datas/DBConfig");
 class MysqlConnecter {
     constructor() {
         this.returnConnection = () => __awaiter(this, void 0, void 0, function* () {

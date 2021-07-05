@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const DBResultCaster_1 = require("model/DBResultCaster");
+const DBResultCaster_1 = require("~/model/DBResultCaster");
 const dataCaseSelect = [
     [
         {

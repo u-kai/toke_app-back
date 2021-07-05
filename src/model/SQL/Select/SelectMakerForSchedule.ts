@@ -1,6 +1,6 @@
-import { SelectInfo } from 'types/DB-types/SelectInfo'
-import { WhereOperator } from 'types/DB-types/WhereOperator'
-import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
+import { SelectInfo } from '~/types/DB-types/SelectInfo'
+import { WhereOperator } from '~/types/DB-types/WhereOperator'
+import { SelectMakerForSomething } from '~/model/SQL/Select/SelectMakerForSomething'
 export class SelectMakerForSchedule extends SelectMakerForSomething {
     private userId: string
     constructor(userId: string) {

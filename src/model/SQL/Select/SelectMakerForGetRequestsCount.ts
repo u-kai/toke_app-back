@@ -1,5 +1,5 @@
-import { SelectInfo } from 'types/DB-types/SelectInfo'
-import { SelectMakerForSomething } from 'model/SQL/Select/SelectMakerForSomething'
+import { SelectInfo } from '~/types/DB-types/SelectInfo'
+import { SelectMakerForSomething } from '~/model/SQL/Select/SelectMakerForSomething'
 export class SelectMakerForGetRequestsCount extends SelectMakerForSomething {
     private userId: string
     private isResponse: boolean

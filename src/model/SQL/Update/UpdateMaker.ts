@@ -1,6 +1,6 @@
-import { UpdateInfo } from 'types/DB-types/UpdateInfo'
-import { WhereClauseElements } from 'types/DB-types/WhereClauseElements'
-import { WhereClauseMaker } from 'model/SQL/WhereClauseMaker'
+import { UpdateInfo } from '~/types/DB-types/UpdateInfo'
+import { WhereClauseElements } from '~/types/DB-types/WhereClauseElements'
+import { WhereClauseMaker } from '~/model/SQL/WhereClauseMaker'
 export class UpdateMaker {
     private headSQL: string
     private updateInfo: UpdateInfo
