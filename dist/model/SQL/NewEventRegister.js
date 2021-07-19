@@ -10,10 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NewEventRegister = void 0;
-const InsertNewAndUpdateSeqEvent_1 = require("~/model/SQL/InsertNewAndUpdateSeqEvent");
-const InsertMakerForRequestMembers_1 = require("~/model/SQL/Insert/InsertMakerForRequestMembers");
-const duplicateEntryError_1 = require("~/datas/errors/duplicateEntryError");
-const MysqlExecuter_1 = require("~/model/SQL/MysqlExecuter");
+const InsertNewAndUpdateSeqEvent_1 = require("../../model/SQL/InsertNewAndUpdateSeqEvent");
+const InsertMakerForRequestMembers_1 = require("../../model/SQL/Insert/InsertMakerForRequestMembers");
+const duplicateEntryError_1 = require("../../datas/errors/duplicateEntryError");
+const MysqlExecuter_1 = require("../../model/SQL/MysqlExecuter");
 const InsertMakerForCaseIsAttendResponseTrue_1 = require("./Insert/InsertMakerForCaseIsAttendResponseTrue");
 class NewEventRegister {
     constructor(insertValuesInsufficientId, memberIds) {

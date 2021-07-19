@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NewGroupRegister = void 0;
-const InsertNewAndUpdateSeqGroup_1 = require("~/model/SQL/InsertNewAndUpdateSeqGroup");
-const MysqlExecuter_1 = require("~/model/SQL/MysqlExecuter");
+const InsertNewAndUpdateSeqGroup_1 = require("../../model/SQL/InsertNewAndUpdateSeqGroup");
+const MysqlExecuter_1 = require("../../model/SQL/MysqlExecuter");
 class NewGroupRegister {
     constructor(insertValuesInsufficientId, memberIds) {
         this.createKeys = () => {

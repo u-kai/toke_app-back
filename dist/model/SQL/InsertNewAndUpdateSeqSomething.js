@@ -11,9 +11,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InsertNewAndUpdateSeqSomething = void 0;
 const InsertMakerForSomething_1 = require("./Insert/InsertMakerForSomething");
-const duplicateEntryError_1 = require("~/datas/errors/duplicateEntryError");
-const MysqlConnecter_1 = require("~/model/SQL/MysqlConnecter");
-const DBResultChecker_1 = require("~/model/DBResultChecker");
+const duplicateEntryError_1 = require("../../datas/errors/duplicateEntryError");
+const MysqlConnecter_1 = require("../../model/SQL/MysqlConnecter");
+const DBResultChecker_1 = require("../../model/DBResultChecker");
 const MysqlExecuter_1 = require("./MysqlExecuter");
 class InsertNewAndUpdateSeqSomething {
     constructor(seqTableName, seqIdName, insertTableName, insertKeys, insertValuesInsufficientId) {

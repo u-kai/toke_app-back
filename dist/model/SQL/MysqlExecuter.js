@@ -10,11 +10,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MysqlExecuter = void 0;
-const causeUnknownError_1 = require("~/datas/errors/causeUnknownError");
-const createConnectionError_1 = require("~/datas/errors/createConnectionError");
+const causeUnknownError_1 = require("../../datas/errors/causeUnknownError");
+const createConnectionError_1 = require("../../datas/errors/createConnectionError");
 const mysql = require("mysql2/promise");
-const MysqlConnecter_1 = require("~/model/SQL/MysqlConnecter");
-const dbConfig_1 = require("~/datas/dbConfig");
+const MysqlConnecter_1 = require("../../model/SQL/MysqlConnecter");
+const dbConfig_1 = require("../../datas/dbConfig");
 class MysqlExecuter {
     constructor() {
         this.execute = (sql) => __awaiter(this, void 0, void 0, function* () {

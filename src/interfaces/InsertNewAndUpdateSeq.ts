@@ -1,4 +1,4 @@
-import { DBReturn } from './types/backend-return-types/DBReturn'
+import { DBReturn } from '../types/backend-return-types/DBReturn'
 
 export interface InsertNewAndUpdateSeq {
     seqTableName: string

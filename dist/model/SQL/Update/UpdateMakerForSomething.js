@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateMakerForSomething = void 0;
-const SQLInfoMaker_1 = require("~/model/SQL/SQLInfoMaker");
-const UpdateMaker_1 = require("~/model/SQL/Update/UpdateMaker");
+const SQLInfoMaker_1 = require("../../../model/SQL/SQLInfoMaker");
+const UpdateMaker_1 = require("../../../model/SQL/Update/UpdateMaker");
 class UpdateMakerForSomething {
     constructor() {
         this.makeUpdateInfo = (tableName, updateKeys, updateValues, whereKeys, whereValues, whereOperators) => {

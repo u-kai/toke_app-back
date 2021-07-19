@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateMakerForIsAttendResponse = void 0;
-const UpdateMakerForSomething_1 = require("~/model/SQL/Update/UpdateMakerForSomething");
+const UpdateMakerForSomething_1 = require("../../../model/SQL/Update/UpdateMakerForSomething");
 class UpdateMakerForIsAttendResponse extends UpdateMakerForSomething_1.UpdateMakerForSomething {
     constructor(userId, attendanceRequestId, isAttend, message) {
         super();

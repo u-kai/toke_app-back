@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InsertNewAndUpdateSeqGroup = void 0;
-const InsertNewAndUpdateSeqSomething_1 = require("~/model/SQL/InsertNewAndUpdateSeqSomething");
+const InsertNewAndUpdateSeqSomething_1 = require("../../model/SQL/InsertNewAndUpdateSeqSomething");
 const seqTableName = 'seq_group_id';
 const seqIdName = 'seq_group_id';
 const insertTableName = 'groups';

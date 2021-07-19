@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express = require("express");
-const MysqlExecuter_1 = require("~/model/SQL/MysqlExecuter");
-const BackendReturnDataMaker_1 = require("~/model/BackendReturnDataMaker");
-const UpdateMakerForisAttendResponse_1 = require("~/model/SQL/Update/UpdateMakerForisAttendResponse");
-const InsertMakerForCaseIsAttendResponseTrue_1 = require("~/model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue");
+const MysqlExecuter_1 = require("../model/SQL/MysqlExecuter");
+const BackendReturnDataMaker_1 = require("../model/BackendReturnDataMaker");
+const UpdateMakerForisAttendResponse_1 = require("../model/SQL/Update/UpdateMakerForisAttendResponse");
+const InsertMakerForCaseIsAttendResponseTrue_1 = require("../model/SQL/Insert/InsertMakerForCaseIsAttendResponseTrue");
 exports.router = express.Router();
 const mysqlExecuter = new MysqlExecuter_1.MysqlExecuter();
 exports.router.post('/', (req, res) => {

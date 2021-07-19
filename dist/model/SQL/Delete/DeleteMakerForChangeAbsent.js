@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteMakerForChangeAbsent = void 0;
-const DeleteMakerForSomething_1 = require("~/model/SQL/Delete/DeleteMakerForSomething");
+const DeleteMakerForSomething_1 = require("../../../model/SQL/Delete/DeleteMakerForSomething");
 class DeleteMakerForChangeAbsent extends DeleteMakerForSomething_1.DeleteMakerForSomething {
     constructor(userId, attendanceRequestId) {
         super();

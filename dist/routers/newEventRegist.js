@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express = require("express");
-const BackendReturnDataMaker_1 = require("~/model/BackendReturnDataMaker");
-const NewEventRegister_1 = require("~/model/SQL/NewEventRegister");
-const DBResultChecker_1 = require("~/model/DBResultChecker");
-const app_1 = require("~/app");
+const BackendReturnDataMaker_1 = require("../model/BackendReturnDataMaker");
+const NewEventRegister_1 = require("../model/SQL/NewEventRegister");
+const DBResultChecker_1 = require("../model/DBResultChecker");
+const app_1 = require("../app");
 exports.router = express.Router();
 const dataChecker = new DBResultChecker_1.DBResultChecker();
 exports.router.post('/', (req, res) => {
