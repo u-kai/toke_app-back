@@ -1,7 +1,7 @@
-import { InsertNewAndUpdateSeqUser } from '~/model/SQL/InsertNewAndUpdateSeqUser'
-import { InsertMakerForSomething } from '~/model/SQL/Insert/InsertMakerForSomething'
-import { duplicateEntryError } from '~/datas/errors/duplicateEntryError'
-import { MysqlExecuter } from '~/model/SQL/MysqlExecuter'
+import { InsertNewAndUpdateSeqUser } from '../../model/SQL/InsertNewAndUpdateSeqUser'
+import { InsertMakerForSomething } from '../../model/SQL/Insert/InsertMakerForSomething'
+import { duplicateEntryError } from '../../datas/errors/duplicateEntryError'
+import { MysqlExecuter } from '../../model/SQL/MysqlExecuter'
 
 export class NewUserRegiser {
     private userName: string

@@ -1,8 +1,8 @@
-import { DBReturn } from '~/types/backend-return-types/DBReturn'
-import { DBSelectResult } from '~/types/backend-return-types/SelectResult'
-import { SQLError } from '~/types/backend-return-types/SQLError'
-import { DBInsertUpdateDeleteResult } from '~/types/backend-return-types/InsertUpdateDeleteResult'
-import { causeUnknownError } from '~/datas/errors/causeUnknownError'
+import { DBReturn } from '../types/backend-return-types/DBReturn'
+import { DBSelectResult } from '../types/backend-return-types/SelectResult'
+import { SQLError } from '../types/backend-return-types/SQLError'
+import { DBInsertUpdateDeleteResult } from '../types/backend-return-types/InsertUpdateDeleteResult'
+import { causeUnknownError } from '../datas/errors/causeUnknownError'
 import { DBResultChecker } from './DBResultChecker'
 export class DBResultCaster extends DBResultChecker {
     dbReturn: DBReturn

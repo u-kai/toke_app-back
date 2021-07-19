@@ -1,15 +1,19 @@
-const path = require("path")
-
+const path = require("path");
+ 
 module.exports = {
-    mode:"development",
-    // entry:path.resolve("index.ts"),
-    resolve:{
-        extensions:[".ts"],
-        alias:{
-            "~":path.resolve(__dirname, "/src")
-        }
+  mode: "development",
+  entry: path.resolve(__dirname, "index.ts"),
+  output: {
+    path: path.resolve(__dirname),
+    filename: "main.js",
+  },
+  resolve: {
+    extensions: [".ts"],
+    alias: {
+      "~":path.resolve(__dirname, "src")
     },
-    target: "node",
+  },
+  target: "node",
   module: {
     rules: [
       {
@@ -18,10 +22,11 @@ module.exports = {
         use: {
           loader: "ts-loader",
           options: {
-            configFile: path.resolve(__dirname,"tsconfig.json"),
+            configFile: path.resolve(__dirname, "tsconfig.json"),
           },
         },
       },
     ],
   },
-}
+};
+

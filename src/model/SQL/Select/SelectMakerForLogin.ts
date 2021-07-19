@@ -1,4 +1,4 @@
-import { SelectMakerForSomething } from '~/model/SQL/Select/SelectMakerForSomething'
+import { SelectMakerForSomething } from '../../../model/SQL/Select/SelectMakerForSomething'
 
 export class SelectMakerForLogin extends SelectMakerForSomething {
     constructor() {

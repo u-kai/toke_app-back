@@ -1,4 +1,4 @@
-import { SelectMakerForSomething } from '~/model/SQL/Select/SelectMakerForSomething'
+import { SelectMakerForSomething } from '../../../model/SQL/Select/SelectMakerForSomething'
 
 const groupsTable = 'groups'
 const selectKeys = ['group_id', 'group_name']

@@ -19,9 +19,12 @@ parserOptions: {
     "project": "./tsconfig.json" // TypeScriptのLint時に参照するconfigファイルを指定
 },
 setting:{
-    "import/resolver":{
-        webpack:{config:path.join(__dirname,"/webpack.config.js")}
-    }
+    'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+        },
+        typescript: {},
+      },
 },
 root: true, // 上位ディレクトリにある他のeslintrcを参照しないようにする
 rules: {}

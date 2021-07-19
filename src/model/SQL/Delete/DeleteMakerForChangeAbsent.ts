@@ -1,5 +1,5 @@
-import { DeleteMakerForSomething } from '~/model/SQL/Delete/DeleteMakerForSomething'
-import { WhereOperator } from '~/types/DB-types/WhereOperator'
+import { DeleteMakerForSomething } from '../../../model/SQL/Delete/DeleteMakerForSomething'
+import { WhereOperator } from '../../../types/DB-types/WhereOperator'
 
 export class DeleteMakerForChangeAbsent extends DeleteMakerForSomething {
     private userId: string

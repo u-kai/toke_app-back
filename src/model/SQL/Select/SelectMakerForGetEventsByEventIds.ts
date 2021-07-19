@@ -1,4 +1,4 @@
-import { SelectInfo } from "~/types/DB-types/SelectInfo";
+import { SelectInfo } from "../../../types/DB-types/SelectInfo";
 import { SelectMakerForSchedule } from "./SelectMakerForSchedule";
 import { SelectMakerForSomething } from "./SelectMakerForSomething";
 

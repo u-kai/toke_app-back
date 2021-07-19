@@ -1,4 +1,4 @@
-import { InsertNewAndUpdateSeqSomething } from '~/model/SQL/InsertNewAndUpdateSeqSomething'
+import { InsertNewAndUpdateSeqSomething } from '../../model/SQL/InsertNewAndUpdateSeqSomething'
 import { SelectMakerForLogin } from './Select/SelectMakerForLogin'
 
 const seqTableName = 'seq_user_id'

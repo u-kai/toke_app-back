@@ -1,12 +1,12 @@
-import { causeUnknownError } from '~/datas/errors/causeUnknownError'
-import { createConnectionError } from '~/datas/errors/createConnectionError'
+import { causeUnknownError } from '../../datas/errors/causeUnknownError'
+import { createConnectionError } from '../../datas/errors/createConnectionError'
 import * as mysql from 'mysql2/promise'
-import { MysqlConnecter } from '~/model/SQL/MysqlConnecter'
-import { DBReturn } from '~/types/backend-return-types/DBReturn'
-import { DBConfig } from '~/types/DB-types/DBConfig'
-import { dbConfig } from '~/datas/dbConfig'
-import { Success } from '~/types/backend-return-types/Success'
-import { SQLError } from '~/types/backend-return-types/SQLError'
+import { MysqlConnecter } from '../../model/SQL/MysqlConnecter'
+import { DBReturn } from '../../types/backend-return-types/DBReturn'
+import { DBConfig } from '../../types/DB-types/DBConfig'
+import { dbConfig } from '../../datas/dbConfig'
+import { Success } from '../../types/backend-return-types/Success'
+import { SQLError } from '../../types/backend-return-types/SQLError'
 export class MysqlExecuter {
     private dbConfig: DBConfig
     private connetion: Promise<mysql.Connection | false>

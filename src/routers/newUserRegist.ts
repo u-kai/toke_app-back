@@ -1,7 +1,7 @@
 import * as express from 'express'
-import { BackendReturnDataMaker } from '~/model/BackendReturnDataMaker'
-import { DBReturn } from '~/types/backend-return-types/DBReturn'
-import { NewUserRegiser } from '~/model/SQL/NewUserRegister'
+import { BackendReturnDataMaker } from '../model/BackendReturnDataMaker'
+import { DBReturn } from '../types/backend-return-types/DBReturn'
+import { NewUserRegiser } from '../model/SQL/NewUserRegister'
 export const router = express.Router()
 
 router.post('/', (req: express.Request, res: express.Response) => {

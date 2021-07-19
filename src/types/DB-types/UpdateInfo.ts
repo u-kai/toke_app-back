@@ -1,4 +1,4 @@
-import { WhereClauseElements } from '~/types/DB-types/WhereClauseElements'
+import { WhereClauseElements } from '../../types/DB-types/WhereClauseElements'
 export type UpdateInfo = {
     tableName: string
     updateKeys: string[]

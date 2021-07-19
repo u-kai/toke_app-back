@@ -1,7 +1,7 @@
-import { WhereOperator } from '~/types/DB-types/WhereOperator'
-import { SelectInfo } from '~/types/DB-types/SelectInfo'
-import { SQLInfoMaker } from '~/model/SQL/SQLInfoMaker'
-import { SelectMaker } from '~/model/SQL/Select/SelectMaker'
+import { WhereOperator } from '../../../types/DB-types/WhereOperator'
+import { SelectInfo } from '../../../types/DB-types/SelectInfo'
+import { SQLInfoMaker } from '../../../model/SQL/SQLInfoMaker'
+import { SelectMaker } from '../../../model/SQL/Select/SelectMaker'
 export class SelectMakerForSomething {
     tableName: string
     constructor(tableName: string) {

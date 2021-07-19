@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.io = void 0;
+exports.io = exports.apiServer = void 0;
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 const getNotRes = require("~/routers/getNotRes");
 const login = require("~/routers/login");
@@ -22,11 +21,11 @@ const getRequests = require("~/routers/getRequests");
 const socketIo = require("socket.io");
 const http = require("http");
 const app = express();
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
     extended: true,
 }));
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 app.use('/getNotRes', getNotRes.router);
 app.use('/getResed', getResed.router);
 app.use('/login', login.router);
@@ -42,19 +41,18 @@ app.use("/getPaticipants", getPaticipants.router);
 app.use("/getMyEvents", getMyEvents.router);
 app.use("/getUserName", getUserName.router);
 app.use("/getRequests", getRequests.router);
-const server = http.createServer(app);
-exports.io = new socketIo.Server(server, {
+exports.apiServer = http.createServer(app);
+exports.io = new socketIo.Server(exports.apiServer, {
     cors: {
         origin: '*',
         methods: ['GET', 'POST'],
     },
 });
-// io.on("connection",(socket:socketIo.Socket)=>{
-//     socket.on("responseEvent",(:string)=>{
-//         console.log(name)
-//         io.emit("chat message",name)
-//     })
-// })
+exports.io.on("connection", (socket) => {
+    socket.on('chat message', (msg) => {
+        exports.io.emit('chat message', msg);
+    });
+});
 app.post('/', (req, res) => {
     const data = req.body;
     console.log(data);
@@ -63,4 +61,4 @@ app.post('/', (req, res) => {
 app.get('/', (req, res) => {
     res.json({ data: 'test' });
 });
-server.listen(8080, () => console.log('start server'));
+exports.apiServer.listen(8080, () => console.log("start server 8080 port"));
