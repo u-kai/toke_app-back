@@ -3,7 +3,7 @@ import { DBConfig } from '~/types/DB-types/DBConfig'
 
 const DBInfo: DBConfig = {
     user: 'root',
-    password: 'oyyg83019%',
+    password: process.env.MYSQL_PASSWORD,
     host: 'localhost',
     database: 'firstwebapp',
 }

@@ -720,7 +720,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.dbConfig = void 0;\nexports.dbConfig = {\n    user: 'root',\n    password: 'oyyg83019%',\n    host: 'localhost',\n    database: 'toke_app',\n};\n\n\n//# sourceURL=webpack://toke_app-back/./src/datas/DBConfig.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.dbConfig = void 0;\nexports.dbConfig = {\n    user: 'root',\n    password: process.env.MYSQL_PASSWORD,\n    host: 'localhost',\n    database: 'toke_app',\n};\n\n\n//# sourceURL=webpack://toke_app-back/./src/datas/DBConfig.ts?");
 
 /***/ }),
 
@@ -731,7 +731,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexpo
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.dbConfig = void 0;\nexports.dbConfig = {\n    user: 'root',\n    password: 'oyyg83019%',\n    host: 'localhost',\n    database: 'toke_app',\n};\n\n\n//# sourceURL=webpack://toke_app-back/./src/datas/dbConfig.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nexports.dbConfig = void 0;\nexports.dbConfig = {\n    user: 'root',\n    password: process.env.MYSQL_PASSWORD,\n    host: 'localhost',\n    database: 'toke_app',\n};\n\n\n//# sourceURL=webpack://toke_app-back/./src/datas/dbConfig.ts?");
 
 /***/ }),
 
