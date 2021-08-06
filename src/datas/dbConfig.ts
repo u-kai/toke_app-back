@@ -5,8 +5,8 @@ export type DBConfig = {
     database: string
 }
 export const dbConfig: DBConfig = {
-    user: 'root',
-    password: process.env.MYSQL_PASSWORD,
-    host: 'localhost',
+    user: process.env.MYSQL_USER!,
+    password: process.env.MYSQL_PASSWORD!,
+    host: process.env.MYSQL_HOST!,
     database: 'toke_app',
 }
